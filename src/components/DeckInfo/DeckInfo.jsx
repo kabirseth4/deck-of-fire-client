@@ -6,7 +6,7 @@ export const DeckInfo = ({
 }) => {
   return (
     <article>
-      <p>Name: {name}</p>
+      <h3>{name}</h3>
       <p>Is scored: {isScored ? "Yes" : "No"}</p>
       <p>Is custom: {isCustom ? "Yes" : "No"}</p>
       <Link to={`/decks/${id}`}>View deck</Link>
