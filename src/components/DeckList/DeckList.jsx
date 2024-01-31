@@ -1,4 +1,5 @@
 import { useGetDecks } from "../../hooks/useGetDecks";
+import { DeckInfo } from "../DeckInfo/DeckInfo";
 import "./DeckList.scss";
 
 export const DeckList = () => {
@@ -12,9 +13,7 @@ export const DeckList = () => {
       {decks.map((deck) => {
         return (
           <li key={deck.id}>
-            <p>Name: {deck.name}</p>
-            <p>Is scored: {deck.is_scored}</p>
-            <p>Is custom: {deck.is_custom}</p>
+            <DeckInfo deck={deck} />
           </li>
         );
       })}
