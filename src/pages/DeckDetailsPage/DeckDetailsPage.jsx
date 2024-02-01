@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useGetDeckDetails } from "../../hooks/useGetDeckDetails";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { DeckRules } from "../../components/DeckRules/DeckRules";
@@ -18,6 +19,7 @@ export const DeckDetailsPage = () => {
       <h1>{name}</h1>
       <p>Is scored: {isScored ? "Yes" : "No"}</p>
       <p>Is custom: {isCustom ? "Yes" : "No"}</p>
+      <Link to="play">Play</Link>
       <DeckRules
         rules={rules}
         isScored={Boolean(isScored)}
