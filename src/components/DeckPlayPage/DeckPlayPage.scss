@@ -1,0 +1,19 @@
+.deck-play-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &__card {
+    position: absolute;
+    background-color: black;
+    color: white;
+    height: 5rem;
+    width: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+  }
+}
