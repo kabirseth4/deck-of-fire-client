@@ -1,8 +1,11 @@
 .deck-play-page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
+
+  &__game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   &__card {
     position: absolute;
