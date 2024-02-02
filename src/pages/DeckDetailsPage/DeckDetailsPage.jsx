@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Header } from "../../components/Header/Header";
 import { useGetDeckDetails } from "../../hooks/useGetDeckDetails";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { DeckRules } from "../../components/DeckRules/DeckRules";
@@ -14,17 +15,20 @@ export const DeckDetailsPage = () => {
   const { name, is_scored: isScored, is_custom: isCustom, rules } = deckDetails;
 
   return (
-    <main>
-      <LinkButton to="/decks" label="<- Back" />
-      <h1>{name}</h1>
-      <p>Is scored: {isScored ? "Yes" : "No"}</p>
-      <p>Is custom: {isCustom ? "Yes" : "No"}</p>
-      <Link to="play">Play</Link>
-      <DeckRules
-        rules={rules}
-        isScored={Boolean(isScored)}
-        isCustom={Boolean(isCustom)}
-      />
-    </main>
+    <>
+      <Header />
+      <main>
+        <LinkButton to="/decks" label="<- Back" />
+        <h1>{name}</h1>
+        <p>Is scored: {isScored ? "Yes" : "No"}</p>
+        <p>Is custom: {isCustom ? "Yes" : "No"}</p>
+        <Link to="play">Play</Link>
+        <DeckRules
+          rules={rules}
+          isScored={Boolean(isScored)}
+          isCustom={Boolean(isCustom)}
+        />
+      </main>
+    </>
   );
 };

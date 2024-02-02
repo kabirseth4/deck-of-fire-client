@@ -1,3 +1,18 @@
+@use "./variables" as *;
+
+// breakpoints
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}
+
+// utils
 @mixin flex(
   $direction: row,
   $justify: flex-start,
@@ -11,6 +26,170 @@
   gap: $gap;
 }
 
+// fonts
+@mixin font-header-xl {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
+@mixin font-header-large {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@mixin font-header-medium {
+  font-size: 0.81rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 0.88rem;
+    line-height: 1.38rem;
+  }
+}
+
+@mixin font-header-small {
+  font-size: 0.69rem;
+  line-height: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  @include tablet {
+    font-size: 0.75rem;
+    line-height: 1.13rem;
+  }
+}
+
+@mixin font-body-large {
+  font-size: 0.94rem;
+  line-height: 1.63rem;
+  font-weight: 400;
+
+  @include tablet {
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
+}
+
+@mixin font-body-medium {
+  font-size: 0.81rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+
+  @include tablet {
+    font-size: 0.88rem;
+    line-height: 1.38rem;
+  }
+}
+
+@mixin font-body-small {
+  font-size: 0.69rem;
+  line-height: 1rem;
+  font-weight: 400;
+
+  @include tablet {
+    font-size: 0.75rem;
+    line-height: 1.13rem;
+  }
+}
+
+// structure
 @mixin inline-padding {
-  padding-inline: 1rem;
+  padding-inline: $padding-mobile;
+
+  @include tablet {
+    padding-inline: $padding-tablet;
+  }
+}
+
+@mixin block-padding {
+  paddin-block: $padding-mobile;
+
+  @include tablet {
+    paddin-block: $padding-tablet;
+  }
+}
+
+@mixin block-margin {
+  margin-block: $padding-mobile;
+
+  @include tablet {
+    margin-block: $padding-tablet;
+  }
+}
+
+@mixin block-margin-header {
+  margin-block: $padding-mobile-header $padding-mobile;
+
+  @include tablet {
+    margin-block: $padding-tablet-header $padding-tablet;
+  }
+}
+
+@mixin content-width-limit {
+  @include tablet {
+    max-width: $max-content-width;
+    box-sizing: content-box;
+    margin-inline: auto;
+  }
+}
+
+@mixin overlap-header {
+  margin-top: -4rem;
+
+  @include tablet {
+    margin-top: -5.625rem;
+  }
+}
+
+// components
+@mixin button {
+  @include font-header-medium;
+  @include flex(row, center, center);
+  width: 100%;
+  background-color: $color-brand-primary;
+  color: $color-background-primary;
+  border: none;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: capitalize;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+
+  @include tablet {
+    width: fit-content;
+  }
+
+  &:hover {
+    background-color: $color-brand-secondary;
+  }
+
+  &--secondary {
+    background-color: $color-background-primary;
+    color: $color-text-secondary;
+    border: 1px $color-border solid;
+
+    &:hover {
+      background-color: $color-background-primary;
+      color: $color-brand-primary;
+      border-color: $color-brand-primary;
+    }
+  }
+
+  &--delete {
+    background-color: $color-negative;
+  }
 }
