@@ -1,6 +1,6 @@
 import TinderCard from "react-tinder-card";
 import { useSetupDeck } from "../../hooks/useSetupDeck";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./GameDeck.scss";
 
 export const GameDeck = () => {
@@ -19,12 +19,6 @@ export const GameDeck = () => {
       });
     }, 200);
   };
-
-  // useEffect(() => {
-  //   if (!isLoading) {
-  //     updateCard();
-  //   }
-  // }, [isLoading]);
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Something went wrong. Please try again later.</div>;
