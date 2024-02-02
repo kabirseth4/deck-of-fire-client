@@ -1,4 +1,3 @@
-import { Header } from "../../components/Header/Header";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { RuleList } from "../../components/RuleList/RuleList";
 import { useGetRules } from "../../hooks/useGetRules";
@@ -11,13 +10,10 @@ export const RulesPage = () => {
   if (isError) return <p>Something went wrong. Please try again later.</p>;
 
   return (
-    <>
-      <Header />
-      <main className="rules-page">
-        <h1 className="rules-page__titles">Rules</h1>
-        <LinkButton to="/rules/add" label="Add rule" />
-        <RuleList rules={rules} />
-      </main>
-    </>
+    <main className="rules-page">
+      <h1 className="rules-page__titles">Rules</h1>
+      <LinkButton to="/rules/add" label="Add rule" />
+      <RuleList rules={rules} />
+    </main>
   );
 };

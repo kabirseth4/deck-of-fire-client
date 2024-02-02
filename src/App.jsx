@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Header } from "./components/Header/Header";
 import { DecksPage } from "./pages/DecksPage/DecksPage";
 import { DeckDetailsPage } from "./pages/DeckDetailsPage/DeckDetailsPage";
 import { PlayGamePage } from "./pages/PlayGamePage/PlayGamePage";
@@ -9,6 +10,7 @@ import "./App.scss";
 export const App = () => {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Navigate to="/decks" />} />
         <Route path="/decks" element={<DecksPage />} />
