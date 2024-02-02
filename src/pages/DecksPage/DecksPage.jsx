@@ -4,8 +4,8 @@ import "./DecksPage.scss";
 
 export const DecksPage = () => {
   return (
-    <main>
-      <h1>Decks</h1>
+    <main className="decks-page">
+      <h1 className="decks-page__title">Decks</h1>
       <LinkButton to="/decks/add" label="Add deck" />
       <DeckList />
     </main>
