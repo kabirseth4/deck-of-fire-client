@@ -115,10 +115,10 @@
 }
 
 @mixin block-padding {
-  paddin-block: $padding-mobile;
+  padding-block: $padding-mobile;
 
   @include tablet {
-    paddin-block: $padding-tablet;
+    padding-block: $padding-tablet;
   }
 }
 

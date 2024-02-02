@@ -11,25 +11,10 @@
 
   &__logo-link {
     @include flex(row, center, center);
-    @include block-padding;
     text-decoration: none;
   }
 
   &__logo {
     color: $color-text-primary;
-  }
-
-  &__nav {
-    @include flex($justify: space-between, $gap: $padding-mobile);
-    padding-bottom: $padding-mobile;
-  }
-
-  &__link {
-    @include button;
-
-    &.active {
-      background-color: $color-text-primary;
-      color: $color-background-primary;
-    }
   }
 }

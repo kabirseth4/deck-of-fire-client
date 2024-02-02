@@ -9,8 +9,8 @@ export const PlayGamePage = () => {
   return (
     <main className="deck-play-page">
       <Link to={`/decks/${deckId}`}>{"<- Back to deck"}</Link>
-      <GamePlayers />
       <GameDeck />
+      <GamePlayers />
     </main>
   );
 };

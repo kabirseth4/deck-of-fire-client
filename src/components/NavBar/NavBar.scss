@@ -1,0 +1,21 @@
+@use "../../styles/utils/mixins" as *;
+@use "../../styles/utils/variables" as *;
+
+.nav-bar {
+  @include flex($justify: space-between, $gap: $padding-mobile);
+  @include inline-padding;
+  @include block-padding;
+  position: sticky;
+  bottom: 0;
+  background-color: $color-background-primary;
+  width: 100%;
+
+  &__link {
+    @include button;
+
+    &.active {
+      background-color: $color-text-primary;
+      color: $color-background-primary;
+    }
+  }
+}

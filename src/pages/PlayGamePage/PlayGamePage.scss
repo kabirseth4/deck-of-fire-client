@@ -2,11 +2,11 @@
 @use "../../styles/utils/variables" as *;
 
 .deck-play-page {
-  @include inline-padding;
   @include flex(column);
   position: absolute;
   top: 0;
-  height: 100vh;
+  z-index: 10;
+  height: -webkit-fill-available;
   width: 100vw;
   overflow: hidden;
   background-color: $color-background-primary;
