@@ -12,7 +12,7 @@ export const useSetupDeck = () => {
 
       const cards = [];
       for (let i = 0; i < occurences; i++) {
-        cards.push({ ...rule, key: `${rule.id}-${i + 1}` });
+        cards.push({ ...rule, key: `${rule.id}-${i + 1}`, swiped: false });
       }
 
       return cards;

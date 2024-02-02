@@ -9,29 +9,50 @@ export const GameDeck = () => {
 
   const updateCard = () => {
     const newCard = gameDeck.current.draw();
-    setOpenedCards((prevOpenedCards) => [newCard, ...prevOpenedCards]);
+    setTimeout(() => {
+      setOpenedCards((prevOpenedCards) => {
+        const swipedCards = prevOpenedCards.map((card) => ({
+          ...card,
+          swiped: true,
+        }));
+        return [newCard, ...swipedCards];
+      });
+    }, 200);
   };
 
-  useEffect(() => {
-    if (!isLoading) {
-      updateCard();
-    }
-  }, [isLoading]);
+  // useEffect(() => {
+  //   if (!isLoading) {
+  //     updateCard();
+  //   }
+  // }, [isLoading]);
 
+  if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Something went wrong. Please try again later.</div>;
 
   return (
     <div className="game-deck">
-      <div className="game-deck__card game-deck__card--back">Deck of Fire</div>
-      {openedCards.map((card, i) => (
+      <div className="game-deck__cards">
+        <div className="game-deck__card game-deck__card--back">
+          Deck of Fire
+        </div>
+        {openedCards.map((card) => (
+          <TinderCard
+            className={`game-deck__card${
+              card.swiped ? " game-deck__card--swiped" : ""
+            }`}
+            key={card.key}
+            onSwipe={updateCard}
+          >
+            {card.name}
+          </TinderCard>
+        ))}
         <TinderCard
-          className="game-deck__card"
-          key={card.key}
+          className="game-deck__card game-deck__card--back"
           onSwipe={updateCard}
         >
-          {card.name}
+          Deck of Fire
         </TinderCard>
-      ))}
+      </div>
     </div>
   );
 };

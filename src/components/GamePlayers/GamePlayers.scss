@@ -1,0 +1,21 @@
+@use "../../styles/utils/mixins" as *;
+
+.game-players {
+  &__header {
+    @include flex(row, space-between, baseline, 1rem);
+    width: 100%;
+  }
+
+  &__players {
+    @include flex($gap: 1rem);
+    width: 100%;
+    overflow: scroll;
+  }
+
+  &__player {
+    margin: 0;
+    padding: 1rem;
+    border: 2px solid #000;
+    border-radius: 4px;
+  }
+}

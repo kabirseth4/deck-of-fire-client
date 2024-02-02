@@ -13,13 +13,21 @@ export const GamePlayers = () => {
   }, []);
 
   return (
-    <section>
-      <h3>Players</h3>
-      {players &&
-        players.map((player, i) => {
-          return <p key={i}>{player}</p>;
-        })}
-      <Link to="setup">Edit players</Link>
+    <section className="game-players">
+      <div className="game-players__header">
+        <h3 className="game-players__title">Players</h3>
+        <Link to="setup">Edit players</Link>
+      </div>
+      <div className="game-players__players">
+        {players &&
+          players.map((player, i) => {
+            return (
+              <p className="game-players__player" key={i}>
+                {player}
+              </p>
+            );
+          })}
+      </div>
     </section>
   );
 };
