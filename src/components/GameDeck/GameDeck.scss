@@ -1,0 +1,25 @@
+.game-deck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__card {
+    position: absolute;
+    background-color: #fff;
+    color: #000;
+    border: 3px solid #000;
+    height: 11rem;
+    width: 8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+
+    &--back {
+      font-size: 1rem;
+      color: #fff;
+      background-color: #000;
+    }
+  }
+}
