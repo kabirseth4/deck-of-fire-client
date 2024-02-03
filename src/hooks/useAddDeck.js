@@ -14,20 +14,26 @@ export const useAddDeck = () => {
   const [formErrors, setFormErrors] = useState({
     name: "",
   });
+  const inputMaxLengths = {
+    name: 25,
+  };
 
-  const handleNameChange = (e) => {
-    if (e.target.value.length <= 25) {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    if (value.length <= inputMaxLengths[name]) {
       setFormFields((prevFormFields) => {
-        return { ...prevFormFields, name: e.target.value };
+        return { ...prevFormFields, [name]: value };
       });
       setFormErrors((prevFormErrors) => {
-        return { ...prevFormErrors, name: "" };
+        return { ...prevFormErrors, [name]: "" };
       });
     }
   };
 
   const handleRadioChange = (e) => {
     const boolValue = e.target.value === "true" ? true : false;
+
     setFormFields((prevFormFields) => {
       return { ...prevFormFields, [e.target.name]: boolValue };
     });
@@ -43,6 +49,7 @@ export const useAddDeck = () => {
       });
       return false;
     }
+
     if (formFields.name.length > 25) {
       setFormErrors((prevFormErrors) => {
         return {
@@ -52,6 +59,7 @@ export const useAddDeck = () => {
       });
       return false;
     }
+
     return true;
   };
 
@@ -66,8 +74,6 @@ export const useAddDeck = () => {
       is_scored: formFields.isScored,
     };
 
-    console.log(deckToAdd);
-
     const headers = {
       headers: {
         Authorization: "1",
@@ -80,6 +86,7 @@ export const useAddDeck = () => {
         deckToAdd,
         headers
       );
+
       navigate(`/decks/${newDeck.id}`);
     } catch (error) {
       console.error(error);
@@ -89,7 +96,8 @@ export const useAddDeck = () => {
   return {
     formFields,
     formErrors,
-    handleNameChange,
+    inputMaxLengths,
+    handleInputChange,
     handleRadioChange,
     addNewDeck,
   };

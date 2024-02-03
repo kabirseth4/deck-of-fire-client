@@ -156,14 +156,13 @@
 
 // components
 @mixin button {
-  @include font-header-medium;
+  @include font-body-large;
   @include flex(row, center, center);
   width: 100%;
   background-color: $color-brand-primary;
   color: $color-background-primary;
   border: none;
-  border-radius: 1.25rem;
-  cursor: pointer;
+  border-radius: 2rem;
   text-decoration: none;
   text-transform: capitalize;
   white-space: nowrap;
@@ -189,7 +188,7 @@
     }
   }
 
-  &--delete {
+  &--negative {
     background-color: $color-negative;
   }
 }

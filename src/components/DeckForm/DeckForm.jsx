@@ -6,7 +6,8 @@ export const DeckForm = () => {
   const {
     formFields,
     formErrors,
-    handleNameChange,
+    inputMaxLengths,
+    handleInputChange,
     handleRadioChange,
     addNewDeck,
   } = useAddDeck();
@@ -18,8 +19,8 @@ export const DeckForm = () => {
         name="name"
         value={formFields.name}
         error={formErrors.name}
-        onChange={handleNameChange}
-        count={25}
+        onChange={handleInputChange}
+        count={inputMaxLengths.name}
       />
       <div>
         <h3>Deck type</h3>

@@ -2,4 +2,8 @@
 
 .rules-page {
   @include inline-padding;
+
+  &--no-scroll {
+    overflow: hidden;
+  }
 }
