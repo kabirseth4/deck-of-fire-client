@@ -11,7 +11,13 @@ export const DeckDetailsPage = () => {
   if (isError)
     return <main>Something went wrong. Please try again later.</main>;
 
-  const { name, is_scored: isScored, is_custom: isCustom, rules } = deckDetails;
+  const {
+    name,
+    is_scored: isScored,
+    is_custom: isCustom,
+    is_playable: isPlayable,
+    rules,
+  } = deckDetails;
 
   return (
     <main>
@@ -19,7 +25,7 @@ export const DeckDetailsPage = () => {
       <h1>{name}</h1>
       <p>Is scored: {isScored ? "Yes" : "No"}</p>
       <p>Is custom: {isCustom ? "Yes" : "No"}</p>
-      <Link to="play">Play</Link>
+      {!!isPlayable && <Link to="play">Play</Link>}
       <DeckRules
         rules={rules}
         isScored={Boolean(isScored)}
