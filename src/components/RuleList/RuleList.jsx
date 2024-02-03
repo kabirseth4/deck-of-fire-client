@@ -1,6 +1,6 @@
 import "./RuleList.scss";
 
-export const RuleList = ({ rules, isScored, isCustom }) => {
+export const RuleList = ({ rules, deckDetails: { isScored, isCustom } }) => {
   return (
     <ul>
       {rules.map((rule) => {

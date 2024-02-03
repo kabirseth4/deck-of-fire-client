@@ -6,8 +6,8 @@ export const useAddRuleToDeck = () => {
 
   const [formFields, setFormFields] = useState({
     ruleId: "",
-    occurences: "",
-    penalty: "",
+    occurences: "1",
+    penalty: "1",
   });
   const [formErrors, setFormErrors] = useState({
     ruleId: "",
@@ -18,7 +18,7 @@ export const useAddRuleToDeck = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "ruleId" || value > 0) {
+    if (name === "ruleId" || value >= 0) {
       setFormFields((prevFormFields) => {
         return { ...prevFormFields, [name]: value };
       });
@@ -31,11 +31,31 @@ export const useAddRuleToDeck = () => {
   const validateForm = (deckDetails) => {
     let isValid = true;
 
-    if (!formFields.name) {
+    if (!formFields.ruleId) {
       setFormErrors((prevFormErrors) => {
         return {
           ...prevFormErrors,
-          name: "This field is required",
+          ruleId: "This field is required",
+        };
+      });
+      isValid = false;
+    }
+
+    if (deckDetails.isCustom && !formFields.occurences) {
+      setFormErrors((prevFormErrors) => {
+        return {
+          ...prevFormErrors,
+          occurences: "This field is required",
+        };
+      });
+      isValid = false;
+    }
+
+    if (deckDetails.isScored && !formFields.penalty) {
+      setFormErrors((prevFormErrors) => {
+        return {
+          ...prevFormErrors,
+          penalty: "This field is required",
         };
       });
       isValid = false;
@@ -64,7 +84,7 @@ export const useAddRuleToDeck = () => {
     try {
       await axios.post(
         `${baseApiUrl}/users/1/decks/${deckDetails.id}/rules`,
-        ruleToAdd,
+        [ruleToAdd],
         headers
       );
       window.location.reload(false);

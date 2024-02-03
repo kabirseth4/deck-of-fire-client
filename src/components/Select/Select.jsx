@@ -23,7 +23,7 @@ export const Select = ({ label, name, value, error, onChange, options }) => {
           })}
         </select>
       </label>
-      {error && <p>{error}</p>}
+      {error && <p className="select__error">{error}</p>}
     </div>
   );
 };

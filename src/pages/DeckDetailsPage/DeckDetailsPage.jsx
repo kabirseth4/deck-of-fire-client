@@ -14,6 +14,7 @@ export const DeckDetailsPage = () => {
     return <main>Something went wrong. Please try again later.</main>;
 
   const {
+    id,
     name,
     is_scored: isScored,
     is_custom: isCustom,
@@ -34,8 +35,11 @@ export const DeckDetailsPage = () => {
       {!!isPlayable && <Link to="play">Play</Link>}
       <DeckRules
         rules={rules}
-        isScored={Boolean(isScored)}
-        isCustom={Boolean(isCustom)}
+        deckDetails={{
+          id,
+          isScored: Boolean(isScored),
+          isCustom: Boolean(isCustom),
+        }}
         isAdding={isAdding}
         setIsAdding={setIsAdding}
       />

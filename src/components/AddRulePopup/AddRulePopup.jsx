@@ -1,5 +1,5 @@
 import { useAddRule } from "../../hooks/useAddRule";
-import { Button } from "../Button/Button";
+import { FormPopupButtons } from "../FormPopupButtons/FormPopupButtons";
 import { TextInput } from "../TextInput/TextInput";
 import { Textarea } from "../Textarea/Textarea";
 import "./AddRulePopup.scss";
@@ -44,17 +44,7 @@ export const AddRulePopup = ({ setIsAdding }) => {
           count={inputMaxLengths.description}
           onChange={handleInputChange}
         />
-        <div className="add-rule-popup__buttons">
-          <Button
-            type="button"
-            className="button--negative"
-            label="Cancel"
-            onClick={() => {
-              setIsAdding(false);
-            }}
-          />
-          <Button label="Add rule" />
-        </div>
+        <FormPopupButtons setIsAdding={setIsAdding} />
       </form>
     </section>
   );

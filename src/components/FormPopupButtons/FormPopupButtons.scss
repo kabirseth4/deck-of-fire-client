@@ -1,0 +1,6 @@
+@use "../../styles/utils/mixins" as *;
+@use "../../styles/utils/variables" as *;
+
+.form-popup-buttons {
+  @include flex($gap: $padding-mobile);
+}

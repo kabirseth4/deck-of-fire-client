@@ -1,14 +1,9 @@
 @use "../../styles/utils/mixins" as *;
-@use "../../styles/utils/variables" as *;
 
 .add-rule-popup {
   @include popup;
 
   &__title {
     margin: 0;
-  }
-
-  &__buttons {
-    @include flex($gap: $padding-mobile);
   }
 }
