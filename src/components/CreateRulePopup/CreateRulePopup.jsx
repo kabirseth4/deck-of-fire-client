@@ -1,17 +1,17 @@
-import { useAddRule } from "../../hooks/useAddRule";
+import { useCreateRule } from "../../hooks/useCreateRule";
 import { FormPopupButtons } from "../FormPopupButtons/FormPopupButtons";
 import { TextInput } from "../TextInput/TextInput";
 import { Textarea } from "../Textarea/Textarea";
-import "./AddRulePopup.scss";
+import "./CreateRulePopup.scss";
 
-export const AddRulePopup = ({ setIsAdding }) => {
+export const CreateRulePopup = ({ setIsAdding }) => {
   const {
     formFields,
     formErrors,
     inputMaxLengths,
     handleInputChange,
-    addNewRule,
-  } = useAddRule();
+    createRule,
+  } = useCreateRule();
 
   return (
     <section
@@ -22,7 +22,7 @@ export const AddRulePopup = ({ setIsAdding }) => {
     >
       <form
         className="add-rule-popup__container"
-        onSubmit={addNewRule}
+        onSubmit={createRule}
         onClick={(e) => {
           e.stopPropagation();
         }}
@@ -44,7 +44,7 @@ export const AddRulePopup = ({ setIsAdding }) => {
           count={inputMaxLengths.description}
           onChange={handleInputChange}
         />
-        <FormPopupButtons setIsAdding={setIsAdding} />
+        <FormPopupButtons setIsAdding={setIsAdding} submitLabel="Create rule" />
       </form>
     </section>
   );

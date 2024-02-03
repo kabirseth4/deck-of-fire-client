@@ -80,7 +80,7 @@ export const AddDeckRulePopup = ({
             onChange={handleInputChange}
           />
         )}
-        <FormPopupButtons setIsAdding={setIsAdding} />
+        <FormPopupButtons setIsAdding={setIsAdding} submitLabel="Add rule" />
       </form>
     </section>
   );

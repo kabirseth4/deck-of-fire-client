@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export const useAddRule = () => {
+export const useCreateRule = () => {
   const baseApiUrl = import.meta.env.VITE_APP_BASE_API_URL;
 
   const [formFields, setFormFields] = useState({
@@ -47,7 +47,7 @@ export const useAddRule = () => {
     return isValid;
   };
 
-  const addNewRule = async (e) => {
+  const createRule = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) return;
@@ -76,6 +76,6 @@ export const useAddRule = () => {
     formErrors,
     inputMaxLengths,
     handleInputChange,
-    addNewRule,
+    createRule,
   };
 };

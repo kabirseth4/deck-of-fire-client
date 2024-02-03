@@ -1,7 +1,7 @@
 import { Button } from "../Button/Button";
 import "./FormPopupButtons.scss";
 
-export const FormPopupButtons = ({ setIsAdding }) => {
+export const FormPopupButtons = ({ setIsAdding, submitLabel }) => {
   return (
     <div className="form-popup-buttons">
       <Button
@@ -12,7 +12,7 @@ export const FormPopupButtons = ({ setIsAdding }) => {
           setIsAdding(false);
         }}
       />
-      <Button label="Add rule" />
+      <Button label={submitLabel} />
     </div>
   );
 };
