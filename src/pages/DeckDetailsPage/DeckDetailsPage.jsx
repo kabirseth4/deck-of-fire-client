@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import { useGetDeckDetails } from "../../hooks/useGetDeckDetails";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { DeckRules } from "../../components/DeckRules/DeckRules";
 import "./DeckDetailsPage.scss";
 
 export const DeckDetailsPage = () => {
+  const [isAdding, setIsAdding] = useState(false);
   const { deckDetails, isLoading, isError } = useGetDeckDetails();
 
   if (isLoading) return <main>Loading...</main>;
@@ -20,7 +22,11 @@ export const DeckDetailsPage = () => {
   } = deckDetails;
 
   return (
-    <main>
+    <main
+      className={`deck-details-page${
+        isAdding ? " deck-details-page--no-scroll" : ""
+      }`}
+    >
       <LinkButton to="/decks" label="<- Back" />
       <h1>{name}</h1>
       <p>Is scored: {isScored ? "Yes" : "No"}</p>
@@ -30,6 +36,8 @@ export const DeckDetailsPage = () => {
         rules={rules}
         isScored={Boolean(isScored)}
         isCustom={Boolean(isCustom)}
+        isAdding={isAdding}
+        setIsAdding={setIsAdding}
       />
     </main>
   );

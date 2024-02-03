@@ -1,0 +1,9 @@
+@use "../../styles/utils/mixins" as *;
+
+.deck-details-page {
+  @include inline-padding;
+
+  &--no-scroll {
+    overflow: hidden;
+  }
+}

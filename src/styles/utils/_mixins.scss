@@ -192,3 +192,24 @@
     background-color: $color-negative;
   }
 }
+
+@mixin popup {
+  @include flex(row, center, center);
+  @include inline-padding;
+  @include block-padding;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  height: 100dvh;
+  width: 100vw;
+  background-color: rgba($color: grey, $alpha: 0.5);
+
+  &__container {
+    @include flex($direction: column, $gap: $padding-mobile);
+    padding: $padding-tablet;
+    width: 100%;
+    background-color: rgba($color: $color-background-primary, $alpha: 1);
+    border-radius: 4px;
+  }
+}

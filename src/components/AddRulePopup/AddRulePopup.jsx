@@ -21,7 +21,7 @@ export const AddRulePopup = ({ setIsAdding }) => {
       }}
     >
       <form
-        className="add-rule-popup__form"
+        className="add-rule-popup__container"
         onSubmit={addNewRule}
         onClick={(e) => {
           e.stopPropagation();
