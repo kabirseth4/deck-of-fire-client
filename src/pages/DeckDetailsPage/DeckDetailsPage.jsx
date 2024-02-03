@@ -6,7 +6,7 @@ import { DeckRules } from "../../components/DeckRules/DeckRules";
 import "./DeckDetailsPage.scss";
 
 export const DeckDetailsPage = () => {
-  const [isAdding, setIsAdding] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const { deckDetails, isLoading, isError } = useGetDeckDetails();
 
   if (isLoading) return <main>Loading...</main>;
@@ -25,7 +25,7 @@ export const DeckDetailsPage = () => {
   return (
     <main
       className={`deck-details-page${
-        isAdding ? " deck-details-page--no-scroll" : ""
+        showModal ? " deck-details-page--no-scroll" : ""
       }`}
     >
       <LinkButton to="/decks" label="<- Back" />
@@ -40,8 +40,8 @@ export const DeckDetailsPage = () => {
           isScored: Boolean(isScored),
           isCustom: Boolean(isCustom),
         }}
-        isAdding={isAdding}
-        setIsAdding={setIsAdding}
+        showModal={showModal}
+        setShowModal={setShowModal}
       />
     </main>
   );

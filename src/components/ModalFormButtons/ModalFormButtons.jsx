@@ -1,15 +1,15 @@
 import { Button } from "../Button/Button";
-import "./FormPopupButtons.scss";
+import "./ModalFormButtons.scss";
 
-export const FormPopupButtons = ({ setIsAdding, submitLabel }) => {
+export const ModalFormButtons = ({ setShowModal, submitLabel }) => {
   return (
-    <div className="form-popup-buttons">
+    <div className="modal-form-buttons">
       <Button
         type="button"
         className="button--negative"
         label="Cancel"
         onClick={() => {
-          setIsAdding(false);
+          setShowModal(false);
         }}
       />
       <Button label={submitLabel} />

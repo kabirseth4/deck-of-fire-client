@@ -1,9 +1,9 @@
 import { Button } from "../Button/Button";
 import { RuleList } from "../RuleList/RuleList";
-import { AddDeckRulePopup } from "../../components/AddDeckRulePopup/AddDeckRulePopup";
+import { AddDeckRuleModal } from "../../components/AddDeckRuleModal/AddDeckRuleModal";
 import "./DeckRules.scss";
 
-export const DeckRules = ({ rules, deckDetails, isAdding, setIsAdding }) => {
+export const DeckRules = ({ rules, deckDetails, showModal, setShowModal }) => {
   return (
     <section>
       <h2>Rules</h2>
@@ -11,14 +11,14 @@ export const DeckRules = ({ rules, deckDetails, isAdding, setIsAdding }) => {
         <Button
           label="Add rule"
           onClick={() => {
-            setIsAdding(true);
+            setShowModal(true);
           }}
         />
       )}
       <RuleList rules={rules} deckDetails={deckDetails} />
-      {isAdding && (
-        <AddDeckRulePopup
-          setIsAdding={setIsAdding}
+      {showModal && (
+        <AddDeckRuleModal
+          setShowModal={setShowModal}
           existingRules={rules}
           deckDetails={deckDetails}
         />

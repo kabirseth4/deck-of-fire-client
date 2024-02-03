@@ -193,7 +193,7 @@
   }
 }
 
-@mixin popup {
+@mixin modal {
   @include flex(row, center, center);
   @include inline-padding;
   @include block-padding;

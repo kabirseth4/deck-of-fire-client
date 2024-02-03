@@ -1,7 +1,7 @@
 @use "../../styles/utils/mixins" as *;
 
-.add-rule-popup {
-  @include popup;
+.create-rule-modal {
+  @include modal;
 
   &__title {
     margin: 0;

@@ -1,10 +1,10 @@
 import { useCreateRule } from "../../hooks/useCreateRule";
-import { FormPopupButtons } from "../FormPopupButtons/FormPopupButtons";
+import { ModalFormButtons } from "../ModalFormButtons/ModalFormButtons";
 import { TextInput } from "../TextInput/TextInput";
 import { Textarea } from "../Textarea/Textarea";
-import "./CreateRulePopup.scss";
+import "./CreateRuleModal.scss";
 
-export const CreateRulePopup = ({ setIsAdding }) => {
+export const CreateRuleModal = ({ setShowModal }) => {
   const {
     formFields,
     formErrors,
@@ -15,19 +15,19 @@ export const CreateRulePopup = ({ setIsAdding }) => {
 
   return (
     <section
-      className="add-rule-popup"
+      className="create-rule-modal"
       onClick={() => {
-        setIsAdding(false);
+        setShowModal(false);
       }}
     >
       <form
-        className="add-rule-popup__container"
+        className="create-rule-modal__container"
         onSubmit={createRule}
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
-        <h1 className="add-rule-popup__title">Add rule</h1>
+        <h1 className="create-rule-modal__title">Add rule</h1>
         <TextInput
           label="Rule name"
           name="name"
@@ -44,7 +44,10 @@ export const CreateRulePopup = ({ setIsAdding }) => {
           count={inputMaxLengths.description}
           onChange={handleInputChange}
         />
-        <FormPopupButtons setIsAdding={setIsAdding} submitLabel="Create rule" />
+        <ModalFormButtons
+          setShowModal={setShowModal}
+          submitLabel="Create rule"
+        />
       </form>
     </section>
   );

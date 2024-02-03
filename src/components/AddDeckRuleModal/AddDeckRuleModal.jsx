@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import { useAddRuleToDeck } from "../../hooks/useAddRuleToDeck";
 import { useGetRules } from "../../hooks/useGetRules";
 import { Select } from "../Select/Select";
-import { FormPopupButtons } from "../FormPopupButtons/FormPopupButtons";
+import { ModalFormButtons } from "../ModalFormButtons/ModalFormButtons";
 import { NumberInput } from "../NumberInput/NumberInput";
-import "./AddDeckRulePopup.scss";
+import "./AddDeckRuleModal.scss";
 
-export const AddDeckRulePopup = ({
-  setIsAdding,
+export const AddDeckRuleModal = ({
+  setShowModal,
   existingRules,
   deckDetails,
 }) => {
@@ -33,7 +33,7 @@ export const AddDeckRulePopup = ({
     <section
       className="add-deck-rule"
       onClick={() => {
-        setIsAdding(false);
+        setShowModal(false);
       }}
     >
       <form
@@ -80,7 +80,7 @@ export const AddDeckRulePopup = ({
             onChange={handleInputChange}
           />
         )}
-        <FormPopupButtons setIsAdding={setIsAdding} submitLabel="Add rule" />
+        <ModalFormButtons setShowModal={setShowModal} submitLabel="Add rule" />
       </form>
     </section>
   );
