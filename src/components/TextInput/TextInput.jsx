@@ -14,7 +14,9 @@ export const TextInput = ({
       <label className="text-input__label">
         {label}
         <input
-          className="text-input__input"
+          className={`text-input__input${
+            error ? " text-input__input--error" : ""
+          }`}
           type="text"
           name={name}
           placeholder={placeholder || label}
@@ -22,12 +24,14 @@ export const TextInput = ({
           onChange={onChange}
         />
       </label>
-      {error && <p className="text-input__error">{error}</p>}
-      {count && (
-        <p className="text-input__count">
-          {value.length}/{count}
-        </p>
-      )}
+      <div className="text-input__validation">
+        {count && (
+          <p className="text-input__count">
+            {value.length}/{count}
+          </p>
+        )}
+        {error && <p className="text-input__error">{error}</p>}
+      </div>
     </div>
   );
 };
