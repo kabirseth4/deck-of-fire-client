@@ -1,7 +1,7 @@
 @use "../../styles/utils/mixins" as *;
 
 .textarea {
-  @include text-input;
+  @include form-input;
 
   &__input {
     resize: none;

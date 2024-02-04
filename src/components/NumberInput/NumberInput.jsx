@@ -13,7 +13,9 @@ export const NumberInput = ({
       <label className="number-input__label">
         {label}
         <input
-          className="number-input__input"
+          className={`number-input__input${
+            error ? " number-input__input--error" : ""
+          }`}
           type="number"
           name={name}
           placeholder={placeholder || label}
@@ -21,7 +23,9 @@ export const NumberInput = ({
           onChange={onChange}
         />
       </label>
-      {error && <p className="number-input__error">{error}</p>}
+      <div className="number-input__validation">
+        {error && <p className="number-input__error">{error}</p>}
+      </div>
     </div>
   );
 };

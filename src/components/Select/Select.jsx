@@ -6,7 +6,7 @@ export const Select = ({ label, name, value, error, onChange, options }) => {
       <label className="select__label">
         {label}
         <select
-          className="select__input"
+          className={`select__input${error ? " select__input--error" : ""}`}
           name={name}
           value={value}
           onChange={onChange}
@@ -23,7 +23,9 @@ export const Select = ({ label, name, value, error, onChange, options }) => {
           })}
         </select>
       </label>
-      {error && <p className="select__error">{error}</p>}
+      <div className="select__validation">
+        {error && <p className="select__error">{error}</p>}
+      </div>
     </div>
   );
 };

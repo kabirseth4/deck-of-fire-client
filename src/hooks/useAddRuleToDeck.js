@@ -41,21 +41,21 @@ export const useAddRuleToDeck = () => {
       isValid = false;
     }
 
-    if (deckDetails.isCustom && !formFields.occurences) {
+    if (deckDetails.isCustom && formFields.occurences < 1) {
       setFormErrors((prevFormErrors) => {
         return {
           ...prevFormErrors,
-          occurences: "This field is required",
+          occurences: "Please enter a value greater than 0",
         };
       });
       isValid = false;
     }
 
-    if (deckDetails.isScored && !formFields.penalty) {
+    if (deckDetails.isScored && formFields.penalty < 1) {
       setFormErrors((prevFormErrors) => {
         return {
           ...prevFormErrors,
-          penalty: "This field is required",
+          penalty: "Please enter a value greater than 0",
         };
       });
       isValid = false;

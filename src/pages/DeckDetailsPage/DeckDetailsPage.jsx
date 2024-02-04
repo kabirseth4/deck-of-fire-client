@@ -3,6 +3,7 @@ import { useGetDeckDetails } from "../../hooks/useGetDeckDetails";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { Button } from "../../components/Button/Button";
 import { DeckRules } from "../../components/DeckRules/DeckRules";
+import backIcon from "../../assets/icons/arrow_back-24px.svg";
 import "./DeckDetailsPage.scss";
 
 export const DeckDetailsPage = () => {
@@ -57,7 +58,7 @@ export const DeckDetailsPage = () => {
         <LinkButton
           to="/decks"
           className="button--secondary deck-details-page__page-back-button"
-          label="<"
+          image={backIcon}
         />
         {((!isCustom && rules.length < 13) || !!isCustom) && (
           <Button
