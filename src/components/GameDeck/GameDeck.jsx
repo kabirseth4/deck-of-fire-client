@@ -52,31 +52,33 @@ export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
             : "Swipe to begin"
         }`}
       </h1>
-      <div className="game-deck__cards">
-        <div className="game-deck__card game-deck__card--back">
-          Deck of Fire
-        </div>
-        {cardsRemaining === 0 && (
+      <div className="game-deck__cards-container">
+        <div className="game-deck__cards">
+          <div className="game-deck__card game-deck__card--back">
+            Deck of Fire
+          </div>
+          {cardsRemaining === 0 && (
+            <TinderCard
+              className="game-deck__card"
+              onSwipe={() => {
+                setTimeout(() => {
+                  window.location.reload(false);
+                }, 200);
+              }}
+            >
+              <h3>Swipe to restart</h3>
+            </TinderCard>
+          )}
+          {openedCards.map((card) => (
+            <GameCard key={card.key} card={card} updateCard={updateCard} />
+          ))}
           <TinderCard
-            className="game-deck__card"
-            onSwipe={() => {
-              setTimeout(() => {
-                window.location.reload(false);
-              }, 200);
-            }}
+            className="game-deck__card game-deck__card--back"
+            onSwipe={updateCard}
           >
-            <h3>Swipe to restart</h3>
+            Deck of Fire
           </TinderCard>
-        )}
-        {openedCards.map((card) => (
-          <GameCard key={card.key} card={card} updateCard={updateCard} />
-        ))}
-        <TinderCard
-          className="game-deck__card game-deck__card--back"
-          onSwipe={updateCard}
-        >
-          Deck of Fire
-        </TinderCard>
+        </div>
       </div>
     </div>
   );

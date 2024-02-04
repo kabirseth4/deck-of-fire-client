@@ -2,23 +2,5 @@
 @use "../../styles/utils/variables" as *;
 
 .game-card {
-  @include flex(column, center, center);
-  position: absolute;
-  background-color: #fff;
-  color: #000;
-  border: 3px solid #000;
-  height: 24rem;
-  width: 14rem;
-  border-radius: 1rem;
-
-  &--back {
-    padding: 1rem;
-    font-size: 3rem;
-    color: #fff;
-    background-color: #000;
-  }
-
-  &--swiped {
-    display: none;
-  }
+  @include game-card;
 }

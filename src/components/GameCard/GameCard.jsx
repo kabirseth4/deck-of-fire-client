@@ -9,8 +9,15 @@ export const GameCard = ({ card, className, updateCard }) => {
       }`}
       onSwipe={updateCard}
     >
-      <h3>{card.name}</h3>
-      <h3>{card.name}</h3>
+      <div className="game-card__container">
+        <h3 className="game-card__title">{card.name}</h3>
+        <div className="game-card__info-container">
+          <p>{card.description}</p>
+        </div>
+        <h3 className="game-card__title game-card__title--bottom">
+          {card.name}
+        </h3>
+      </div>
     </TinderCard>
   );
 };
