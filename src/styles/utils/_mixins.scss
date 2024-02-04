@@ -130,30 +130,6 @@
   }
 }
 
-@mixin block-margin-header {
-  margin-block: $padding-mobile-header $padding-mobile;
-
-  @include tablet {
-    margin-block: $padding-tablet-header $padding-tablet;
-  }
-}
-
-@mixin content-width-limit {
-  @include tablet {
-    max-width: $max-content-width;
-    box-sizing: content-box;
-    margin-inline: auto;
-  }
-}
-
-@mixin overlap-header {
-  margin-top: -4rem;
-
-  @include tablet {
-    margin-top: -5.625rem;
-  }
-}
-
 // components
 @mixin button {
   @include font-body-large;
@@ -167,11 +143,8 @@
   text-decoration: none;
   text-transform: capitalize;
   white-space: nowrap;
-  padding: 0.5rem 1rem;
-
-  @include tablet {
-    width: fit-content;
-  }
+  padding: 0 1rem;
+  cursor: default;
 
   &:hover {
     background-color: $color-brand-secondary;
@@ -270,6 +243,11 @@
   }
 
   &__page-button {
-    width: 100%;
+    flex: 1;
+  }
+
+  &__page-back-button {
+    width: 3rem;
+    padding: 0;
   }
 }

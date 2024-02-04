@@ -5,10 +5,6 @@
   @include inline-padding;
   background-color: $color-background-primary;
 
-  &__content {
-    @include content-width-limit;
-  }
-
   &__logo-link {
     @include flex(row, center, center);
     text-decoration: none;
