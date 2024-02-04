@@ -171,6 +171,51 @@
   }
 }
 
+@mixin text-input {
+  @include flex($direction: column, $gap: 0.5rem);
+
+  &__label {
+    @include flex($direction: column, $gap: 0.5rem);
+    text-transform: capitalize;
+    font-size: 1.17rem;
+    font-weight: 600;
+  }
+
+  &__input {
+    font-size: 1.17rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1.25rem;
+    border: 1px $color-border solid;
+
+    &::placeholder {
+      color: $color-text-secondary;
+      text-transform: capitalize;
+    }
+
+    &:focus {
+      border-color: $color-brand-primary;
+      outline: none;
+    }
+
+    &--error {
+      border-color: $color-negative;
+    }
+  }
+
+  &__validation {
+    @include flex(row, space-between);
+  }
+
+  &__error {
+    color: $color-negative;
+    margin: 0;
+  }
+
+  &__count {
+    margin: 0;
+  }
+}
+
 @mixin modal {
   @include flex(row, center, center);
   @include inline-padding;

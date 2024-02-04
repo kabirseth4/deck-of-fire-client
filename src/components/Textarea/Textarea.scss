@@ -1,0 +1,10 @@
+@use "../../styles/utils/mixins" as *;
+
+.textarea {
+  @include text-input;
+
+  &__input {
+    resize: none;
+    height: 7rem;
+  }
+}
