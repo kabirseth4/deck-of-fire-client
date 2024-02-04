@@ -2,8 +2,12 @@
 @use "../../styles/utils/variables" as *;
 
 .game-deck {
-  @include flex(row, center, center);
+  @include flex(column, center, center, 1.5rem);
   height: calc(100% - 7.78rem);
+
+  &__remaining {
+    margin: 0;
+  }
 
   &__cards {
     position: relative;

@@ -1,5 +1,6 @@
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { LinkButton } from "../LinkButton/LinkButton";
 import "./GamePlayers.scss";
 
 export const GamePlayers = ({
@@ -20,7 +21,7 @@ export const GamePlayers = ({
     <section className="game-players">
       <div className="game-players__header">
         <h3 className="game-players__title">Players</h3>
-        <Link to="setup">Edit players</Link>
+        <LinkButton to="setup" label="Edit players" />
       </div>
       <div className="game-players__players">
         {players &&

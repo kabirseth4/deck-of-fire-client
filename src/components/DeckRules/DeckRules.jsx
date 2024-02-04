@@ -7,7 +7,8 @@ export const DeckRules = ({ rules, deckDetails, showModal, setShowModal }) => {
   return (
     <section>
       <h2>Rules</h2>
-      {deckDetails.isCustom && rules.length < 13 && (
+      {((!deckDetails.isCustom && rules.length < 13) ||
+        deckDetails.isCustom) && (
         <Button
           label="Add rule"
           onClick={() => {

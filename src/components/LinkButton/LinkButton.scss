@@ -1,1 +1,6 @@
+@use "../../styles/utils/mixins" as *;
 
+.link-button {
+  @include button;
+  width: fit-content;
+}

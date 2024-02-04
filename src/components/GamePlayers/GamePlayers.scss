@@ -3,7 +3,6 @@
 
 .game-players {
   @include flex($direction: column, $gap: $padding-mobile);
-  @include inline-padding;
   @include block-padding;
   position: fixed;
   bottom: 0;
@@ -12,6 +11,7 @@
 
   &__header {
     @include flex(row, space-between, baseline, 1rem);
+    @include inline-padding;
     width: 100%;
   }
 
@@ -21,6 +21,7 @@
 
   &__players {
     @include flex($gap: 1rem);
+    @include inline-padding;
     width: 100%;
     overflow: scroll;
   }
