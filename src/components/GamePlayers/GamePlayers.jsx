@@ -21,7 +21,7 @@ export const GamePlayers = ({
   return (
     <section className="game-players">
       <div className="game-players__header">
-        <h3 className="game-players__title">Players</h3>
+        <h3 className="game-players__title">Next swipe</h3>
         <LinkButton
           to={`/decks/${deckId}`}
           className="link-button--negative"

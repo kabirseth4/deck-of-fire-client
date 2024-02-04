@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useRef, createRef, useEffect } from "react";
 
 export const usePlayers = () => {
-  const { deckId } = useParams();
   const navigate = useNavigate();
+  const { deckId } = useParams();
   const [players, setPlayers] = useState(null);
   const [currentTurn, setCurrentTurn] = useState(0);
+  const scrollRefs = useRef([]);
 
   const addPlayer = () => {
     setPlayers((prevPlayers) => [...prevPlayers, ""]);
@@ -40,9 +42,16 @@ export const usePlayers = () => {
     navigate(`/decks/${deckId}/play`);
   };
 
+  useEffect(() => {
+    if (players) {
+      scrollRefs.current = players.map(() => createRef());
+    }
+  }, [players]);
+
   return {
     players,
     currentTurn,
+    scrollRefs,
     setCurrentTurn,
     setPlayers,
     addPlayer,
