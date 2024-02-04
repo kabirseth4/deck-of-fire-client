@@ -1,6 +1,11 @@
+@use "../../styles/utils/mixins" as *;
+
 .setup-game-page {
+  @include inline-padding;
+  @include block-padding;
+  @include page-buttons;
+
   &__form {
-    display: flex;
-    flex-direction: column;
+    @include flex($direction: column, $gap: 1rem);
   }
 }

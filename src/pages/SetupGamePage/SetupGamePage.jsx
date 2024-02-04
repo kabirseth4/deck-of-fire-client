@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { usePlayers } from "../../hooks/usePlayers";
-import { Link } from "react-router-dom";
+import { LinkButton } from "../../components/LinkButton/LinkButton";
+import { Button } from "../../components/Button/Button";
+import { PlayerInput } from "../../components/PlayerInput/PlayerInput";
+import backIcon from "../../assets/icons/arrow_back-24px.svg";
 import "./SetupGamePage.scss";
 
 export const SetupGamePage = () => {
@@ -21,29 +24,43 @@ export const SetupGamePage = () => {
   }, []);
 
   return (
-    <main className="setup-game-page">
-      <Link to={`/decks/${deckId}`}>{"<- Back"}</Link>
-      <form className="setup-game-page__form" onSubmit={handleFormSubmit}>
-        {players &&
-          players.map((player, i) => {
-            return (
-              <label key={i + 1}>
-                {`Player ${i + 1}: `}
-                <input
-                  type="text"
-                  name={i + 1}
-                  placeholder="Player name"
-                  value={player}
+    <>
+      <main className="setup-game-page">
+        <form
+          className="setup-game-page__form"
+          id="setupGameForm"
+          onSubmit={handleFormSubmit}
+        >
+          {players &&
+            players.map((player, i) => {
+              return (
+                <PlayerInput
+                  key={i + 1}
+                  player={player}
+                  playerNum={i + 1}
                   onChange={handlePlayerChange}
                 />
-              </label>
-            );
-          })}
-        <button type="button" onClick={addPlayer}>
-          Add player
-        </button>
-        <button>Play game</button>
-      </form>
-    </main>
+              );
+            })}
+        </form>
+      </main>
+      <section className="setup-game-page__page-buttons">
+        <LinkButton
+          to={`/decks/${deckId}`}
+          className="link-button--secondary setup-game-page__page-back-button"
+          image={backIcon}
+        />
+        <Button
+          label="Add player"
+          className="setup-game-page__page-button"
+          onClick={addPlayer}
+        />
+        <Button
+          className="deck-details-page__page-button button--play"
+          label="Save & Play"
+          formId="setupGameForm"
+        />
+      </section>
+    </>
   );
 };

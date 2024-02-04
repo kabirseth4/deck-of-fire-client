@@ -41,21 +41,27 @@ export const useAddRuleToDeck = () => {
       isValid = false;
     }
 
-    if (deckDetails.isCustom && formFields.occurences < 1) {
+    if (
+      deckDetails.isCustom &&
+      (formFields.occurences < 1 || formFields.occurences > 10)
+    ) {
       setFormErrors((prevFormErrors) => {
         return {
           ...prevFormErrors,
-          occurences: "Please enter a value greater than 0",
+          occurences: "Enter a value between 0 and 10",
         };
       });
       isValid = false;
     }
 
-    if (deckDetails.isScored && formFields.penalty < 1) {
+    if (
+      deckDetails.isScored &&
+      (formFields.penalty < 1 || formFields.penalty > 10)
+    ) {
       setFormErrors((prevFormErrors) => {
         return {
           ...prevFormErrors,
-          penalty: "Please enter a value greater than 0",
+          penalty: "Enter a value between 0 and 10",
         };
       });
       isValid = false;

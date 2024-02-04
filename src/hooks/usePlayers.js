@@ -16,11 +16,13 @@ export const usePlayers = () => {
   const handlePlayerChange = (e) => {
     const index = Number(e.target.name) - 1;
 
-    setPlayers((prevPlayers) => {
-      const updatedPlayers = [...prevPlayers];
-      updatedPlayers[index] = e.target.value;
-      return updatedPlayers;
-    });
+    if (e.target.value.length < 16) {
+      setPlayers((prevPlayers) => {
+        const updatedPlayers = [...prevPlayers];
+        updatedPlayers[index] = e.target.value;
+        return updatedPlayers;
+      });
+    }
   };
 
   const savePlayers = () => {

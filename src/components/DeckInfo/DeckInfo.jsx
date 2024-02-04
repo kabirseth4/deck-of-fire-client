@@ -30,7 +30,7 @@ export const DeckInfo = ({
           <LinkButton
             to={`/decks/${id}`}
             className={!!isPlayable ? "link-button--secondary" : ""}
-            label="View"
+            label="View rules"
           />
           {!!isPlayable && (
             <LinkButton
