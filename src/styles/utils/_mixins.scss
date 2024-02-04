@@ -159,10 +159,11 @@
   @include font-body-large;
   @include flex(row, center, center);
   width: 100%;
+  height: 3rem;
   background-color: $color-brand-primary;
   color: $color-background-primary;
   border: none;
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   text-decoration: none;
   text-transform: capitalize;
   white-space: nowrap;
@@ -260,6 +261,7 @@
 @mixin page-buttons {
   &__page-buttons {
     @include flex($gap: $padding-mobile);
+    @include inline-padding;
     @include block-padding;
     position: sticky;
     bottom: 0;

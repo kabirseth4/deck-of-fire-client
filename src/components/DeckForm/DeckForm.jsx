@@ -13,7 +13,7 @@ export const DeckForm = () => {
   } = useAddDeck();
 
   return (
-    <form onSubmit={addNewDeck}>
+    <form className="deck-form" id="deckForm" onSubmit={addNewDeck}>
       <TextInput
         label="Deck name"
         name="name"
@@ -68,7 +68,6 @@ export const DeckForm = () => {
           Scored
         </label>
       </div>
-      <button>Submit</button>
     </form>
   );
 };

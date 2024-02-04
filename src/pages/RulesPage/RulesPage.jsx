@@ -14,11 +14,15 @@ export const RulesPage = () => {
   if (isError) return <p>Something went wrong. Please try again later.</p>;
 
   return (
-    <main className={`rules-page${showModal ? " rules-page--no-scroll" : ""}`}>
-      <h1 className="rules-page__titles">Rules</h1>
-      <RuleList rules={rules} />
-      {showModal && <CreateRuleModal setShowModal={setShowModal} />}
-      <div className="rules-page__page-buttons">
+    <>
+      <main
+        className={`rules-page${showModal ? " rules-page--no-scroll" : ""}`}
+      >
+        <h1 className="rules-page__titles">Rules</h1>
+        <RuleList rules={rules} />
+        {showModal && <CreateRuleModal setShowModal={setShowModal} />}
+      </main>
+      <section className="rules-page__page-buttons">
         <LinkButton
           to="/decks"
           className="button--secondary rules-page__page-button"
@@ -31,7 +35,7 @@ export const RulesPage = () => {
             setShowModal(true);
           }}
         />
-      </div>
-    </main>
+      </section>
+    </>
   );
 };

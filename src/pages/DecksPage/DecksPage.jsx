@@ -4,10 +4,12 @@ import "./DecksPage.scss";
 
 export const DecksPage = () => {
   return (
-    <main className="decks-page">
-      <h1 className="decks-page__title">Decks</h1>
-      <DeckList />
-      <div className="decks-page__page-buttons">
+    <>
+      <main className="decks-page">
+        <h1 className="decks-page__title">Decks</h1>
+        <DeckList />
+      </main>
+      <section className="decks-page__page-buttons">
         <LinkButton
           to="/rules"
           className="button--secondary decks-page__page-button"
@@ -18,7 +20,7 @@ export const DecksPage = () => {
           className="decks-page__page-button"
           label="Add deck"
         />
-      </div>
-    </main>
+      </section>
+    </>
   );
 };
