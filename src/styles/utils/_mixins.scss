@@ -165,6 +165,10 @@
   &--negative {
     background-color: $color-negative;
   }
+
+  &--play {
+    background-color: $color-accent-primary;
+  }
 }
 
 @mixin modal {

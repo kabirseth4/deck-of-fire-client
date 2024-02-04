@@ -73,7 +73,7 @@ export const DeckDetailsPage = () => {
         {!!isPlayable && (
           <LinkButton
             to="play"
-            className="deck-details-page__page-button"
+            className="deck-details-page__page-button link-button--play"
             label="Play deck"
           />
         )}
