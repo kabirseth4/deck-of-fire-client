@@ -18,8 +18,12 @@ export const RulesPage = () => {
       <main
         className={`rules-page${showModal ? " rules-page--no-scroll" : ""}`}
       >
-        <h1 className="rules-page__titles">Rules</h1>
-        <RuleList rules={rules} />
+        <h1 className="rules-page__title">Rules</h1>
+        {rules.length > 0 ? (
+          <RuleList rules={rules} />
+        ) : (
+          <p>Create rules to add to your decks.</p>
+        )}
         {showModal && <CreateRuleModal setShowModal={setShowModal} />}
       </main>
       <section className="rules-page__page-buttons">

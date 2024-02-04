@@ -29,9 +29,19 @@ export const DeckDetailsPage = () => {
           showModal ? " deck-details-page--no-scroll" : ""
         }`}
       >
-        <h1>{name}</h1>
-        <p>Is scored: {isScored ? "Yes" : "No"}</p>
-        <p>Is custom: {isCustom ? "Yes" : "No"}</p>
+        <h1 className="deck-details-page__title">{name}</h1>
+        <div className="deck-details-page__info">
+          <div className="deck-details-page__info-container">
+            <p className="deck-details-page__info-item">
+              {isScored ? "Scored" : "Unscored"}
+            </p>
+          </div>
+          <div className="deck-details-page__info-container">
+            <p className="deck-details-page__info-item">
+              {isCustom ? "Custom" : "Standard"}
+            </p>
+          </div>
+        </div>
         <DeckRules
           rules={rules}
           deckDetails={{

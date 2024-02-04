@@ -1,10 +1,32 @@
 @use "../../styles/utils/mixins" as *;
+@use "../../styles/utils/variables" as *;
 
 .deck-details-page {
+  @include block-padding;
   @include inline-padding;
   @include page-buttons;
 
   &--no-scroll {
     overflow: hidden;
+  }
+
+  &__title {
+    margin-block: 0 1rem;
+  }
+
+  &__info {
+    @include flex($direction: row, $gap: $padding-mobile);
+  }
+
+  &__info-container {
+    @include flex(row, center, center);
+    flex: 1;
+    height: 3rem;
+    border: 1px solid $color-text-primary;
+    border-radius: 5px;
+  }
+
+  &__info-item {
+    margin: 0;
   }
 }

@@ -6,7 +6,11 @@ export const DeckRules = ({ rules, deckDetails, showModal, setShowModal }) => {
   return (
     <section>
       <h2>Rules</h2>
-      <RuleList rules={rules} deckDetails={deckDetails} />
+      {rules.length > 0 ? (
+        <RuleList rules={rules} deckDetails={deckDetails} />
+      ) : (
+        <p>Add rules to this deck to start playing.</p>
+      )}
       {showModal && (
         <AddDeckRuleModal
           setShowModal={setShowModal}

@@ -1,10 +1,15 @@
 @use "../../styles/utils/mixins" as *;
 
 .rules-page {
+  @include block-padding;
   @include inline-padding;
   @include page-buttons;
 
   &--no-scroll {
     overflow: hidden;
+  }
+
+  &__title {
+    margin-block: 0 1rem;
   }
 }

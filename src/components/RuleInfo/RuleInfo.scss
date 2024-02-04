@@ -1,7 +1,7 @@
 @use "../../styles/utils/mixins" as *;
 @use "../../styles/utils/variables" as *;
 
-.deck-info {
+.rule-info {
   @include flex($direction: column, $gap: $padding-mobile);
   @include block-padding;
   @include inline-padding;
@@ -12,17 +12,18 @@
     margin: 0;
   }
 
-  &__container {
-    @include flex($gap: $padding-mobile);
+  &__description {
+    margin: 0;
   }
 
   &__info {
-    @include flex($direction: column, $gap: $padding-mobile);
+    @include flex($gap: $padding-mobile);
     flex: 3;
   }
 
   &__info-container {
     @include flex(row, center, center);
+    flex: 1;
     height: 3rem;
     border: 1px solid $color-text-primary;
     border-radius: 5px;
@@ -30,14 +31,5 @@
 
   &__info-item {
     margin: 0;
-  }
-
-  &__buttons {
-    @include flex(
-      $direction: column,
-      $justify: flex-end,
-      $gap: $padding-mobile
-    );
-    flex: 2;
   }
 }
