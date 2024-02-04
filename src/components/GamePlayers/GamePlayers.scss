@@ -2,7 +2,7 @@
 @use "../../styles/utils/variables" as *;
 
 .game-players {
-  @include flex($direction: column, $gap: $padding-mobile);
+  @include flex($direction: column, $gap: $padding-1x);
   @include block-padding;
   position: fixed;
   bottom: 0;

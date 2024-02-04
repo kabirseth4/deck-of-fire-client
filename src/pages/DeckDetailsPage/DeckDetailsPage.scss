@@ -15,7 +15,7 @@
   }
 
   &__info {
-    @include flex($direction: row, $gap: $padding-mobile);
+    @include flex($direction: row, $gap: $padding-1x);
   }
 
   &__info-container {

@@ -1,0 +1,13 @@
+@use "./variables" as *;
+
+@mixin inline-padding {
+  padding-inline: $padding-1x;
+}
+
+@mixin block-padding {
+  padding-block: $padding-1x;
+}
+
+@mixin block-margin {
+  margin-block: $padding-1x;
+}

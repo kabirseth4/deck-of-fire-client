@@ -2,7 +2,7 @@
 @use "../../styles/utils/variables" as *;
 
 .deck-info {
-  @include flex($direction: column, $gap: $padding-mobile);
+  @include flex($direction: column, $gap: $padding-1x);
   @include block-padding;
   @include inline-padding;
   border: 1px solid $color-border;
@@ -13,11 +13,11 @@
   }
 
   &__container {
-    @include flex($gap: $padding-mobile);
+    @include flex($gap: $padding-1x);
   }
 
   &__info {
-    @include flex($direction: column, $gap: $padding-mobile);
+    @include flex($direction: column, $gap: $padding-1x);
     flex: 3;
   }
 
@@ -33,11 +33,7 @@
   }
 
   &__buttons {
-    @include flex(
-      $direction: column,
-      $justify: flex-end,
-      $gap: $padding-mobile
-    );
+    @include flex($direction: column, $justify: flex-end, $gap: $padding-1x);
     flex: 2;
   }
 }

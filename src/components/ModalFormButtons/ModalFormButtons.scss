@@ -2,5 +2,5 @@
 @use "../../styles/utils/variables" as *;
 
 .modal-form-buttons {
-  @include flex($gap: $padding-mobile);
+  @include flex($gap: $padding-1x);
 }

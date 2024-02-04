@@ -2,7 +2,7 @@
 @use "../../styles/utils/variables" as *;
 
 .rule-info {
-  @include flex($direction: column, $gap: $padding-mobile);
+  @include flex($direction: column, $gap: $padding-1x);
   @include block-padding;
   @include inline-padding;
   border: 1px solid $color-border;
@@ -17,7 +17,7 @@
   }
 
   &__info {
-    @include flex($gap: $padding-mobile);
+    @include flex($gap: $padding-1x);
     flex: 3;
   }
 

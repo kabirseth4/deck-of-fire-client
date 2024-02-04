@@ -1,0 +1,42 @@
+@mixin font-header-xl {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+}
+
+@mixin font-header-large {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+@mixin font-header-medium {
+  font-size: 0.81rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+@mixin font-header-small {
+  font-size: 0.69rem;
+  line-height: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@mixin font-body-large {
+  font-size: 0.94rem;
+  line-height: 1.63rem;
+  font-weight: 400;
+}
+
+@mixin font-body-medium {
+  font-size: 0.81rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+
+@mixin font-body-small {
+  font-size: 0.69rem;
+  line-height: 1rem;
+  font-weight: 400;
+}

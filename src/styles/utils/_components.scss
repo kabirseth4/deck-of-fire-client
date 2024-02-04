@@ -1,0 +1,175 @@
+@use "./variables" as *;
+@use "./variables" as *;
+@use "./structure" as *;
+@use "./utils" as *;
+@use "./fonts" as *;
+
+@mixin button {
+  @include font-body-large;
+  @include flex(row, center, center);
+  width: 100%;
+  height: 3rem;
+  background-color: $color-brand-primary;
+  color: $color-background-primary;
+  border: none;
+  border-radius: 1.5rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  white-space: nowrap;
+  padding: 0 1rem;
+  cursor: default;
+
+  &:hover {
+    background-color: $color-brand-secondary;
+  }
+
+  &--secondary {
+    background-color: $color-background-primary;
+    color: $color-text-secondary;
+    border: 1px $color-border solid;
+
+    &:hover {
+      background-color: $color-background-primary;
+      color: $color-brand-primary;
+      border-color: $color-brand-primary;
+    }
+  }
+
+  &--negative {
+    background-color: $color-accent-secondary;
+  }
+
+  &--play {
+    background-color: $color-accent-primary;
+  }
+}
+
+@mixin form-input {
+  @include flex($direction: column, $gap: 0.5rem);
+
+  &__label {
+    @include flex($direction: column, $gap: 0.5rem);
+    text-transform: capitalize;
+    font-size: 1.17rem;
+    font-weight: 600;
+  }
+
+  &__input {
+    font-size: 1.17rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1.25rem;
+    border: 1px $color-border solid;
+
+    &::placeholder {
+      color: $color-text-secondary;
+      text-transform: capitalize;
+    }
+
+    &:focus {
+      border-color: $color-brand-primary;
+      outline: none;
+    }
+
+    &--error {
+      border-color: $color-accent-secondary;
+    }
+  }
+
+  &__validation {
+    @include flex(row, space-between);
+  }
+
+  &__error {
+    color: $color-accent-secondary;
+    margin: 0;
+  }
+
+  &__count {
+    margin: 0;
+  }
+}
+
+@mixin modal {
+  @include flex(row, center, center);
+  @include inline-padding;
+  @include block-padding;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  height: 100dvh;
+  width: 100vw;
+  background-color: rgba($color: grey, $alpha: 0.5);
+
+  &__container {
+    @include flex($direction: column, $gap: 1.5rem);
+    padding: $padding-2x;
+    width: 100%;
+    background-color: rgba($color: $color-background-primary, $alpha: 1);
+    border-radius: 4px;
+  }
+}
+
+@mixin game-card {
+  @include flex(column, center, center);
+  position: absolute;
+  background-color: $color-background-primary;
+  color: $color-text-primary;
+  max-width: 100%;
+  max-height: 100%;
+  aspect-ratio: 5.5 / 8.5;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.3);
+
+  &--swiped {
+    display: none;
+  }
+
+  &__container {
+    @include flex($direction: column, $gap: 1rem);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__title {
+    margin: 0;
+    width: 50rem;
+
+    &--bottom {
+      width: 100%;
+      transform: rotate(180deg);
+    }
+  }
+
+  &__info-container {
+    @include flex(column, center, center);
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid #000;
+    width: 100%;
+    border-radius: 1rem;
+  }
+}
+
+@mixin page-buttons {
+  &__page-buttons {
+    @include flex($gap: $padding-1x);
+    @include inline-padding;
+    @include block-padding;
+    position: sticky;
+    bottom: 0;
+    background-color: $color-background-primary;
+    width: 100%;
+  }
+
+  &__page-button {
+    flex: 1;
+  }
+
+  &__page-back-button {
+    width: 3rem;
+    padding: 0;
+  }
+}

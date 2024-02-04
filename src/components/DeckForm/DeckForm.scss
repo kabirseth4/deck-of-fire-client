@@ -5,7 +5,7 @@
   @include flex($direction: column, $gap: 1.5rem);
 
   &__radios {
-    @include flex($direction: column, $gap: $padding-mobile);
+    @include flex($direction: column, $gap: $padding-1x);
   }
 
   &__radio-title {

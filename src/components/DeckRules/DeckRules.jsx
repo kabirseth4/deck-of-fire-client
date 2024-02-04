@@ -1,6 +1,5 @@
 import { RuleList } from "../RuleList/RuleList";
 import { AddDeckRuleModal } from "../../components/AddDeckRuleModal/AddDeckRuleModal";
-import "./DeckRules.scss";
 
 export const DeckRules = ({ rules, deckDetails, showModal, setShowModal }) => {
   return (
