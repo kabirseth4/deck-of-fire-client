@@ -2,6 +2,7 @@
 
 .rules-page {
   @include inline-padding;
+  @include page-buttons;
 
   &--no-scroll {
     overflow: hidden;
