@@ -59,7 +59,7 @@ export const DeckDetailsPage = () => {
           className="button--secondary deck-details-page__page-back-button"
           label="<"
         />
-        {((!!isCustom && rules.length < 13) || !!isCustom) && (
+        {((!isCustom && rules.length < 13) || !!isCustom) && (
           <Button
             label="Add rule"
             className={`deck-details-page__page-button${
