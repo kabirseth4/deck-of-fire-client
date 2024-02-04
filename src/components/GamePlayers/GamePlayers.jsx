@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { LinkButton } from "../LinkButton/LinkButton";
 import "./GamePlayers.scss";
@@ -11,6 +11,7 @@ export const GamePlayers = ({
   scrollRefs,
 }) => {
   const navigate = useNavigate();
+  const { deckId } = useParams();
 
   useEffect(() => {
     const savedPlayers = getPlayers();
@@ -21,6 +22,11 @@ export const GamePlayers = ({
     <section className="game-players">
       <div className="game-players__header">
         <h3 className="game-players__title">Players</h3>
+        <LinkButton
+          to={`/decks/${deckId}`}
+          className="link-button--negative"
+          label="Exit game"
+        />
         <LinkButton to="setup" label="Edit players" />
       </div>
       <div className="game-players__players">

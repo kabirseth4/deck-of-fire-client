@@ -1,6 +1,7 @@
 import TinderCard from "react-tinder-card";
 import { useSetupDeck } from "../../hooks/useSetupDeck";
 import { useEffect, useState } from "react";
+import { GameCard } from "../GameCard/GameCard";
 import "./GameDeck.scss";
 
 export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
@@ -68,15 +69,7 @@ export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
           </TinderCard>
         )}
         {openedCards.map((card) => (
-          <TinderCard
-            className={`game-deck__card${
-              card.swiped ? " game-deck__card--swiped" : ""
-            }`}
-            key={card.key}
-            onSwipe={updateCard}
-          >
-            {card.name}
-          </TinderCard>
+          <GameCard key={card.key} card={card} updateCard={updateCard} />
         ))}
         <TinderCard
           className="game-deck__card game-deck__card--back"
