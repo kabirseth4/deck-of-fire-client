@@ -30,5 +30,10 @@
     padding: 1rem;
     border: 2px solid #000;
     border-radius: 4px;
+    white-space: nowrap;
+
+    &--current {
+      color: $color-brand-primary;
+    }
   }
 }

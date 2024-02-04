@@ -1,30 +1,19 @@
 import { useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { usePlayers } from "../../hooks/usePlayers";
 import { Link } from "react-router-dom";
 import "./SetupGamePage.scss";
 
 export const SetupGamePage = () => {
-  const navigate = useNavigate();
   const { deckId } = useParams();
   const {
     players,
     setPlayers,
     addPlayer,
     handlePlayerChange,
-    savePlayers,
     getPlayers,
+    handleFormSubmit,
   } = usePlayers();
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-
-    if (players.filter((p) => p).length < 2) return;
-
-    savePlayers();
-
-    navigate(`/decks/${deckId}/play`);
-  };
 
   useEffect(() => {
     const savedPlayers = getPlayers();
@@ -42,7 +31,7 @@ export const SetupGamePage = () => {
                 {`Player ${i + 1}: `}
                 <input
                   type="text"
-                  name={i}
+                  name={i + 1}
                   placeholder="Player name"
                   value={player}
                   onChange={handlePlayerChange}

@@ -3,9 +3,13 @@ import { useSetupDeck } from "../../hooks/useSetupDeck";
 import { useState } from "react";
 import "./GameDeck.scss";
 
-export const GameDeck = () => {
+export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
   const { gameDeck, isLoading, isError } = useSetupDeck();
   const [openedCards, setOpenedCards] = useState([]);
+
+  const scrollToPlayer = (i) => {
+    scrollRefs.current[i].current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const updateCard = () => {
     const newCard = gameDeck.current.draw();
@@ -16,6 +20,11 @@ export const GameDeck = () => {
           swiped: true,
         }));
         return [newCard, ...swipedCards];
+      });
+      setCurrentTurn((prevTurn) => {
+        const turn = (prevTurn + 1) % players.length;
+        scrollToPlayer(turn);
+        return turn;
       });
     }, 200);
   };
