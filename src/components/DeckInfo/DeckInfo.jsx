@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { LinkButton } from "../LinkButton/LinkButton";
 import "./DeckInfo.scss";
 
 export const DeckInfo = ({
@@ -11,13 +11,30 @@ export const DeckInfo = ({
   },
 }) => {
   return (
-    <article>
-      <h3>{name}</h3>
-      <p>Is scored: {isScored ? "Yes" : "No"}</p>
-      <p>Is custom: {isCustom ? "Yes" : "No"}</p>
-      <p>Is playable: {isPlayable ? "Yes" : "No"}</p>
-      <Link to={`/decks/${id}`}>View</Link>
-      {!!isPlayable && <Link to={`/decks/${id}/play`}>Play</Link>}
+    <article className="deck-info">
+      <h3 className="deck-info__title">{name}</h3>
+      <div className="deck-info__container">
+        <div className="deck-info__info">
+          <div className="deck-info__info-container">
+            <p className="deck-info__info-item">
+              {isScored ? "Scored" : "Unscored"}
+            </p>
+          </div>
+          <div className="deck-info__info-container">
+            <p className="deck-info__info-item">
+              {isCustom ? "Custom" : "Standard"}
+            </p>
+          </div>
+        </div>
+        <div className="deck-info__buttons">
+          <LinkButton
+            to={`/decks/${id}`}
+            className={!!isPlayable ? "link-button--secondary" : ""}
+            label="View"
+          />
+          {!!isPlayable && <LinkButton to={`/decks/${id}/play`} label="Play" />}
+        </div>
+      </div>
     </article>
   );
 };

@@ -9,7 +9,7 @@ export const DeckList = () => {
   if (isError) return <p>Something went wrong. Please try again later.</p>;
 
   return (
-    <ul>
+    <ul className="deck-list">
       {decks.map((deck) => {
         return (
           <li key={deck.id}>

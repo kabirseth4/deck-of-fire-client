@@ -1,0 +1,43 @@
+@use "../../styles/utils/mixins" as *;
+@use "../../styles/utils/variables" as *;
+
+.deck-info {
+  @include flex($direction: column, $gap: $padding-mobile);
+  @include block-padding;
+  @include inline-padding;
+  border: 1px solid $color-border;
+  border-radius: 1rem;
+
+  &__title {
+    margin: 0;
+  }
+
+  &__container {
+    @include flex($gap: $padding-mobile);
+  }
+
+  &__info {
+    @include flex($direction: column, $gap: $padding-mobile);
+    flex: 3;
+  }
+
+  &__info-container {
+    @include flex(row, center, center);
+    height: 3rem;
+    border: 1px solid $color-text-primary;
+    border-radius: 4px;
+  }
+
+  &__info-item {
+    margin: 0;
+  }
+
+  &__buttons {
+    @include flex(
+      $direction: column,
+      $justify: flex-end,
+      $gap: $padding-mobile
+    );
+    flex: 2;
+  }
+}

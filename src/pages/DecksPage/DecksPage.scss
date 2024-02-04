@@ -1,6 +1,11 @@
 @use "../../styles/utils/mixins" as *;
 
 .decks-page {
+  @include block-padding;
   @include inline-padding;
   @include page-buttons;
+
+  &__title {
+    margin-block: 0 1rem;
+  }
 }

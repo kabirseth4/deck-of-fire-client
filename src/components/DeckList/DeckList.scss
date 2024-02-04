@@ -1,0 +1,9 @@
+@use "../../styles/utils/mixins" as *;
+@use "../../styles/utils/variables" as *;
+
+.deck-list {
+  @include flex($direction: column, $gap: $padding-mobile);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
