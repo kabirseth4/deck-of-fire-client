@@ -1,44 +1,33 @@
 import TinderCard from "react-tinder-card";
-import { useSetupDeck } from "../../hooks/useSetupDeck";
-import { useEffect, useState } from "react";
 import { GameCard } from "../GameCard/GameCard";
 import "./GameDeck.scss";
+import { useCards } from "../../hooks/useCards";
 
 export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
-  const { gameDeck, isLoading, isError } = useSetupDeck();
-  const [openedCards, setOpenedCards] = useState([]);
-  const [cardsRemaining, setCardsRemaining] = useState(null);
+  const {
+    openedCards,
+    cardsRemaining,
+    isLoading,
+    isError,
+    setCardsRemaining,
+    updateCard,
+  } = useCards();
 
   const scrollToPlayer = (i) => {
     scrollRefs.current[i].current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const updateCard = () => {
+  const nextTurn = () => {
     if (cardsRemaining > 1) {
-      const newCard = gameDeck.current.draw();
-      setTimeout(() => {
-        setOpenedCards((prevOpenedCards) => {
-          const swipedCards = prevOpenedCards.map((card) => ({
-            ...card,
-            swiped: true,
-          }));
-          return [newCard, ...swipedCards];
-        });
-        setCurrentTurn((prevTurn) => {
-          const turn = (prevTurn + 1) % players.length;
-          scrollToPlayer(turn);
-          return turn;
-        });
-      }, 200);
+      updateCard();
     }
+    setCurrentTurn((prevTurn) => {
+      const turn = (prevTurn + 1) % players.length;
+      scrollToPlayer(turn);
+      return turn;
+    });
     setCardsRemaining((prevCardsRemaining) => prevCardsRemaining - 1);
   };
-
-  useEffect(() => {
-    if (!isLoading) {
-      setCardsRemaining(gameDeck.current._stack.length + 1);
-    }
-  }, [isLoading]);
 
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Something went wrong. Please try again later.</div>;
@@ -70,11 +59,11 @@ export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
             </TinderCard>
           )}
           {openedCards.map((card) => (
-            <GameCard key={card.key} card={card} updateCard={updateCard} />
+            <GameCard key={card.key} card={card} nextTurn={nextTurn} />
           ))}
           <TinderCard
             className="game-deck__card game-deck__card--back"
-            onSwipe={updateCard}
+            onSwipe={nextTurn}
           >
             Deck of Fire
           </TinderCard>

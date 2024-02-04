@@ -1,13 +1,13 @@
 import TinderCard from "react-tinder-card";
 import "./GameCard.scss";
 
-export const GameCard = ({ card, className, updateCard }) => {
+export const GameCard = ({ card, className, nextTurn }) => {
   return (
     <TinderCard
       className={`game-card${className ? ` ${className}` : ""}${
         card.swiped ? " game-card--swiped" : ""
       }`}
-      onSwipe={updateCard}
+      onSwipe={nextTurn}
     >
       <div className="game-card__container">
         <h3 className="game-card__title">{card.name}</h3>
