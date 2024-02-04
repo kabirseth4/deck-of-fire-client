@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSetupDeck } from "./useSetupDeck";
 
 export const useCards = () => {
-  const { gameDeck, isLoading, isError } = useSetupDeck();
+  const { gameDeck, deckName, isLoading, isError } = useSetupDeck();
   const [openedCards, setOpenedCards] = useState([]);
   const [cardsRemaining, setCardsRemaining] = useState(null);
 
@@ -28,6 +28,7 @@ export const useCards = () => {
   return {
     openedCards,
     cardsRemaining,
+    deckName,
     isLoading,
     isError,
     setCardsRemaining,

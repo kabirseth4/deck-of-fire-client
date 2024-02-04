@@ -217,20 +217,14 @@
 @mixin game-card {
   @include flex(column, center, center);
   position: absolute;
-  background-color: #fff;
-  color: #000;
+  background-color: $color-background-primary;
+  color: $color-text-primary;
   max-width: 100%;
   max-height: 100%;
   aspect-ratio: 5.5 / 8.5;
   border-radius: 1rem;
   padding: 1rem;
-  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.25);
-
-  &--back {
-    font-size: 3rem;
-    color: #fff;
-    background-color: #000;
-  }
+  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.3);
 
   &--swiped {
     display: none;

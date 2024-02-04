@@ -1,12 +1,13 @@
-import TinderCard from "react-tinder-card";
 import { GameCard } from "../GameCard/GameCard";
 import "./GameDeck.scss";
 import { useCards } from "../../hooks/useCards";
+import { GameCardBack } from "../GameCardBack/GameCardBack";
 
 export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
   const {
     openedCards,
     cardsRemaining,
+    deckName,
     isLoading,
     isError,
     setCardsRemaining,
@@ -43,30 +44,23 @@ export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
       </h1>
       <div className="game-deck__cards-container">
         <div className="game-deck__cards">
-          <div className="game-deck__card game-deck__card--back">
-            Deck of Fire
-          </div>
+          {cardsRemaining > 0 && (
+            <GameCardBack label={deckName} disabled={true} />
+          )}
           {cardsRemaining === 0 && (
-            <TinderCard
-              className="game-deck__card"
+            <GameCard
+              card={{ name: "Restart", description: "Swipe to restart." }}
               onSwipe={() => {
                 setTimeout(() => {
                   window.location.reload(false);
                 }, 200);
               }}
-            >
-              <h3>Swipe to restart</h3>
-            </TinderCard>
+            />
           )}
           {openedCards.map((card) => (
-            <GameCard key={card.key} card={card} nextTurn={nextTurn} />
+            <GameCard key={card.key} card={card} onSwipe={nextTurn} />
           ))}
-          <TinderCard
-            className="game-deck__card game-deck__card--back"
-            onSwipe={nextTurn}
-          >
-            Deck of Fire
-          </TinderCard>
+          <GameCardBack label={deckName} onSwipe={nextTurn} />
         </div>
       </div>
     </div>

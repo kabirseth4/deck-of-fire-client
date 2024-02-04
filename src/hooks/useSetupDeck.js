@@ -1,9 +1,10 @@
 import Deck from "card-deck/deck";
 import { useGetDeckDetails } from "./useGetDeckDetails";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export const useSetupDeck = () => {
   const { deckDetails, isLoading, isError } = useGetDeckDetails();
+  const [deckName, setDeckName] = useState(null);
   const gameDeck = useRef(new Deck());
 
   const setupDeck = () => {
@@ -25,8 +26,9 @@ export const useSetupDeck = () => {
   useEffect(() => {
     if (!isLoading) {
       setupDeck();
+      setDeckName(deckDetails.name);
     }
   }, [isLoading]);
 
-  return { gameDeck, isLoading, isError };
+  return { gameDeck, deckName, isLoading, isError };
 };

@@ -1,0 +1,17 @@
+@use "../../styles/utils/mixins" as *;
+@use "../../styles/utils/variables" as *;
+
+.game-card-back {
+  @include game-card;
+  font-size: 3rem;
+  color: $color-background-primary;
+
+  &__container {
+    gap: 0;
+  }
+
+  &__info-container {
+    background-color: $color-brand-secondary;
+    text-align: center;
+  }
+}

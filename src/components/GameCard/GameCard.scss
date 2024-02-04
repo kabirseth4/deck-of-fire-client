@@ -1,5 +1,4 @@
 @use "../../styles/utils/mixins" as *;
-@use "../../styles/utils/variables" as *;
 
 .game-card {
   @include game-card;
