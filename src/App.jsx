@@ -6,7 +6,6 @@ import { DeckDetailsPage } from "./pages/DeckDetailsPage/DeckDetailsPage";
 import { PlayGamePage } from "./pages/PlayGamePage/PlayGamePage";
 import { SetupGamePage } from "./pages/SetupGamePage/SetupGamePage";
 import { RulesPage } from "./pages/RulesPage/RulesPage";
-// import { NavBar } from "./components/NavBar/NavBar";
 import "./App.scss";
 
 export const App = () => {
@@ -22,7 +21,6 @@ export const App = () => {
         <Route path="/decks/:deckId/play/setup" element={<SetupGamePage />} />
         <Route path="/rules" element={<RulesPage />} />
       </Routes>
-      {/* <NavBar /> */}
     </BrowserRouter>
   );
 };

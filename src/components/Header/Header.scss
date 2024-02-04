@@ -2,15 +2,25 @@
 @use "../../styles/utils/variables" as *;
 
 .header {
+  @include flex(row, center, center);
   @include inline-padding;
   background-color: $color-background-primary;
 
   &__logo-link {
-    @include flex(row, center, center);
+    @include flex(row, center, flex-end);
     text-decoration: none;
+    width: fit-content;
+  }
+
+  &__logo-image {
+    height: 4rem;
   }
 
   &__logo {
+    font-size: 1.8rem;
     color: $color-text-primary;
+    margin: 0;
+    padding-right: 1.8rem;
+    padding-bottom: 0.5rem;
   }
 }
