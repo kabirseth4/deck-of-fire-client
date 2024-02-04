@@ -2,4 +2,5 @@
 
 .decks-page {
   @include inline-padding;
+  @include page-buttons;
 }
