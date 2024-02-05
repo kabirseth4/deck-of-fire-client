@@ -1,0 +1,163 @@
+# Deck of Fire
+
+A mobile web app based on the popular drinking game ring of fire with the aim of full customisation and an alternate scoring system that doesn't require drinking.
+
+## Tech Stack & Dependencies
+
+Teck Stack:
+
+- React
+- SASS
+- Axios
+- Vite
+
+Dependencies:
+
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [card-deck](https://www.npmjs.com/package/card-deck)
+- [react-tinder-card](https://www.npmjs.com/package/react-tinder-card)
+
+## Running Locally
+
+### Cloning the project
+
+With SSH
+
+```bash
+  git clone git@github.com:kabirseth4/deck-of-fire-client.git
+```
+
+Or with HTTPS
+
+```bash
+  git clone https://github.com/kabirseth4/deck-of-fire-client.git
+```
+
+### Installing dependencies
+
+Go to the project directory
+
+```bash
+  cd deck-of-fire-client
+```
+
+Install
+
+```bash
+  npm install
+```
+
+### Running
+
+Start locally and on your local network
+
+```bash
+  npm start
+```
+
+Start locally only
+
+```bash
+  npm run dev
+```
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variable to your .env file:
+
+`VITE_APP_BASE_API_URL`
+
+If you are running the project locally this can be set to:
+
+`http://localhost:<server-port-number>`
+
+e.g. `http://localhost:8080`
+
+If you are using the project on another device on the same network, this should be set to:
+
+`http://<device-ip-address>:<server-port-number>`
+
+e.g. `http://192.168.X.XXX:8080`
+
+You can see your device IP address in the terminal when running `npm start`.
+
+## Features & Usage
+
+### Adding a deck
+
+1. On the [Decks page](#decks-page), tap **Add Deck** to go to the [Add deck page](#add-deck-page).
+
+   - Here you can enter a name for your new deck and choose whether or not it is custom and scored.
+
+### Creating a rule
+
+1. On the [Rules page](#rules-page), tap **Create Rule** to bring up the [Create rule modal](#create-rule-modal).
+
+   - Here you can add a name and description for your new rule.
+
+### Adding a rule to a deck
+
+1. On the [Decks page](#decks-page), tap **View Rules** on one of your existing decks to go to the [Deck details page](#deck-details-page).
+
+2. Tap **Add Rule** to bring up the [Add rule to deck modal](#add-rule-to-deck-modal).
+
+   - Here you can select one of your previously created rules.
+   - If you are adding to a _Custom_ and/or _Scored_ deck you will also be required to input a number of occurences and/or a penalty respectively.
+
+If your deck is _Standard_ and already has 13 rules, you will not be able to add any more rules.
+
+### Playing a deck
+
+Once a _Custom_ deck has at least one rule, or exactly 13 rules for a _Standard_ deck, you will have the option to play the deck.
+
+1. Tap either **Play Deck** on the [Deck details page](#deck-details-page) or **Play** on the [Decks page](#decks-page).
+
+   - If this is the first time playing a deck you will be directed to the [Game setup page](#game-setup-page) where you can add your players.
+
+2. Once you have added all your players, tap **Save & Play** to begin the game.
+
+Enjoy!
+
+## Screenshots
+
+### Decks page
+
+<img src="./public/screenshots/decks-page.jpeg" alt="Decks page" width="200" />
+
+### Deck details page
+
+<img src="./public/screenshots/deck-details-page.jpeg" alt="Deck details page" width="200" />
+
+### Add deck page
+
+<img src="./public/screenshots/add-deck-page.jpeg" alt="Add deck page" width="200" />
+
+### Add rule to deck modal
+
+<img src="./public/screenshots/add-rule-to-deck-modal.jpeg" alt="Add rule to deck modal" width="200" />
+
+### Rules page
+
+<img src="./public/screenshots/rules-page.jpeg" alt="Rules page" width="200" />
+
+### Create rule modal
+
+<img src="./public/screenshots/create-rule-modal.jpeg" alt="Create rule modal" width="200" />
+
+### Game setup page
+
+<img src="./public/screenshots/game-setup-page.jpeg" alt="Game setup page" width="200" />
+
+### Game page
+
+<img src="./public/screenshots/game-page-start.jpeg" alt="Game page start" width="200" />
+<img src="./public/screenshots/game-page-playing.jpeg" alt="Game page playing" width="200" />
+
+## Next Steps
+
+1. Implement authentication.
+2. Implement game scoring system.
+3. Add in ability to delete and update decks and rules
+4. Add in default deck and guest flow for users who aren't logged in.
+5. Cache game in local storage so that it doesn't restart on refresh.
+6. Start developing support for rules with more complex logic.
