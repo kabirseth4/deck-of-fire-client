@@ -9,6 +9,7 @@ export const GameCard = ({ card, className, onSwipe }) => {
       }`}
       onSwipe={onSwipe}
     >
+      <div className="game-card__width-forcer" />
       <div className="game-card__container">
         <h3 className="game-card__title">{card.name}</h3>
         <div className="game-card__info-container">

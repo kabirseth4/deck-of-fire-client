@@ -4,13 +4,8 @@
 .game-card-back {
   @include game-card;
   @include block-padding;
-  font-size: 3rem;
   background-color: $color-background-primary;
   background-image: none;
-
-  &__container {
-    gap: 0;
-  }
 
   &__info-container {
     background-color: $color-accent-secondary;
@@ -20,5 +15,6 @@
       $color-accent-secondary 74%
     );
     text-align: center;
+    font-size: 2.5rem;
   }
 }

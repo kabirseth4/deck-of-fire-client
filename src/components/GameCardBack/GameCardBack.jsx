@@ -8,12 +8,11 @@ export const GameCardBack = ({ onSwipe, label, disabled }) => {
       onSwipe={onSwipe}
       preventSwipe={disabled ? ["left", "right", "up", "down"] : []}
     >
+      <div className="game-card__width-forcer" />
       <div className="game-card-back__container">
-        <div className="game-card-back__title" />
         <div className="game-card-back__info-container">
           <p>{label}</p>
         </div>
-        <div className="game-card-back__title" />
       </div>
     </TinderCard>
   );
