@@ -1,6 +1,6 @@
 import "./DeckCards.scss";
 import { CardList } from "../CardList/CardList";
-import { AddDeckCardModal } from "../../components/AddDeckCardModal/AddDeckCardModal";
+import { AddDeckCardModal } from "../AddDeckCardModal/AddDeckCardModal";
 
 export const DeckCards = ({ cards, deckDetails, showModal, setShowModal }) => {
   return (
