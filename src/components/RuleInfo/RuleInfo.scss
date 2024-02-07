@@ -2,11 +2,23 @@
 @use "../../styles/utils/variables" as *;
 
 .rule-info {
-  @include flex($direction: column, $gap: $padding-1x);
-  @include block-padding;
-  @include inline-padding;
-  border: 1px solid $color-border;
+  padding: 4px;
   border-radius: 1rem;
+  background-color: $color-accent-secondary;
+  background-image: linear-gradient(
+    316deg,
+    $color-accent-primary 0%,
+    $color-accent-secondary 40%
+  );
+
+  &__container {
+    @include flex($direction: column, $gap: $padding-1x);
+
+    @include block-padding;
+    @include inline-padding;
+    border-radius: 0.8rem;
+    background-color: $color-background-primary;
+  }
 
   &__title {
     margin: 0;

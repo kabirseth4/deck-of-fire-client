@@ -1,9 +1,11 @@
 @use "../../styles/utils/mixins" as *;
+@use "../../styles/utils/variables" as *;
 
 .rules-page {
   @include block-padding;
   @include inline-padding;
   @include page-buttons;
+  background-color: $color-background-secondary;
 
   &--no-scroll {
     overflow: hidden;
