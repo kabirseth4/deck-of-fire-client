@@ -1,6 +1,6 @@
 @use "../../styles/utils/mixins" as *;
 
 .add-deck-page {
-  @include inline-padding;
+  @include page-padding;
   @include page-buttons;
 }

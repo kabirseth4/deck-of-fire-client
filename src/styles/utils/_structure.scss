@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./utils" as *;
 
 @mixin inline-padding {
   padding-inline: $padding-1x;
@@ -8,10 +9,15 @@
   padding-block: $padding-1x;
 }
 
-@mixin page-padding {
-  padding: $padding-1_5x;
-}
-
 @mixin block-margin {
   margin-block: $padding-1x;
+}
+
+@mixin block-gap($gap: $padding-1x) {
+  @include flex($direction: column, $gap: $gap);
+}
+
+@mixin page-padding {
+  @include block-gap;
+  padding: $padding-1_5x;
 }

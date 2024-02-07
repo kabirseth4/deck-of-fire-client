@@ -13,7 +13,7 @@ export const AddDeckPage = () => {
       <section className="add-deck-page__page-buttons">
         <LinkButton
           to="/decks"
-          className="button--negative add-deck-page__page-button"
+          className="link-button--negative add-deck-page__page-button"
           label="Cancel"
         />
         <Button

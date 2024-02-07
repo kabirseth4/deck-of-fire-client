@@ -5,8 +5,4 @@
   @include page-padding;
   @include page-buttons;
   background-color: $color-background-secondary;
-
-  &__title {
-    margin-block: 0 1rem;
-  }
 }
