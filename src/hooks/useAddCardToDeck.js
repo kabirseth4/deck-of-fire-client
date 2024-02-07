@@ -48,7 +48,7 @@ export const useAddCardToDeck = () => {
       setFormErrors((prevFormErrors) => {
         return {
           ...prevFormErrors,
-          occurences: "Enter a value between 0 and 10",
+          occurences: "Enter a value between 1 and 10",
         };
       });
       isValid = false;
@@ -56,7 +56,7 @@ export const useAddCardToDeck = () => {
 
     if (
       deckDetails.isScored &&
-      (formFields.penalty < 1 || formFields.penalty > 10)
+      (formFields.penalty < 0 || formFields.penalty > 10)
     ) {
       setFormErrors((prevFormErrors) => {
         return {

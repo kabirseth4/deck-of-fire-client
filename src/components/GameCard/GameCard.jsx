@@ -14,7 +14,7 @@ export const GameCard = ({ card, className, onSwipe }) => {
         <h3 className="game-card__title">{card.name}</h3>
         <div className="game-card__info-container">
           <p>{card.description}</p>
-          {card.penalty && <p>Penalty: {card.penalty}</p>}
+          {!!card.penalty && <p>Penalty: {card.penalty}</p>}
         </div>
         <h3 className="game-card__title game-card__title--bottom">
           {card.name}

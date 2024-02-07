@@ -3,9 +3,10 @@
 
 .game-deck {
   @include flex(column, flex-start, center);
-  height: calc(100% - 9.04rem);
+  height: calc(100% - 7.5rem);
 
   &__remaining {
+    font-size: 1.6rem;
     padding-top: $padding-1_5x;
   }
 

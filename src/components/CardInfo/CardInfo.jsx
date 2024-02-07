@@ -15,8 +15,8 @@ export const CardInfo = ({ card, deckDetails }) => {
             )}
             {deckDetails.isCustom && (
               <div className="card-info__info-container">
-                <p className="card-info__info-item">
-                  Occurences: {card.occurences}
+                <p className="card-info__info-item card-info__info-item--bold">
+                  x{card.occurences}
                 </p>
               </div>
             )}

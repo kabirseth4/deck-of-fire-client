@@ -2,7 +2,7 @@
 @use "../../styles/utils/variables" as *;
 
 .card-info {
-  padding: 4px;
+  padding: 5px;
   border-radius: 1rem;
   background-color: $color-accent-secondary;
   background-image: linear-gradient(
@@ -28,12 +28,11 @@
     flex: 1;
   }
 
-  &__info-container {
-    // @include flex(row, space-between, center);
-    // flex: 1;
+  &__info-item {
     font-size: 1.3rem;
-    // height: 3rem;
-    // border: 1px solid $color-text-primary;
-    // border-radius: 5px;
+
+    &--bold {
+      font-weight: 600;
+    }
   }
 }
