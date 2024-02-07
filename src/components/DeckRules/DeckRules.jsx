@@ -5,7 +5,7 @@ import { AddDeckRuleModal } from "../../components/AddDeckRuleModal/AddDeckRuleM
 export const DeckRules = ({ rules, deckDetails, showModal, setShowModal }) => {
   return (
     <section className="deck-rules">
-      <h2>Rules</h2>
+      <h2 className="deck-rules__title">Rules</h2>
       {rules.length > 0 ? (
         <RuleList rules={rules} deckDetails={deckDetails} />
       ) : (

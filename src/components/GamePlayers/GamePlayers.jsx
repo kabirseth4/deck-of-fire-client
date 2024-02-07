@@ -20,32 +20,32 @@ export const GamePlayers = ({
 
   return (
     <section className="game-players">
-      <div className="game-players__header">
-        <h3 className="game-players__title">Next swipe:</h3>
-        <div className="game-players__buttons">
-          <LinkButton
-            to={`/decks/${deckId}`}
-            className="link-button--negative"
-            label="Exit game"
-          />
-          <LinkButton to="setup" label="Edit players" />
+      <div className="game-players__players-container">
+        <h3 className="game-players__players-title">Next swipe:</h3>
+        <div className="game-players__players">
+          {players &&
+            players.map((player, i) => {
+              return (
+                <p
+                  className={`game-players__player${
+                    currentTurn === i ? " game-players__player--current" : ""
+                  }`}
+                  key={i}
+                  ref={scrollRefs.current[i]}
+                >
+                  {player}
+                </p>
+              );
+            })}
         </div>
       </div>
-      <div className="game-players__players">
-        {players &&
-          players.map((player, i) => {
-            return (
-              <p
-                className={`game-players__player${
-                  currentTurn === i ? " game-players__player--current" : ""
-                }`}
-                key={i}
-                ref={scrollRefs.current[i]}
-              >
-                {player}
-              </p>
-            );
-          })}
+      <div className="game-players__buttons">
+        <LinkButton
+          to={`/decks/${deckId}`}
+          className="link-button--negative"
+          label="Exit game"
+        />
+        <LinkButton to="setup" label="Edit players" />
       </div>
     </section>
   );

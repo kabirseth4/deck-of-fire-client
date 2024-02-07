@@ -13,23 +13,27 @@
 
   &__container {
     @include flex($direction: column, $gap: $padding-1x);
-
     @include block-padding;
     @include inline-padding;
     border-radius: 0.8rem;
     background-color: $color-background-primary;
   }
 
+  &__title {
+    font-size: 1.4rem;
+  }
+
   &__info {
-    @include flex($gap: $padding-1x);
-    flex: 3;
+    @include flex($justify: space-between, $gap: $padding-1x);
+    flex: 1;
   }
 
   &__info-container {
-    @include flex(row, center, center);
-    flex: 1;
-    height: 3rem;
-    border: 1px solid $color-text-primary;
-    border-radius: 5px;
+    // @include flex(row, space-between, center);
+    // flex: 1;
+    font-size: 1.3rem;
+    // height: 3rem;
+    // border: 1px solid $color-text-primary;
+    // border-radius: 5px;
   }
 }

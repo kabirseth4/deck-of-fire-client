@@ -6,8 +6,8 @@ export const useAddRuleToDeck = () => {
 
   const [formFields, setFormFields] = useState({
     ruleId: "",
-    occurences: "1",
-    penalty: "1",
+    occurences: "",
+    penalty: "",
   });
   const [formErrors, setFormErrors] = useState({
     ruleId: "",

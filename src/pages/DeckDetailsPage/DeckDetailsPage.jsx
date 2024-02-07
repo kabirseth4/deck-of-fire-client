@@ -3,7 +3,6 @@ import { useGetDeckDetails } from "../../hooks/useGetDeckDetails";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { Button } from "../../components/Button/Button";
 import { DeckRules } from "../../components/DeckRules/DeckRules";
-import backIcon from "../../assets/icons/arrow_back-24px.svg";
 import "./DeckDetailsPage.scss";
 
 export const DeckDetailsPage = () => {

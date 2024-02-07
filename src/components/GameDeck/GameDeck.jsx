@@ -1,7 +1,7 @@
 import { GameCard } from "../GameCard/GameCard";
-import "./GameDeck.scss";
 import { useCards } from "../../hooks/useCards";
 import { GameCardBack } from "../GameCardBack/GameCardBack";
+import "./GameDeck.scss";
 
 export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
   const {

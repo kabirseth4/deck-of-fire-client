@@ -11,6 +11,12 @@
     overflow: hidden;
   }
 
+  &__title {
+    text-align: center;
+    align-self: center;
+    font-size: 3rem;
+  }
+
   &__info {
     @include flex($direction: row, $gap: $padding-1x);
   }
