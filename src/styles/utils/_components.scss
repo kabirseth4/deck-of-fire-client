@@ -1,5 +1,4 @@
 @use "./variables" as *;
-@use "./variables" as *;
 @use "./structure" as *;
 @use "./utils" as *;
 @use "./fonts" as *;
@@ -10,14 +9,19 @@
   width: 100%;
   height: 3rem;
   background-color: $color-brand-primary;
-  color: $color-background-primary;
-  border: none;
+  background-image: linear-gradient(
+    316deg,
+    $color-brand-primary 0%,
+    $color-brand-secondary 74%
+  );
+  color: $color-text-secondary;
   border-radius: 1.5rem;
   text-decoration: none;
   text-transform: capitalize;
   white-space: nowrap;
   padding: 0 1rem;
   cursor: default;
+  font-weight: bold;
 
   &:hover {
     background-color: $color-brand-secondary;
@@ -25,8 +29,9 @@
 
   &--secondary {
     background-color: $color-background-primary;
-    color: $color-text-secondary;
+    color: $color-text-primary;
     border: 1px $color-border solid;
+    background-image: none;
 
     &:hover {
       background-color: $color-background-primary;
@@ -36,11 +41,25 @@
   }
 
   &--negative {
-    background-color: $color-accent-secondary;
+    background-color: $color-negative;
   }
 
   &--play {
-    background-color: $color-accent-primary;
+    background-color: $color-accent-secondary;
+    background-image: linear-gradient(
+      316deg,
+      $color-accent-secondary 0%,
+      $color-accent-primary 74%
+    );
+
+    &:hover {
+      background-color: $color-brand-secondary;
+      background-image: linear-gradient(
+        316deg,
+        $color-accent-primary 0%,
+        $color-accent-secondary 74%
+      );
+    }
   }
 }
 

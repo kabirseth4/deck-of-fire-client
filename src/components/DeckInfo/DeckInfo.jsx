@@ -17,19 +17,19 @@ export const DeckInfo = ({
         <div className="deck-info__info">
           <div className="deck-info__info-container">
             <p className="deck-info__info-item">
-              {isScored ? "Scored" : "Unscored"}
+              {isCustom ? "Custom" : "Standard"}
             </p>
           </div>
           <div className="deck-info__info-container">
             <p className="deck-info__info-item">
-              {isCustom ? "Custom" : "Standard"}
+              {isScored ? "Scored" : "Unscored"}
             </p>
           </div>
         </div>
         <div className="deck-info__buttons">
           <LinkButton
             to={`/decks/${id}`}
-            className={!!isPlayable ? "link-button--secondary" : ""}
+            className="link-button--secondary"
             label="View rules"
           />
           {!!isPlayable && (

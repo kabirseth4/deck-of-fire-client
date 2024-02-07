@@ -8,6 +8,10 @@
   padding-block: $padding-1x;
 }
 
+@mixin page-padding {
+  padding: $padding-1_5x;
+}
+
 @mixin block-margin {
   margin-block: $padding-1x;
 }

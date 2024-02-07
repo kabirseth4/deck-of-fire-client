@@ -1,9 +1,10 @@
 @use "../../styles/utils/mixins" as *;
+@use "../../styles/utils/variables" as *;
 
 .decks-page {
-  @include block-padding;
-  @include inline-padding;
+  @include page-padding;
   @include page-buttons;
+  background-color: $color-background-secondary;
 
   &__title {
     margin-block: 0 1rem;

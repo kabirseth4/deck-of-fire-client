@@ -4,7 +4,7 @@
 .header {
   @include flex(row, center, center);
   @include inline-padding;
-  background-color: $color-background-primary;
+  background-color: $color-background-secondary;
 
   &__logo-link {
     @include flex(row, center, flex-end);

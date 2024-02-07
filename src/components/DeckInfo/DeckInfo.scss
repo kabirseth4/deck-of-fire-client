@@ -5,35 +5,42 @@
   @include flex($direction: column, $gap: $padding-1x);
   @include block-padding;
   @include inline-padding;
-  border: 1px solid $color-border;
   border-radius: 1rem;
+  background-color: $color-brand-primary;
+  background-image: linear-gradient(
+    316deg,
+    $color-brand-secondary 0%,
+    $color-brand-primary 74%
+  );
+  color: $color-text-secondary;
+  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.3);
 
   &__title {
-    margin: 0;
+    font-size: 1.3rem;
   }
 
   &__container {
-    @include flex($gap: $padding-1x);
+    @include flex($direction: column, $gap: $padding-1x);
   }
 
   &__info {
-    @include flex($direction: column, $gap: $padding-1x);
-    flex: 3;
+    @include flex($direction: row, $gap: $padding-1x);
+    flex: 1;
+    width: 100%;
   }
 
   &__info-container {
     @include flex(row, center, center);
-    height: 3rem;
-    border: 1px solid $color-text-primary;
+    flex: 1;
     border-radius: 5px;
   }
 
   &__info-item {
-    margin: 0;
+    font-size: 1.4rem;
   }
 
   &__buttons {
-    @include flex($direction: column, $justify: flex-end, $gap: $padding-1x);
+    @include flex($direction: row, $justify: flex-end, $gap: $padding-1x);
     flex: 2;
   }
 }
