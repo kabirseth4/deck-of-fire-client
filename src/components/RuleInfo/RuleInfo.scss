@@ -20,14 +20,6 @@
     background-color: $color-background-primary;
   }
 
-  &__title {
-    margin: 0;
-  }
-
-  &__description {
-    margin: 0;
-  }
-
   &__info {
     @include flex($gap: $padding-1x);
     flex: 3;
@@ -39,9 +31,5 @@
     height: 3rem;
     border: 1px solid $color-text-primary;
     border-radius: 5px;
-  }
-
-  &__info-item {
-    margin: 0;
   }
 }

@@ -58,7 +58,6 @@ export const DeckDetailsPage = () => {
         <LinkButton
           to="/decks"
           className="button--secondary deck-details-page__page-back-button"
-          image={backIcon}
         />
         {((!isCustom && rules.length < 13) || !!isCustom) && (
           <Button

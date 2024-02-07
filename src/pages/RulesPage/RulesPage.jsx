@@ -29,7 +29,7 @@ export const RulesPage = () => {
       <section className="rules-page__page-buttons">
         <LinkButton
           to="/decks"
-          className="button--secondary rules-page__page-button"
+          className="link-button--secondary rules-page__page-button"
           label="Decks"
         />
         <Button

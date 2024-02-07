@@ -1,9 +1,10 @@
+import "./DeckRules.scss";
 import { RuleList } from "../RuleList/RuleList";
 import { AddDeckRuleModal } from "../../components/AddDeckRuleModal/AddDeckRuleModal";
 
 export const DeckRules = ({ rules, deckDetails, showModal, setShowModal }) => {
   return (
-    <section>
+    <section className="deck-rules">
       <h2>Rules</h2>
       {rules.length > 0 ? (
         <RuleList rules={rules} deckDetails={deckDetails} />

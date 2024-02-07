@@ -1,0 +1,6 @@
+@use "../../styles/utils/mixins" as *;
+@use "../../styles/utils/variables" as *;
+
+.deck-rules {
+  @include flex($direction: column, $gap: $padding-1x);
+}

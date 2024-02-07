@@ -159,7 +159,6 @@
   }
 
   &__title {
-    margin: 0;
     width: 50rem;
 
     &--bottom {
@@ -197,5 +196,15 @@
   &__page-back-button {
     width: 3rem;
     padding: 0;
+    border-color: $color-accent-primary;
+    background-image: url("../../assets/icons/arrow_back-24px.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:hover {
+      background-image: url("../../assets/icons/arrow_back-24px-light.svg");
+      border-color: $color-accent-primary;
+      background-color: $color-accent-primary;
+    }
   }
 }
