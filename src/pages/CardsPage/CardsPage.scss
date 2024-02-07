@@ -1,7 +1,7 @@
 @use "../../styles/utils/mixins" as *;
 @use "../../styles/utils/variables" as *;
 
-.rules-page {
+.cards-page {
   @include page-padding;
   @include page-buttons;
   background-color: $color-background-secondary;

@@ -8,12 +8,12 @@ export const useSetupDeck = () => {
   const gameDeck = useRef(new Deck());
 
   const setupDeck = () => {
-    const cardArr = deckDetails.rules.flatMap((rule) => {
-      const occurences = deckDetails.is_custom ? rule.occurences : 4;
+    const cardArr = deckDetails.cards.flatMap((card) => {
+      const occurences = deckDetails.is_custom ? card.occurences : 4;
 
       const cards = [];
       for (let i = 0; i < occurences; i++) {
-        cards.push({ ...rule, key: `${rule.id}-${i + 1}`, swiped: false });
+        cards.push({ ...card, key: `${card.id}-${i + 1}`, swiped: false });
       }
 
       return cards;

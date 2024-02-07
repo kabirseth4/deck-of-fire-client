@@ -1,5 +1,5 @@
 import { GameCard } from "../GameCard/GameCard";
-import { useCards } from "../../hooks/useCards";
+import { useGameCards } from "../../hooks/useGameCards";
 import { GameCardBack } from "../GameCardBack/GameCardBack";
 import "./GameDeck.scss";
 
@@ -12,7 +12,7 @@ export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
     isError,
     setCardsRemaining,
     updateCard,
-  } = useCards();
+  } = useGameCards();
 
   const scrollToPlayer = (i) => {
     scrollRefs.current[i].current?.scrollIntoView({ behavior: "smooth" });

@@ -1,6 +1,6 @@
 @use "../../styles/utils/mixins" as *;
 
-.create-rule-modal {
+.create-card-modal {
   @include modal;
 
   &__title {

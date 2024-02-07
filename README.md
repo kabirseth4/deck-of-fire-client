@@ -89,26 +89,26 @@ You can see your device IP address in the terminal when running `npm start`.
 
    - Here you can enter a name for your new deck and choose whether or not it is custom and scored.
 
-### Creating a rule
+### Creating a card
 
-1. On the [Rules page](#rules-page), tap **Create Rule** to bring up the [Create rule modal](#create-rule-modal).
+1. On the [Cards page](#cards-page), tap **Create Card** to bring up the [Create card modal](#create-card-modal).
 
-   - Here you can add a name and description for your new rule.
+   - Here you can add a name and description for your new card.
 
-### Adding a rule to a deck
+### Adding a card to a deck
 
-1. On the [Decks page](#decks-page), tap **View Rules** on one of your existing decks to go to the [Deck details page](#deck-details-page).
+1. On the [Decks page](#decks-page), tap **View Cards** on one of your existing decks to go to the [Deck details page](#deck-details-page).
 
-2. Tap **Add Rule** to bring up the [Add rule to deck modal](#add-rule-to-deck-modal).
+2. Tap **Add Card** to bring up the [Add card to deck modal](#add-card-to-deck-modal).
 
-   - Here you can select one of your previously created rules.
+   - Here you can select one of your previously created cards.
    - If you are adding to a _Custom_ and/or _Scored_ deck you will also be required to input a number of occurences and/or a penalty respectively.
 
-If your deck is _Standard_ and already has 13 rules, you will not be able to add any more rules.
+If your deck is _Standard_ and already has 13 cards, you will not be able to add any more cards.
 
 ### Playing a deck
 
-Once a _Custom_ deck has at least one rule, or exactly 13 rules for a _Standard_ deck, you will have the option to play the deck.
+Once a _Custom_ deck has at least one card, or exactly 13 cards for a _Standard_ deck, you will have the option to play the deck.
 
 1. Tap either **Play Deck** on the [Deck details page](#deck-details-page) or **Play** on the [Decks page](#decks-page).
 
@@ -132,17 +132,17 @@ Enjoy!
 
 <img src="./public/screenshots/add-deck-page.jpeg" alt="Add deck page" width="200" />
 
-### Add rule to deck modal
+### Add card to deck modal
 
-<img src="./public/screenshots/add-rule-to-deck-modal.jpeg" alt="Add rule to deck modal" width="200" />
+<img src="./public/screenshots/add-card-to-deck-modal.jpeg" alt="Add card to deck modal" width="200" />
 
-### Rules page
+### Cards page
 
-<img src="./public/screenshots/rules-page.jpeg" alt="Rules page" width="200" />
+<img src="./public/screenshots/cards-page.jpeg" alt="Cards page" width="200" />
 
-### Create rule modal
+### Create card modal
 
-<img src="./public/screenshots/create-rule-modal.jpeg" alt="Create rule modal" width="200" />
+<img src="./public/screenshots/create-card-modal.jpeg" alt="Create card modal" width="200" />
 
 ### Game setup page
 
@@ -157,7 +157,7 @@ Enjoy!
 
 1. Implement authentication.
 2. Implement game scoring system.
-3. Add in ability to delete and update decks and rules
+3. Add in ability to delete and update decks and cards
 4. Add in default deck and guest flow for users who aren't logged in.
 5. Cache game in local storage so that it doesn't restart on refresh.
-6. Start developing support for rules with more complex logic.
+6. Start developing support for cards with more complex logic.

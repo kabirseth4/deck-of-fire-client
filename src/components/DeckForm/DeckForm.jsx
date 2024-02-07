@@ -50,13 +50,13 @@ export const DeckForm = () => {
         </div>
         {!formFields.isCustom && (
           <p className="deck-form__radio-message">
-            A standard deck must have 13 rules, which will occur 4 times each,
+            A standard deck must have 13 cards, which will occur 4 times each,
             like a standard 52 card deck.
           </p>
         )}
         {formFields.isCustom && (
           <p className="deck-form__radio-message">
-            A custom deck can have any number of rules, which can each occur a
+            A custom deck can have any number of cards, which can each occur a
             different amount.
           </p>
         )}
@@ -95,7 +95,7 @@ export const DeckForm = () => {
         )}
         {formFields.isScored && (
           <p className="deck-form__radio-message">
-            A scored deck will include a penalty with each rule.
+            A scored deck will include a penalty with each card.
           </p>
         )}
       </div>

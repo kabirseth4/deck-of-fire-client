@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-export const useCreateRule = () => {
+export const useCreateCard = () => {
   const baseApiUrl = import.meta.env.VITE_APP_BASE_API_URL;
 
   const [formFields, setFormFields] = useState({
@@ -47,12 +47,12 @@ export const useCreateRule = () => {
     return isValid;
   };
 
-  const createRule = async (e) => {
+  const createCard = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) return;
 
-    const ruleToAdd = {
+    const cardToAdd = {
       name: formFields.name,
       description: formFields.description,
     };
@@ -64,7 +64,7 @@ export const useCreateRule = () => {
     };
 
     try {
-      await axios.post(`${baseApiUrl}/users/1/rules`, ruleToAdd, headers);
+      await axios.post(`${baseApiUrl}/users/1/cards`, cardToAdd, headers);
       window.location.reload(false);
     } catch (error) {
       console.error(error);
@@ -76,6 +76,6 @@ export const useCreateRule = () => {
     formErrors,
     inputMaxLengths,
     handleInputChange,
-    createRule,
+    createCard,
   };
 };

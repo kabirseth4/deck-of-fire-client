@@ -1,23 +1,23 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export const useGetRules = () => {
+export const useGetCards = () => {
   const baseApiUrl = import.meta.env.VITE_APP_BASE_API_URL;
 
-  const [rules, setRules] = useState(null);
+  const [cards, setCards] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
-  const getRules = async () => {
-    const allUserRulesUrl = baseApiUrl + "/users/1/rules";
+  const getCards = async () => {
+    const allUserCardsUrl = baseApiUrl + "/users/1/cards";
 
     try {
-      const { data: rulesData } = await axios.get(allUserRulesUrl, {
+      const { data: cardsData } = await axios.get(allUserCardsUrl, {
         headers: {
           Authorization: "1",
         },
       });
-      setRules(rulesData);
+      setCards(cardsData);
     } catch (error) {
       console.error(error);
       setIsError(true);
@@ -27,8 +27,8 @@ export const useGetRules = () => {
   };
 
   useEffect(() => {
-    getRules();
+    getCards();
   }, []);
 
-  return { rules, isLoading, isError };
+  return { cards, isLoading, isError };
 };

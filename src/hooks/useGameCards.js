@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSetupDeck } from "./useSetupDeck";
 
-export const useCards = () => {
+export const useGameCards = () => {
   const { gameDeck, deckName, isLoading, isError } = useSetupDeck();
   const [openedCards, setOpenedCards] = useState([]);
   const [cardsRemaining, setCardsRemaining] = useState(null);

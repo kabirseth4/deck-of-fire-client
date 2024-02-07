@@ -11,9 +11,9 @@ export const DecksPage = () => {
       </main>
       <section className="decks-page__page-buttons">
         <LinkButton
-          to="/rules"
+          to="/cards"
           className="button--secondary decks-page__page-button"
-          label="Rules"
+          label="Cards"
         />
         <LinkButton
           to="/decks/add"

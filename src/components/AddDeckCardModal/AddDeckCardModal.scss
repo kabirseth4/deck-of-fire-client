@@ -1,6 +1,6 @@
 @use "../../styles/utils/mixins" as *;
 
-.add-deck-rule {
+.add-deck-card {
   @include modal;
 
   &__title {

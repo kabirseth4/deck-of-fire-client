@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useGetDeckDetails } from "../../hooks/useGetDeckDetails";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { Button } from "../../components/Button/Button";
-import { DeckRules } from "../../components/DeckRules/DeckRules";
+import { DeckCards } from "../../components/DeckCards/DeckCards";
 import "./DeckDetailsPage.scss";
 
 export const DeckDetailsPage = () => {
@@ -19,7 +19,7 @@ export const DeckDetailsPage = () => {
     is_scored: isScored,
     is_custom: isCustom,
     is_playable: isPlayable,
-    rules,
+    cards,
   } = deckDetails;
 
   return (
@@ -42,8 +42,8 @@ export const DeckDetailsPage = () => {
             </p>
           </div>
         </div>
-        <DeckRules
-          rules={rules}
+        <DeckCards
+          cards={cards}
           deckDetails={{
             id,
             isScored: Boolean(isScored),
@@ -58,9 +58,9 @@ export const DeckDetailsPage = () => {
           to="/decks"
           className="button--secondary deck-details-page__page-back-button"
         />
-        {((!isCustom && rules.length < 13) || !!isCustom) && (
+        {((!isCustom && cards.length < 13) || !!isCustom) && (
           <Button
-            label="Add rule"
+            label="Add card"
             className={`deck-details-page__page-button${
               !!isPlayable ? " button--secondary" : ""
             }`}

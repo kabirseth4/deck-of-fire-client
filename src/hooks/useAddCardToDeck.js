@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
 
-export const useAddRuleToDeck = () => {
+export const useAddCardToDeck = () => {
   const baseApiUrl = import.meta.env.VITE_APP_BASE_API_URL;
 
   const [formFields, setFormFields] = useState({
-    ruleId: "",
+    cardId: "",
     occurences: "",
     penalty: "",
   });
   const [formErrors, setFormErrors] = useState({
-    ruleId: "",
+    cardId: "",
     occurences: "",
     penalty: "",
   });
@@ -18,7 +18,7 @@ export const useAddRuleToDeck = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "ruleId" || value >= 0) {
+    if (name === "cardId" || value >= 0) {
       setFormFields((prevFormFields) => {
         return { ...prevFormFields, [name]: value };
       });
@@ -31,11 +31,11 @@ export const useAddRuleToDeck = () => {
   const validateForm = (deckDetails) => {
     let isValid = true;
 
-    if (!formFields.ruleId) {
+    if (!formFields.cardId) {
       setFormErrors((prevFormErrors) => {
         return {
           ...prevFormErrors,
-          ruleId: "This field is required",
+          cardId: "This field is required",
         };
       });
       isValid = false;
@@ -70,16 +70,16 @@ export const useAddRuleToDeck = () => {
     return isValid;
   };
 
-  const addRuleToDeck = async (e, deckDetails) => {
+  const addCardToDeck = async (e, deckDetails) => {
     e.preventDefault();
 
     if (!validateForm(deckDetails)) return;
 
-    const ruleToAdd = {
-      rule_id: formFields.ruleId,
+    const cardToAdd = {
+      card_id: formFields.cardId,
     };
-    if (deckDetails.isCustom) ruleToAdd.occurences = formFields.occurences;
-    if (deckDetails.isScored) ruleToAdd.penalty = formFields.penalty;
+    if (deckDetails.isCustom) cardToAdd.occurences = formFields.occurences;
+    if (deckDetails.isScored) cardToAdd.penalty = formFields.penalty;
 
     const headers = {
       headers: {
@@ -89,8 +89,8 @@ export const useAddRuleToDeck = () => {
 
     try {
       await axios.post(
-        `${baseApiUrl}/users/1/decks/${deckDetails.id}/rules`,
-        [ruleToAdd],
+        `${baseApiUrl}/users/1/decks/${deckDetails.id}/cards`,
+        [cardToAdd],
         headers
       );
       window.location.reload(false);
@@ -103,6 +103,6 @@ export const useAddRuleToDeck = () => {
     formFields,
     formErrors,
     handleInputChange,
-    addRuleToDeck,
+    addCardToDeck,
   };
 };

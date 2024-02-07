@@ -1,28 +1,28 @@
 import { useEffect, useState } from "react";
-import { useAddRuleToDeck } from "../../hooks/useAddRuleToDeck";
-import { useGetRules } from "../../hooks/useGetRules";
+import { useAddCardToDeck } from "../../hooks/useAddCardToDeck";
+import { useGetCards } from "../../hooks/useGetCards";
 import { Select } from "../Select/Select";
 import { ModalFormButtons } from "../ModalFormButtons/ModalFormButtons";
 import { NumberInput } from "../NumberInput/NumberInput";
-import "./AddDeckRuleModal.scss";
+import "./AddDeckCardModal.scss";
 
-export const AddDeckRuleModal = ({
+export const AddDeckCardModal = ({
   setShowModal,
-  existingRules,
+  existingCards,
   deckDetails,
 }) => {
-  const { rules: allRules, isLoading, isError } = useGetRules();
+  const { cards: allCards, isLoading, isError } = useGetCards();
   const [options, setOptions] = useState([]);
-  const { formFields, formErrors, handleInputChange, addRuleToDeck } =
-    useAddRuleToDeck();
+  const { formFields, formErrors, handleInputChange, addCardToDeck } =
+    useAddCardToDeck();
 
   useEffect(() => {
     if (!isLoading) {
-      const existingRuleIds = existingRules.map(({ id }) => id);
-      const ruleOptions = allRules
-        .filter(({ id }) => !existingRuleIds.includes(id))
+      const existingCardIds = existingCards.map(({ id }) => id);
+      const cardOptions = allCards
+        .filter(({ id }) => !existingCardIds.includes(id))
         .map(({ id, name }) => ({ value: id, name }));
-      setOptions(ruleOptions);
+      setOptions(cardOptions);
     }
   }, [isLoading]);
 
@@ -31,33 +31,33 @@ export const AddDeckRuleModal = ({
 
   return (
     <section
-      className="add-deck-rule"
+      className="add-deck-card"
       onClick={() => {
         setShowModal(false);
       }}
     >
       <form
-        className="add-deck-rule__container"
+        className="add-deck-card__container"
         onSubmit={(e) => {
-          addRuleToDeck(e, deckDetails);
+          addCardToDeck(e, deckDetails);
         }}
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
-        <h1 className="add-deck-rule__title">Add rule to deck</h1>
+        <h1 className="add-deck-card__title">Add card to deck</h1>
         <Select
-          label="Select an existing rule"
-          name="ruleId"
-          value={formFields.ruleId}
-          error={formErrors.ruleId}
+          label="Select an existing card"
+          name="cardId"
+          value={formFields.cardId}
+          error={formErrors.cardId}
           onChange={handleInputChange}
           options={options}
         />
-        {formFields.ruleId && (
-          <p className="add-deck-rule__description">
+        {formFields.cardId && (
+          <p className="add-deck-card__description">
             {
-              allRules.find((rule) => String(rule.id) === formFields.ruleId)
+              allCards.find((card) => String(card.id) === formFields.cardId)
                 .description
             }
           </p>
@@ -80,7 +80,7 @@ export const AddDeckRuleModal = ({
             onChange={handleInputChange}
           />
         )}
-        <ModalFormButtons setShowModal={setShowModal} submitLabel="Add rule" />
+        <ModalFormButtons setShowModal={setShowModal} submitLabel="Add card" />
       </form>
     </section>
   );

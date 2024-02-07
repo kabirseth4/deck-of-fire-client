@@ -1,7 +1,7 @@
 @use "../../styles/utils/mixins" as *;
 @use "../../styles/utils/variables" as *;
 
-.rule-list {
+.card-list {
   @include flex($direction: column, $gap: $padding-1x);
   list-style: none;
   padding: 0;

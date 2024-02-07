@@ -1,35 +1,35 @@
-import { useCreateRule } from "../../hooks/useCreateRule";
+import { useCreateCard } from "../../hooks/useCreateCard";
 import { ModalFormButtons } from "../ModalFormButtons/ModalFormButtons";
 import { TextInput } from "../TextInput/TextInput";
 import { Textarea } from "../Textarea/Textarea";
-import "./CreateRuleModal.scss";
+import "./CreateCardModal.scss";
 
-export const CreateRuleModal = ({ setShowModal }) => {
+export const CreateCardModal = ({ setShowModal }) => {
   const {
     formFields,
     formErrors,
     inputMaxLengths,
     handleInputChange,
-    createRule,
-  } = useCreateRule();
+    createCard,
+  } = useCreateCard();
 
   return (
     <section
-      className="create-rule-modal"
+      className="create-card-modal"
       onClick={() => {
         setShowModal(false);
       }}
     >
       <form
-        className="create-rule-modal__container"
-        onSubmit={createRule}
+        className="create-card-modal__container"
+        onSubmit={createCard}
         onClick={(e) => {
           e.stopPropagation();
         }}
       >
-        <h1 className="create-rule-modal__title">Add rule</h1>
+        <h1 className="create-card-modal__title">Add card</h1>
         <TextInput
-          label="Rule name"
+          label="Card name"
           name="name"
           value={formFields.name}
           error={formErrors.name}
@@ -46,7 +46,7 @@ export const CreateRuleModal = ({ setShowModal }) => {
         />
         <ModalFormButtons
           setShowModal={setShowModal}
-          submitLabel="Create rule"
+          submitLabel="Create card"
         />
       </form>
     </section>
