@@ -10,7 +10,7 @@ export const GameCardBack = ({ onSwipe, label, disabled }) => {
     >
       <div className="game-card__width-forcer" />
       <div className="game-card-back__container">
-        <div className="game-card-back__info-container">
+        <div className="game-card-back__info-container" lang="en">
           <p>{label}</p>
         </div>
       </div>
