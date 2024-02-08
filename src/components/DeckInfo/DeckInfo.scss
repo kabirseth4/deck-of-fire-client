@@ -1,5 +1,6 @@
 @use "../../styles/utils/mixins" as *;
 @use "../../styles/utils/variables" as *;
+@use "../../styles/base/typography";
 
 .deck-info {
   @include flex($direction: column, $gap: $padding-1x);
@@ -16,7 +17,7 @@
   box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.3);
 
   &__title {
-    font-size: 1.3rem;
+    @include card-font(1.3rem);
   }
 
   &__container {

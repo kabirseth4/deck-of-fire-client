@@ -9,16 +9,12 @@ export const CardInfo = ({ card, deckDetails }) => {
         {deckDetails && (deckDetails.isCustom || deckDetails.isScored) && (
           <div className="card-info__info">
             {deckDetails.isScored && (
-              <div className="card-info__info-container">
-                <p className="card-info__info-item">Penalty: {card.penalty}</p>
-              </div>
+              <p className="card-info__info-item">Penalty: {card.penalty}</p>
             )}
             {deckDetails.isCustom && (
-              <div className="card-info__info-container">
-                <p className="card-info__info-item card-info__info-item--bold">
-                  x{card.occurences}
-                </p>
-              </div>
+              <p className="card-info__info-item card-info__info-item--occurences">
+                x{card.occurences}
+              </p>
             )}
           </div>
         )}

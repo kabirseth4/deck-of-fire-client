@@ -4,6 +4,7 @@
 .header {
   @include flex(row, center, center);
   @include inline-padding;
+  padding-top: $padding-1x;
   background-color: $color-background-secondary;
 
   &__logo-link {
@@ -13,14 +14,12 @@
   }
 
   &__logo-image {
-    height: 4rem;
+    height: 2.5rem;
+    padding-bottom: 0.15rem;
   }
 
   &__logo {
-    font-size: 1.8rem;
+    @include card-font(1.8rem);
     color: $color-text-primary;
-    margin: 0;
-    padding-right: 1.8rem;
-    padding-bottom: 0.5rem;
   }
 }

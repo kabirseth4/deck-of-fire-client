@@ -12,9 +12,9 @@
   }
 
   &__title {
+    @include card-font(2.8rem);
     text-align: center;
     align-self: center;
-    font-size: 3rem;
   }
 
   &__info {

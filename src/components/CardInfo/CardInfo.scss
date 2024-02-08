@@ -20,19 +20,21 @@
   }
 
   &__title {
-    font-size: 1.4rem;
+    @include card-font(1.4rem);
   }
 
   &__info {
-    @include flex($justify: space-between, $gap: $padding-1x);
+    @include flex($gap: $padding-1x);
     flex: 1;
   }
 
   &__info-item {
     font-size: 1.3rem;
 
-    &--bold {
-      font-weight: 600;
+    &--occurences {
+      font-weight: 700;
+      flex: 1;
+      text-align: end;
     }
   }
 }

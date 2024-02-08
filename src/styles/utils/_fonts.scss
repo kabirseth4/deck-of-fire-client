@@ -1,3 +1,11 @@
+@use "../base/typography";
+
+@mixin card-font($font-size: 1rem) {
+  font-family: Card Char;
+  font-size: $font-size;
+  word-spacing: calc($font-size / -3);
+}
+
 @mixin font-header-xl {
   font-size: 1.75rem;
   line-height: 2.25rem;

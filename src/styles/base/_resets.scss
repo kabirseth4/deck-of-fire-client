@@ -1,3 +1,5 @@
+@use "./typography";
+
 *,
 *::before,
 *::after {
@@ -8,6 +10,6 @@
 
 html,
 body {
-  font-family: sans-serif;
+  font-family: Karla, sans-serif;
   height: 100dvh;
 }
