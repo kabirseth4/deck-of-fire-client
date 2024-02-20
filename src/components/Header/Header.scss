@@ -2,15 +2,19 @@
 @use "../../styles/utils/variables" as *;
 
 .header {
-  @include flex(row, center, center);
-  @include inline-padding;
-  padding-top: $padding-1x;
+  @include flex(row, space-between, center);
+  padding: $padding-1x $padding-1_5x 0 $padding-1_5x;
   background-color: $color-background-secondary;
+
+  &--center {
+    justify-content: center;
+  }
 
   &__logo-link {
     @include flex(row, center, flex-end);
     text-decoration: none;
     width: fit-content;
+    padding-bottom: 7.5px;
   }
 
   &__logo-image {
@@ -19,7 +23,7 @@
   }
 
   &__logo {
-    @include card-font(1.8rem);
+    @include card-font(1.7rem);
     color: $color-text-primary;
   }
 }
