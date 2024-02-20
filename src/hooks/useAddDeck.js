@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const useAddDeck = () => {
-  const baseApiUrl = import.meta.env.VITE_APP_BASE_API_URL;
   const navigate = useNavigate();
 
   const [formFields, setFormFields] = useState({
@@ -74,19 +73,8 @@ export const useAddDeck = () => {
       is_scored: formFields.isScored,
     };
 
-    const headers = {
-      headers: {
-        Authorization: "1",
-      },
-    };
-
     try {
-      const { data: newDeck } = await axios.post(
-        `${baseApiUrl}/users/1/decks`,
-        deckToAdd,
-        headers
-      );
-
+      const { data: newDeck } = await axios.post("/decks", deckToAdd);
       navigate(`/decks/${newDeck.id}`);
     } catch (error) {
       console.error(error);

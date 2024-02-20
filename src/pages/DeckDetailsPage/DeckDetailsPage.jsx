@@ -56,7 +56,7 @@ export const DeckDetailsPage = () => {
       <section className="deck-details-page__page-buttons">
         <LinkButton
           to="/decks"
-          className="button--secondary deck-details-page__page-back-button"
+          className="link-button--secondary deck-details-page__page-back-button"
         />
         {((!isCustom && cards.length < 13) || !!isCustom) && (
           <Button

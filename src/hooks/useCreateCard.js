@@ -2,8 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 
 export const useCreateCard = () => {
-  const baseApiUrl = import.meta.env.VITE_APP_BASE_API_URL;
-
   const [formFields, setFormFields] = useState({
     name: "",
     description: "",
@@ -57,14 +55,8 @@ export const useCreateCard = () => {
       description: formFields.description,
     };
 
-    const headers = {
-      headers: {
-        Authorization: "1",
-      },
-    };
-
     try {
-      await axios.post(`${baseApiUrl}/users/1/cards`, cardToAdd, headers);
+      await axios.post("/cards", cardToAdd);
       window.location.reload(false);
     } catch (error) {
       console.error(error);

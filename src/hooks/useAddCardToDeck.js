@@ -2,8 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 
 export const useAddCardToDeck = () => {
-  const baseApiUrl = import.meta.env.VITE_APP_BASE_API_URL;
-
   const [formFields, setFormFields] = useState({
     cardId: "",
     occurences: "",
@@ -81,18 +79,8 @@ export const useAddCardToDeck = () => {
     if (deckDetails.isCustom) cardToAdd.occurences = formFields.occurences;
     if (deckDetails.isScored) cardToAdd.penalty = formFields.penalty;
 
-    const headers = {
-      headers: {
-        Authorization: "1",
-      },
-    };
-
     try {
-      await axios.post(
-        `${baseApiUrl}/users/1/decks/${deckDetails.id}/cards`,
-        [cardToAdd],
-        headers
-      );
+      await axios.post(`/decks/${deckDetails.id}/cards`, [cardToAdd]);
       window.location.reload(false);
     } catch (error) {
       console.error(error);
