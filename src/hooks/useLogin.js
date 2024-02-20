@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../providers/authProvider";
+import { validateEmail } from "../utils/validation.utils";
 
 export const useLogin = () => {
   const { setUser } = useAuth();
@@ -15,18 +16,28 @@ export const useLogin = () => {
     email: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
     setFormFields((prevFormFields) => ({ ...prevFormFields, [name]: value }));
     setFormErrors((prevFormErrors) => ({ ...prevFormErrors, [name]: "" }));
+    setErrorMessage("");
   };
 
   const validateForm = () => {
     let isValid = true;
 
-    for (let field in formFields) {
+    if (!validateEmail(formFields.email)) {
+      setFormErrors((prevFormErrors) => ({
+        ...prevFormErrors,
+        email: "Email should be a valid format.",
+      }));
+      isValid = false;
+    }
+
+    for (const field in formFields) {
       if (!formFields[field]) {
         setFormErrors((prevFormErrors) => ({
           ...prevFormErrors,
@@ -58,8 +69,17 @@ export const useLogin = () => {
       navigate("/");
     } catch (error) {
       console.error(error);
+      if (error.response.status === 401) {
+        setErrorMessage("Invalid email or password.");
+      }
     }
   };
 
-  return { formFields, formErrors, handleInputChange, handleLogin };
+  return {
+    formFields,
+    formErrors,
+    errorMessage,
+    handleInputChange,
+    handleLogin,
+  };
 };

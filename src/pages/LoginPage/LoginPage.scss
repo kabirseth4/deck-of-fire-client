@@ -1,5 +1,32 @@
 @use "../../styles/utils/mixins" as *;
+@use "../../styles/utils/variables" as *;
 
 .login-page {
+  @include page-padding;
   @include flex(row, center, center);
+  background-color: $color-background-secondary;
+
+  &__container {
+    background-color: $color-brand-primary;
+    background-image: linear-gradient(
+      316deg,
+      $color-brand-secondary 0%,
+      $color-brand-primary 74%
+    );
+    border-radius: 1rem;
+    padding: 5px;
+  }
+
+  &__form {
+    @include flex($direction: column, $gap: $padding-1x);
+    @include block-padding;
+    @include inline-padding;
+    border-radius: 0.8rem;
+    background-color: $color-background-primary;
+  }
+
+  &__error {
+    align-self: center;
+    color: $color-negative;
+  }
 }
