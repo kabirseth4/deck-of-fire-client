@@ -1,6 +1,7 @@
 import "./TextInput.scss";
 
 export const TextInput = ({
+  type,
   label,
   name,
   placeholder,
@@ -17,7 +18,7 @@ export const TextInput = ({
           className={`text-input__input${
             error ? " text-input__input--error" : ""
           }`}
-          type="text"
+          type={type || "text"}
           name={name}
           placeholder={placeholder || label}
           value={value}

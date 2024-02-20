@@ -8,19 +8,22 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
   useEffect(() => {
-    if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      localStorage.setItem("token", token);
+    if (user) {
+      localStorage.setItem("user", JSON.stringify(user));
+      axios.defaults.baseURL =
+        import.meta.env.VITE_APP_BASE_API_URL + "/users/" + user.id + "/";
+      axios.defaults.headers.common["Authorization"] = "Bearer " + user.token;
     } else {
+      localStorage.removeItem("user");
+      delete axios.defaults.baseUrl;
       delete axios.defaults.headers.common["Authorization"];
-      localStorage.removeItem("token");
     }
-  }, [token]);
+  }, [user]);
 
-  const contextValue = useMemo(() => ({ token, setToken }), [token]);
+  const contextValue = useMemo(() => ({ user, setUser }), [user]);
 
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>

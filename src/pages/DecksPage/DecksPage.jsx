@@ -12,7 +12,7 @@ export const DecksPage = () => {
       <section className="decks-page__page-buttons">
         <LinkButton
           to="/cards"
-          className="button--secondary decks-page__page-button"
+          className="link-button--secondary decks-page__page-button"
           label="Cards"
         />
         <LinkButton

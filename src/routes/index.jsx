@@ -15,7 +15,7 @@ import { SetupGamePage } from "../pages/SetupGamePage/SetupGamePage";
 import { CardsPage } from "../pages/CardsPage/CardsPage";
 
 export const Routes = () => {
-  const { token } = useAuth();
+  const { user } = useAuth();
 
   const publicRoutes = [];
 
@@ -70,7 +70,7 @@ export const Routes = () => {
 
   const router = createBrowserRouter([
     ...publicRoutes,
-    ...(!token ? noAuthRoutes : []),
+    ...(!user ? noAuthRoutes : []),
     ...authRoutes,
   ]);
 
