@@ -1,0 +1,5 @@
+@use "../../styles/utils/mixins" as *;
+
+.login-page {
+  @include flex(row, center, center);
+}
