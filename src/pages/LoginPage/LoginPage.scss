@@ -18,11 +18,23 @@
   }
 
   &__form {
-    @include flex($direction: column, $gap: $padding-1x);
+    @include flex($direction: column);
     @include block-padding;
     @include inline-padding;
     border-radius: 0.8rem;
     background-color: $color-background-primary;
+  }
+
+  &__input {
+    margin-bottom: $padding-1x;
+    max-height: 6rem;
+    transition: max-height 0.3s ease-out;
+
+    &--hidden {
+      margin: 0;
+      max-height: 0px;
+      overflow: hidden;
+    }
   }
 
   &__error {

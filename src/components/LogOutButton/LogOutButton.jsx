@@ -1,16 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../providers/authProvider";
+import { useAuthenticateUser } from "../../hooks/useAuthenticateUser";
 import { Button } from "../Button/Button";
 import "./LogOutButton.scss";
 
 export const LogOutButton = () => {
-  const { setUser } = useAuth();
-  const navigate = useNavigate();
-
-  const handleLogOut = () => {
-    setUser(null);
-    navigate("/");
-  };
+  const { handleLogOut } = useAuthenticateUser();
 
   return (
     <Button

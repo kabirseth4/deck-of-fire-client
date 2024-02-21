@@ -2,6 +2,7 @@ import "./TextInput.scss";
 
 export const TextInput = ({
   type,
+  className,
   label,
   name,
   placeholder,
@@ -9,9 +10,11 @@ export const TextInput = ({
   error,
   onChange,
   count,
+  disabled,
+  tabIndex,
 }) => {
   return (
-    <div className="text-input">
+    <div className={`text-input${className ? ` ${className}` : ""}`}>
       <label className="text-input__label">
         {label}
         <input
@@ -23,6 +26,8 @@ export const TextInput = ({
           placeholder={placeholder || label}
           value={value}
           onChange={onChange}
+          disabled={disabled}
+          tabIndex={tabIndex || 0}
         />
       </label>
       <div className="text-input__validation">
