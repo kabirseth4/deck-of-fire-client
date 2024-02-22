@@ -18,7 +18,7 @@
   }
 
   &__form {
-    @include flex($direction: column);
+    @include flex($direction: column, $gap: $padding-1x);
     @include block-padding;
     @include inline-padding;
     border-radius: 0.8rem;
@@ -26,13 +26,11 @@
   }
 
   &__input {
-    margin-bottom: $padding-1x;
-    max-height: 6rem;
-    transition: max-height 0.3s ease-out;
+    height: 5.6rem;
+    transition: height 0.3s ease-out;
 
     &--hidden {
-      margin: 0;
-      max-height: 0px;
+      height: 0;
       overflow: hidden;
     }
   }
@@ -40,5 +38,18 @@
   &__error {
     align-self: center;
     color: $color-negative;
+  }
+
+  &__toggle {
+    @include flex;
+  }
+
+  &__button-link {
+    border: none;
+    background-color: transparent;
+    color: $color-accent-primary;
+    padding: 0;
+    text-decoration: underline;
+    font-size: 1rem;
   }
 }

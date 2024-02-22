@@ -80,7 +80,7 @@
 }
 
 @mixin form-input {
-  @include block-gap(0.5rem);
+  @include block-gap(0.3rem);
 
   &__label {
     @include block-gap(0.5rem);
@@ -111,6 +111,8 @@
 
   &__validation {
     @include flex(row, space-between);
+    font-size: 0.8rem;
+    line-height: 0.8rem;
   }
 
   &__error {

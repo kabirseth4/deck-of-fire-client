@@ -31,12 +31,10 @@ export const TextInput = ({
         />
       </label>
       <div className="text-input__validation">
-        {count && (
-          <p className="text-input__count">
-            {value.length}/{count}
-          </p>
-        )}
-        {error && <p className="text-input__error">{error}</p>}
+        <p className="text-input__count">
+          {count ? `${value.length}/${count}` : ""}
+        </p>
+        <p className="text-input__error">{error ? error : ""}</p>
       </div>
     </div>
   );

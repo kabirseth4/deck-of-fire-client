@@ -8,19 +8,22 @@ export const useAuthenticateUser = () => {
   const { setUser } = useAuth();
   const navigate = useNavigate();
 
-  const [formFields, setFormFields] = useState({
+  const [isLoggingIn, setIsLoggingIn] = useState(true);
+
+  const fields = {
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
-  });
-  const [formErrors, setFormErrors] = useState({
-    username: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
+  };
+  const [formFields, setFormFields] = useState({ ...fields });
+  const [formErrors, setFormErrors] = useState({ ...fields });
   const [errorMessage, setErrorMessage] = useState("");
+
+  const toggleLoggingIn = () => {
+    setIsLoggingIn((prev) => !prev);
+    setFormErrors({ ...fields });
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -131,9 +134,11 @@ export const useAuthenticateUser = () => {
   };
 
   return {
+    isLoggingIn,
     formFields,
     formErrors,
     errorMessage,
+    toggleLoggingIn,
     handleInputChange,
     handleLogin,
     handleLogOut,
