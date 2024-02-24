@@ -8,6 +8,7 @@ export const LoginPage = () => {
     isLoggingIn,
     formFields,
     formErrors,
+    inputMaxLengths,
     errorMessage,
     toggleLoggingIn,
     handleInputChange,
@@ -34,6 +35,7 @@ export const LoginPage = () => {
               name="username"
               value={formFields.username}
               error={formErrors.username}
+              count={inputMaxLengths.username}
               onChange={handleInputChange}
               tabIndex={isLoggingIn ? -1 : 0}
               disabled={isLoggingIn}
@@ -47,7 +49,7 @@ export const LoginPage = () => {
               onChange={handleInputChange}
             />
             <TextInput
-              className="login-page__input"
+              className="login-page__input login-page__input--password"
               type="password"
               label="Password"
               name="password"
@@ -56,7 +58,7 @@ export const LoginPage = () => {
               onChange={handleInputChange}
             />
             <TextInput
-              className={`login-page__input${
+              className={`login-page__input login-page__input--password${
                 isLoggingIn ? " login-page__input--hidden" : ""
               }`}
               type="password"

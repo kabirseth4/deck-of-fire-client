@@ -7,6 +7,8 @@
   background-color: $color-background-secondary;
 
   &__container {
+    width: 100%;
+    max-width: 24rem;
     background-color: $color-brand-primary;
     background-image: linear-gradient(
       316deg,
@@ -28,6 +30,16 @@
   &__input {
     height: 5.6rem;
     transition: height 0.3s ease-out;
+
+    &--password {
+      input {
+        letter-spacing: 3px;
+
+        &::placeholder {
+          letter-spacing: normal;
+        }
+      }
+    }
 
     &--hidden {
       height: 0;
