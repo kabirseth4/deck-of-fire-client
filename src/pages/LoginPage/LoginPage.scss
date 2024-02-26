@@ -52,10 +52,6 @@
     color: $color-negative;
   }
 
-  &__toggle {
-    @include flex;
-  }
-
   &__button-link {
     border: none;
     background-color: transparent;
@@ -63,5 +59,6 @@
     padding: 0;
     text-decoration: underline;
     font-size: 1rem;
+    cursor: pointer;
   }
 }

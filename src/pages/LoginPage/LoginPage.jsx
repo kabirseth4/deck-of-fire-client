@@ -72,11 +72,9 @@ export const LoginPage = () => {
             />
           </div>
           {errorMessage && <p className="login-page__error">{errorMessage}</p>}
-          <div className="login-page__toggle">
-            <p className="login-page__toggle-message">
-              {isLoggingIn ? "New to Deck of Fire?" : "Have an account?"}
-              &nbsp;
-            </p>
+          <p>
+            {isLoggingIn ? "New to Deck of Fire?" : "Have an account?"}
+            &nbsp;
             <button
               className="login-page__button-link"
               type="button"
@@ -84,7 +82,7 @@ export const LoginPage = () => {
             >
               {isLoggingIn ? "Register" : "Log in"}
             </button>
-          </div>
+          </p>
           <Button label={isLoggingIn ? "Log in" : "Register"} />
         </form>
       </div>
