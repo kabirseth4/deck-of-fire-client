@@ -1,4 +1,7 @@
 import {
+  BrowserRouter,
+  Routes,
+  Route,
   Navigate,
   RouterProvider,
   createBrowserRouter,
@@ -14,7 +17,7 @@ import { PlayGamePage } from "../pages/PlayGamePage/PlayGamePage";
 import { SetupGamePage } from "../pages/SetupGamePage/SetupGamePage";
 import { CardsPage } from "../pages/CardsPage/CardsPage";
 
-export const Routes = () => {
+export const Router = () => {
   const { user } = useAuth();
 
   const publicRoutes = [];
@@ -23,56 +26,77 @@ export const Routes = () => {
     {
       path: "/login",
       element: (
-        <>
-          <Header />
-          <LoginPage />
-        </>
+        // <>
+        //   <Header />
+        <LoginPage />
+        // </>
       ),
     },
   ];
 
   const authRoutes = [
+    // {
+    //   path: "/",
+    //   element: <ProtectedRoute />,
+    //   children: [
     {
       path: "/",
-      element: <ProtectedRoute />,
-      children: [
-        {
-          path: "/",
-          element: <Navigate to="/decks" />,
-        },
-        {
-          path: "/decks",
-          element: <DecksPage />,
-        },
-        {
-          path: "/decks/add",
-          element: <AddDeckPage />,
-        },
-        {
-          path: "/decks/:deckId",
-          element: <DeckDetailsPage />,
-        },
-        {
-          path: "/decks/:deckId/play",
-          element: <PlayGamePage />,
-        },
-        {
-          path: "/decks/:deckId/play/setup",
-          element: <SetupGamePage />,
-        },
-        {
-          path: "/cards",
-          element: <CardsPage />,
-        },
-      ],
+      element: <Navigate to="/decks" />,
     },
+    {
+      path: "/decks",
+      element: <DecksPage />,
+    },
+    {
+      path: "/decks/add",
+      element: <AddDeckPage />,
+    },
+    {
+      path: "/decks/:deckId",
+      element: <DeckDetailsPage />,
+    },
+    {
+      path: "/decks/:deckId/play",
+      element: <PlayGamePage />,
+    },
+    {
+      path: "/decks/:deckId/play/setup",
+      element: <SetupGamePage />,
+    },
+    {
+      path: "/cards",
+      element: <CardsPage />,
+    },
+    //   ],
+    // },
   ];
 
-  const router = createBrowserRouter([
-    ...publicRoutes,
-    ...(!user ? noAuthRoutes : []),
-    ...authRoutes,
-  ]);
+  // const router = createBrowserRouter([
+  //   ...publicRoutes,
+  //   ...(!user ? noAuthRoutes : []),
+  //   ...authRoutes,
+  // ]);
 
-  return <RouterProvider router={router} />;
+  // return <RouterProvider router={router} />;
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        {noAuthRoutes.map(({ path, element }) => {
+          return user ? (
+            <Route key={path} path={path} element={<Navigate to="/" />} />
+          ) : (
+            <Route key={path} path={path} element={element} />
+          );
+        })}
+        {authRoutes.map(({ path, element }) => {
+          return user ? (
+            <Route key={path} path={path} element={element} />
+          ) : (
+            <Route key={path} path={path} element={<Navigate to="/login" />} />
+          );
+        })}
+      </Routes>
+    </BrowserRouter>
+  );
 };

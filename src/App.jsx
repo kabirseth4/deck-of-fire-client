@@ -1,11 +1,19 @@
 import { AuthProvider } from "./providers/authProvider";
-import { Routes } from "./routes";
+import { Router } from "./routes";
 import "./App.scss";
+// import { BrowserRouter } from "react-router-dom";
+// import { DecksPage } from "./pages/DecksPage/DecksPage";
 
 export const App = () => {
   return (
     <AuthProvider>
-      <Routes />
+      {/* <Routes /> */}
+      {/* <BrowserRouter> */}
+      {/* <Routes>
+          <Route path="/decks" element={<DecksPage />} />
+        </Routes> */}
+      {/* </BrowserRouter> */}
+      <Router />
     </AuthProvider>
   );
 };
