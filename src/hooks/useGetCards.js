@@ -3,8 +3,8 @@ import axios from "axios";
 
 export const useGetCards = () => {
   const [cards, setCards] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const isLoading = !Array.isArray(cards);
 
   const getCards = async () => {
     try {
@@ -14,8 +14,6 @@ export const useGetCards = () => {
       console.error(error);
       setIsError(true);
     }
-
-    setIsLoading(false);
   };
 
   useEffect(() => {

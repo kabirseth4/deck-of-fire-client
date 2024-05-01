@@ -6,8 +6,8 @@ export const useGetDeckDetails = () => {
   const { deckId } = useParams();
 
   const [deckDetails, setDeckDetails] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const isLoading = !Array.isArray(deckDetails?.cards);
 
   const getDeckDetails = async () => {
     try {
@@ -17,8 +17,6 @@ export const useGetDeckDetails = () => {
       console.error(error);
       setIsError(true);
     }
-
-    setIsLoading(false);
   };
 
   useEffect(() => {
