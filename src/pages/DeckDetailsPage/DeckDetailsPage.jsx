@@ -7,9 +7,9 @@ import "./DeckDetailsPage.scss";
 
 export const DeckDetailsPage = () => {
   const [showModal, setShowModal] = useState(false);
-  const { deckDetails, isLoading, isError } = useGetDeckDetails();
+  const { deckDetails, isError } = useGetDeckDetails();
 
-  if (isLoading) return <main>Loading...</main>;
+  if (!Array.isArray(deckDetails?.cards)) return <main>Loading...</main>;
   if (isError)
     return <main>Something went wrong. Please try again later.</main>;
 

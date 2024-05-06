@@ -4,7 +4,7 @@ import axios from "axios";
 export const useGetDecks = () => {
   const [decks, setDecks] = useState(null);
   const [isError, setIsError] = useState(false);
-  const isLoading = !Array.isArray(decks);
+  // const isLoading = !Array.isArray(decks);
 
   const getDecks = async () => {
     try {
@@ -20,5 +20,5 @@ export const useGetDecks = () => {
     getDecks();
   }, []);
 
-  return { decks, isLoading, isError };
+  return { decks, isError };
 };

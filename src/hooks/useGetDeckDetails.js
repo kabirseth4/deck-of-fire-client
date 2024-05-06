@@ -7,7 +7,7 @@ export const useGetDeckDetails = () => {
 
   const [deckDetails, setDeckDetails] = useState(null);
   const [isError, setIsError] = useState(false);
-  const isLoading = !Array.isArray(deckDetails?.cards);
+  // const isLoading = !Array.isArray(deckDetails?.cards);
 
   const getDeckDetails = async () => {
     try {
@@ -23,5 +23,5 @@ export const useGetDeckDetails = () => {
     getDeckDetails();
   }, []);
 
-  return { deckDetails, isLoading, isError };
+  return { deckDetails, isError };
 };

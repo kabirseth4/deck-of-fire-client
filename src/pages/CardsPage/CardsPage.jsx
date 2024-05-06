@@ -8,9 +8,9 @@ import "./CardsPage.scss";
 
 export const CardsPage = () => {
   const [showModal, setShowModal] = useState(false);
-  const { cards, isLoading, isError } = useGetCards();
+  const { cards, isError } = useGetCards();
 
-  if (isLoading) return <p>Loading...</p>;
+  if (!Array.isArray(cards)) return <p>Loading...</p>;
   if (isError) return <p>Something went wrong. Please try again later.</p>;
 
   return (

@@ -4,7 +4,7 @@ import axios from "axios";
 export const useGetCards = () => {
   const [cards, setCards] = useState(null);
   const [isError, setIsError] = useState(false);
-  const isLoading = !Array.isArray(cards);
+  // const isLoading = !Array.isArray(cards);
 
   const getCards = async () => {
     try {
@@ -20,5 +20,5 @@ export const useGetCards = () => {
     getCards();
   }, []);
 
-  return { cards, isLoading, isError };
+  return { cards, isError };
 };
