@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     user
       ? localStorage.setItem("user", JSON.stringify(user))
       : localStorage.removeItem("user");
-  }, []);
+  }, [user]);
 
   const contextValue = useMemo(() => ({ user, setUser }), [user]);
 

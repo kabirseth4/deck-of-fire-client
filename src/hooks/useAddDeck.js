@@ -4,7 +4,7 @@ import { useAxios } from "./useAxios";
 
 export const useAddDeck = () => {
   const navigate = useNavigate();
-  const axios = useAxios();
+  const { axios, configureAxios } = useAxios();
 
   const [formFields, setFormFields] = useState({
     name: "",
@@ -65,6 +65,7 @@ export const useAddDeck = () => {
 
   const addNewDeck = async (e) => {
     e.preventDefault();
+    configureAxios();
 
     if (!validateForm()) return;
 

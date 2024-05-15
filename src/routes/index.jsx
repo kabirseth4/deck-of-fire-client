@@ -64,6 +64,10 @@ export const Router = () => {
           path: "/cards",
           element: <CardsPage />,
         },
+        {
+          path: "/login",
+          element: <Navigate to="/" />,
+        },
       ],
     },
   ];
