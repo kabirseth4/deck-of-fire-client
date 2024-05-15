@@ -1,5 +1,4 @@
-@use "../../styles/utils/mixins" as *;
-@use "../../styles/utils/variables" as *;
+@use "../../styles/utils" as *;
 
 .deck-details-page {
   @include flex($direction: column, $gap: $padding-1x);

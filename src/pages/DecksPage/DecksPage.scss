@@ -1,5 +1,4 @@
-@use "../../styles/utils/mixins" as *;
-@use "../../styles/utils/variables" as *;
+@use "../../styles/utils" as *;
 
 .decks-page {
   @include page-padding;
