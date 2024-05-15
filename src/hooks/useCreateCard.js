@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useAxios } from "./useAxios";
 
 export const useCreateCard = () => {
-  const { axios, configureAxios } = useAxios();
-
+  const axios = useAxios();
   const [formFields, setFormFields] = useState({
     name: "",
     description: "",
@@ -49,7 +48,6 @@ export const useCreateCard = () => {
 
   const createCard = async (e) => {
     e.preventDefault();
-    configureAxios();
 
     if (!validateForm()) return;
 

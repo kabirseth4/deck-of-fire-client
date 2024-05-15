@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useAxios } from "./useAxios";
 
 export const useAddCardToDeck = () => {
-  const { axios, configureAxios } = useAxios();
+  const axios = useAxios();
+
   const [formFields, setFormFields] = useState({
     cardId: "",
     occurences: "",
@@ -71,7 +72,6 @@ export const useAddCardToDeck = () => {
 
   const addCardToDeck = async (e, deckDetails) => {
     e.preventDefault();
-    configureAxios();
 
     if (!validateForm(deckDetails)) return;
 

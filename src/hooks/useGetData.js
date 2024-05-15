@@ -1,15 +1,15 @@
 import { useAxios } from "./useAxios";
 import { useEffect, useState } from "react";
 
-export const useGetData = (param) => {
-  const { axios, configureAxios } = useAxios();
+export const useGetData = (url) => {
+  const axios = useAxios();
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const getData = async () => {
     try {
-      const response = await axios.get(param);
+      const response = await axios.get(url);
       setData(response.data);
     } catch (error) {
       console.error(error);
@@ -20,7 +20,6 @@ export const useGetData = (param) => {
   };
 
   useEffect(() => {
-    configureAxios();
     getData();
   }, []);
 
