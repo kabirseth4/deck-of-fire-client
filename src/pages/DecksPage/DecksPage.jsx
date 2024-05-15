@@ -4,10 +4,10 @@ import { useGetDecks } from "../../hooks/useGetDecks";
 import "./DecksPage.scss";
 
 export const DecksPage = () => {
-  const { decks, isLoading, isError } = useGetDecks();
+  const { decks, isLoading, error } = useGetDecks();
 
-  if (!Array.isArray(decks)) return <p>Loading...</p>;
-  if (isError) return <p>Something went wrong. Please try again later.</p>;
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Something went wrong. Please try again later.</p>;
 
   return (
     <>

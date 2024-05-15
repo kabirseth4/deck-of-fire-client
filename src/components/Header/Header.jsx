@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 import { LogOutButton } from "../LogOutButton/LogOutButton";
-import { useAuth } from "../../providers/authProvider";
+import { useAuthContext } from "../../providers/authProvider";
 import logo from "../../assets/images/logo.png";
 import "./Header.scss";
 
 export const Header = () => {
-  const { user } = useAuth();
+  const { user } = useAuthContext();
 
   return (
     <header className={`header${!user ? " header--center" : ""}`}>

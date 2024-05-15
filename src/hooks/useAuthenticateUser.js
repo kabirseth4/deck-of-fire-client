@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../providers/authProvider";
+import { useAuthContext } from "../providers/authProvider";
 import { validateEmail, validatePassword } from "../utils/validation.utils";
 
 const BASE_API_URL = import.meta.env.VITE_APP_BASE_API_URL;
 
 export const useAuthenticateUser = () => {
-  const { setUser } = useAuth();
+  const { setUser } = useAuthContext();
   const navigate = useNavigate();
 
   const [isLoggingIn, setIsLoggingIn] = useState(true);

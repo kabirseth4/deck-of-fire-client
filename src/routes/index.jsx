@@ -3,7 +3,7 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import { useAuth } from "../providers/authProvider";
+import { useAuthContext } from "../providers/authProvider";
 import { Header } from "../components/Header/Header";
 import { LoginPage } from "../pages/LoginPage/LoginPage";
 import { ProtectedRoute } from "./ProtectedRoute";
@@ -15,7 +15,7 @@ import { SetupGamePage } from "../pages/SetupGamePage/SetupGamePage";
 import { CardsPage } from "../pages/CardsPage/CardsPage";
 
 export const Router = () => {
-  const { user } = useAuth();
+  const { user } = useAuthContext();
 
   const publicRoutes = [];
 

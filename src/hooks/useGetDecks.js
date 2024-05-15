@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { useAxios } from "./useAxios";
+// import axios from "axios";
 
 export const useGetDecks = () => {
+  const axios = useAxios();
   const [decks, setDecks] = useState(null);
-  const [isError, setIsError] = useState(false);
-  // const isLoading = !Array.isArray(decks);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const getDecks = async () => {
     try {
@@ -12,7 +14,9 @@ export const useGetDecks = () => {
       setDecks(data);
     } catch (error) {
       console.error(error);
-      setIsError(true);
+      setError(true);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -20,5 +24,5 @@ export const useGetDecks = () => {
     getDecks();
   }, []);
 
-  return { decks, isError };
+  return { decks, isLoading, error };
 };
