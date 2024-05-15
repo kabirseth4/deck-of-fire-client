@@ -1,4 +1,3 @@
-import { useGetDecks } from "../../hooks/useGetDecks";
 import { DeckInfo } from "../DeckInfo/DeckInfo";
 import "./DeckList.scss";
 

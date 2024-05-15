@@ -1,17 +1,17 @@
 import { useState } from "react";
 import { CardList } from "../../components/CardList/CardList";
-import { useGetCards } from "../../hooks/useGetCards";
+import { useGetData } from "../../hooks/useGetData";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { Button } from "../../components/Button/Button";
 import { CreateCardModal } from "../../components/CreateCardModal/CreateCardModal";
 import "./CardsPage.scss";
 
 export const CardsPage = () => {
+  const { data: cards, isLoading, error } = useGetData("cards");
   const [showModal, setShowModal] = useState(false);
-  const { cards, isError } = useGetCards();
 
-  if (!Array.isArray(cards)) return <p>Loading...</p>;
-  if (isError) return <p>Something went wrong. Please try again later.</p>;
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Something went wrong. Please try again later.</p>;
 
   return (
     <>

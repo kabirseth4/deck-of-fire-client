@@ -1,9 +1,10 @@
-import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAxios } from "./useAxios";
 
 export const useAddDeck = () => {
   const navigate = useNavigate();
+  const axios = useAxios();
 
   const [formFields, setFormFields] = useState({
     name: "",

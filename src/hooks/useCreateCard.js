@@ -1,7 +1,9 @@
-import axios from "axios";
 import { useState } from "react";
+import { useAxios } from "./useAxios";
 
 export const useCreateCard = () => {
+  const axios = useAxios();
+
   const [formFields, setFormFields] = useState({
     name: "",
     description: "",
@@ -56,7 +58,7 @@ export const useCreateCard = () => {
     };
 
     try {
-      await axios.post("/cards", cardToAdd);
+      await axios.post("cards", cardToAdd);
       window.location.reload(false);
     } catch (error) {
       console.error(error);

@@ -1,7 +1,8 @@
-import axios from "axios";
 import { useState } from "react";
+import { useAxios } from "./useAxios";
 
 export const useAddCardToDeck = () => {
+  const axios = useAxios();
   const [formFields, setFormFields] = useState({
     cardId: "",
     occurences: "",
@@ -80,7 +81,7 @@ export const useAddCardToDeck = () => {
     if (deckDetails.isScored) cardToAdd.penalty = formFields.penalty;
 
     try {
-      await axios.post(`/decks/${deckDetails.id}/cards`, [cardToAdd]);
+      await axios.post(`decks/${deckDetails.id}/cards`, [cardToAdd]);
       window.location.reload(false);
     } catch (error) {
       console.error(error);

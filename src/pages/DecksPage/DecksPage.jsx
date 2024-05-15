@@ -1,10 +1,10 @@
+import { useGetData } from "../../hooks/useGetData";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { DeckList } from "../../components/DeckList/DeckList";
-import { useGetDecks } from "../../hooks/useGetDecks";
 import "./DecksPage.scss";
 
 export const DecksPage = () => {
-  const { decks, isLoading, error } = useGetDecks();
+  const { data: decks, isLoading, error } = useGetData("decks");
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Something went wrong. Please try again later.</p>;

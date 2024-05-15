@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAddCardToDeck } from "../../hooks/useAddCardToDeck";
-import { useGetCards } from "../../hooks/useGetCards";
+import { useGetData } from "../../hooks/useGetData";
 import { Select } from "../Select/Select";
 import { ModalFormButtons } from "../ModalFormButtons/ModalFormButtons";
 import { NumberInput } from "../NumberInput/NumberInput";
@@ -11,7 +11,7 @@ export const AddDeckCardModal = ({
   existingCards,
   deckDetails,
 }) => {
-  const { cards: allCards, isLoading, isError } = useGetCards();
+  const { data: allCards, isLoading, error } = useGetData("cards");
   const [options, setOptions] = useState([]);
   const { formFields, formErrors, handleInputChange, addCardToDeck } =
     useAddCardToDeck();
@@ -27,7 +27,7 @@ export const AddDeckCardModal = ({
   }, [isLoading]);
 
   if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Something went wrong. Please try again later.</div>;
+  if (error) return <div>Something went wrong. Please try again later.</div>;
 
   return (
     <section

@@ -9,7 +9,7 @@ export const useAxios = () => {
   useEffect(() => {
     if (user) {
       axiosInstance.defaults.baseURL =
-        import.meta.env.VITE_APP_BASE_API_URL + "/users/" + user.id + "/";
+        import.meta.env.VITE_APP_BASE_API_URL + "/users/" + user.id;
       axiosInstance.defaults.headers.common["Authorization"] =
         "Bearer " + user.token;
       axiosInstance.interceptors.response.use(null, (error) => {

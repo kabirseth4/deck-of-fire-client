@@ -1,15 +1,17 @@
 import Deck from "card-deck/deck";
-import { useGetDeckDetails } from "./useGetDeckDetails";
+import { useParams } from "react-router-dom";
+import { useGetData } from "./useGetData";
 import { useState, useEffect, useRef } from "react";
 
 export const useSetupDeck = () => {
-  const { deckDetails, isLoading, isError } = useGetDeckDetails();
+  const { deckId } = useParams();
+  const { data: deck, isLoading, error } = useGetData(`decks/${deckId}`);
   const [deckName, setDeckName] = useState(null);
   const gameDeck = useRef(new Deck());
 
   const setupDeck = () => {
-    const cardArr = deckDetails.cards.flatMap((card) => {
-      const occurences = deckDetails.is_custom ? card.occurences : 4;
+    const cardArr = deck.cards.flatMap((card) => {
+      const occurences = deck.is_custom ? card.occurences : 4;
 
       const cards = [];
       for (let i = 0; i < occurences; i++) {
@@ -26,9 +28,9 @@ export const useSetupDeck = () => {
   useEffect(() => {
     if (!isLoading) {
       setupDeck();
-      setDeckName(deckDetails.name);
+      setDeckName(deck.name);
     }
   }, [isLoading]);
 
-  return { gameDeck, deckName, isLoading, isError };
+  return { gameDeck, deckName, isLoading, error };
 };

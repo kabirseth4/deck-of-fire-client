@@ -1,17 +1,19 @@
 import { useState } from "react";
-import { useGetDeckDetails } from "../../hooks/useGetDeckDetails";
+import { useParams } from "react-router-dom";
+import { useGetData } from "../../hooks/useGetData";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { Button } from "../../components/Button/Button";
 import { DeckCards } from "../../components/DeckCards/DeckCards";
 import "./DeckDetailsPage.scss";
 
 export const DeckDetailsPage = () => {
-  const [showModal, setShowModal] = useState(false);
-  const { deckDetails, isError } = useGetDeckDetails();
+  const { deckId } = useParams();
 
-  if (!Array.isArray(deckDetails?.cards)) return <main>Loading...</main>;
-  if (isError)
-    return <main>Something went wrong. Please try again later.</main>;
+  const { data: deck, isLoading, error } = useGetData(`decks/${deckId}`);
+  const [showModal, setShowModal] = useState(false);
+
+  if (isLoading) return <main>Loading...</main>;
+  if (error) return <main>Something went wrong. Please try again later.</main>;
 
   const {
     id,
@@ -20,7 +22,7 @@ export const DeckDetailsPage = () => {
     is_custom: isCustom,
     is_playable: isPlayable,
     cards,
-  } = deckDetails;
+  } = deck;
 
   return (
     <>
