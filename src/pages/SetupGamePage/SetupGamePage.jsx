@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { usePlayers } from "hooks";
 import { LinkButton, Button, PlayerInput } from "components";
-import backIcon from "../../assets/icons/arrow_back-24px.svg";
+import { icons } from "assets";
 import "./SetupGamePage.scss";
 
 export const SetupGamePage = () => {
@@ -46,7 +46,7 @@ export const SetupGamePage = () => {
         <LinkButton
           to={`/decks/${deckId}`}
           className="link-button--secondary setup-game-page__page-back-button"
-          image={backIcon}
+          image={icons.backArrow}
         />
         <Button
           label="Add player"
