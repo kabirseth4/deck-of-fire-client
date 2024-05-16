@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { LogOutButton } from "../LogOutButton/LogOutButton";
 import { useAuthContext } from "providers";
+import { LogOutButton } from "components";
 import logo from "../../assets/images/logo.png";
 import "./Header.scss";
 

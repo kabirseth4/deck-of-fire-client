@@ -1,7 +1,5 @@
 import { useCreateCard } from "hooks";
-import { ModalFormButtons } from "../ModalFormButtons/ModalFormButtons";
-import { TextInput } from "../TextInput/TextInput";
-import { Textarea } from "../Textarea/Textarea";
+import { ModalFormButtons, TextInput, Textarea } from "components";
 import "./CreateCardModal.scss";
 
 export const CreateCardModal = ({ setShowModal }) => {

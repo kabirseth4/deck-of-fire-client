@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAxios } from "./useAxios";
+import { useAxios } from "hooks";
 
 export const useAddCardToDeck = () => {
   const axios = useAxios();

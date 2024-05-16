@@ -1,6 +1,4 @@
-import { DeckForm } from "../../components/DeckForm/DeckForm";
-import { LinkButton } from "../../components/LinkButton/LinkButton";
-import { Button } from "../../components/Button/Button";
+import { DeckForm, LinkButton, Button } from "components";
 import "./AddDeckPage.scss";
 
 export const AddDeckPage = () => {

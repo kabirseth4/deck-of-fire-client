@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useSetupDeck } from "./useSetupDeck";
+import { useSetupDeck } from "hooks";
 
 export const useGameCards = () => {
   const { gameDeck, deckName, isLoading, isError } = useSetupDeck();

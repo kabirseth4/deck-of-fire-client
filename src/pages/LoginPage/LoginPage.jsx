@@ -1,5 +1,4 @@
-import { Button } from "../../components/Button/Button";
-import { TextInput } from "../../components/TextInput/TextInput";
+import { Button, TextInput } from "components";
 import { useAuthenticateUser } from "hooks";
 import "./LoginPage.scss";
 

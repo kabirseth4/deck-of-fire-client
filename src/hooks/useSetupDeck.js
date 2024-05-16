@@ -1,6 +1,6 @@
 import Deck from "card-deck/deck";
 import { useParams } from "react-router-dom";
-import { useGetData } from "./useGetData";
+import { useGetData } from "hooks";
 import { useState, useEffect, useRef } from "react";
 
 export const useSetupDeck = () => {

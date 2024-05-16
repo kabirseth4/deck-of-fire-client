@@ -1,9 +1,6 @@
 import { useState } from "react";
-import { CardList } from "../../components/CardList/CardList";
+import { CardList, LinkButton, Button, CreateCardModal } from "components";
 import { useGetData } from "hooks";
-import { LinkButton } from "../../components/LinkButton/LinkButton";
-import { Button } from "../../components/Button/Button";
-import { CreateCardModal } from "../../components/CreateCardModal/CreateCardModal";
 import "./CardsPage.scss";
 
 export const CardsPage = () => {
