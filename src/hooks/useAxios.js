@@ -1,5 +1,5 @@
 import _axios from "axios";
-import { useAuthContext } from "../providers/authProvider";
+import { useAuthContext } from "providers";
 
 const baseApiUrl = import.meta.env.VITE_APP_BASE_API_URL;
 

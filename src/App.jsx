@@ -1,4 +1,4 @@
-import { AuthProvider } from "./providers/authProvider";
+import { AuthProvider } from "providers";
 import { Router } from "routes";
 import "./App.scss";
 

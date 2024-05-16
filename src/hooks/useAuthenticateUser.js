@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuthContext } from "../providers/authProvider";
-import { validateEmail, validatePassword } from "../utils/validation.utils";
+import { useAuthContext } from "providers";
+import { validateEmail, validatePassword } from "utils";
 import { useAxios } from "./useAxios";
 
 const BASE_API_URL = import.meta.env.VITE_APP_BASE_API_URL;

@@ -3,7 +3,7 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import { useAuthContext } from "../providers/authProvider";
+import { useAuthContext } from "providers";
 import { Header } from "../components/Header/Header";
 import {
   LoginPage,
