@@ -1,4 +1,4 @@
-import { useGetData } from "../../hooks/useGetData";
+import { useGetData } from "hooks";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { DeckList } from "../../components/DeckList/DeckList";
 import "./DecksPage.scss";

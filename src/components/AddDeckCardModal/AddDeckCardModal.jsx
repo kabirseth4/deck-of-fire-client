@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useAddCardToDeck } from "../../hooks/useAddCardToDeck";
-import { useGetData } from "../../hooks/useGetData";
+import { useAddCardToDeck, useGetData } from "hooks";
 import { Select } from "../Select/Select";
 import { ModalFormButtons } from "../ModalFormButtons/ModalFormButtons";
 import { NumberInput } from "../NumberInput/NumberInput";

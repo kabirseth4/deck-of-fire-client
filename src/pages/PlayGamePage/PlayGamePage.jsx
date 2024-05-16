@@ -1,4 +1,4 @@
-import { usePlayers } from "../../hooks/usePlayers";
+import { usePlayers } from "hooks";
 import { GamePlayers } from "../../components/GamePlayers/GamePlayers";
 import { GameDeck } from "../../components/GameDeck/GameDeck";
 import "./PlayGamePage.scss";

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { usePlayers } from "../../hooks/usePlayers";
+import { usePlayers } from "hooks";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { Button } from "../../components/Button/Button";
 import { PlayerInput } from "../../components/PlayerInput/PlayerInput";

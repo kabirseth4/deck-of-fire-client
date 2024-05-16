@@ -1,5 +1,5 @@
 import { GameCard } from "../GameCard/GameCard";
-import { useGameCards } from "../../hooks/useGameCards";
+import { useGameCards } from "hooks";
 import { GameCardBack } from "../GameCardBack/GameCardBack";
 import "./GameDeck.scss";
 

@@ -1,4 +1,4 @@
-import { useAuthenticateUser } from "../../hooks/useAuthenticateUser";
+import { useAuthenticateUser } from "hooks";
 import { Button } from "../Button/Button";
 import "./LogOutButton.scss";
 

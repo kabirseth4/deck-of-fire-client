@@ -1,6 +1,6 @@
 import { Button } from "../../components/Button/Button";
 import { TextInput } from "../../components/TextInput/TextInput";
-import { useAuthenticateUser } from "../../hooks/useAuthenticateUser";
+import { useAuthenticateUser } from "hooks";
 import "./LoginPage.scss";
 
 export const LoginPage = () => {

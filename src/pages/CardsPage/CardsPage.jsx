@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CardList } from "../../components/CardList/CardList";
-import { useGetData } from "../../hooks/useGetData";
+import { useGetData } from "hooks";
 import { LinkButton } from "../../components/LinkButton/LinkButton";
 import { Button } from "../../components/Button/Button";
 import { CreateCardModal } from "../../components/CreateCardModal/CreateCardModal";

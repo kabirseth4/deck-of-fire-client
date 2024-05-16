@@ -1,4 +1,4 @@
-import { useAddDeck } from "../../hooks/useAddDeck";
+import { useAddDeck } from "hooks";
 import { TextInput } from "../TextInput/TextInput";
 import "./DeckForm.scss";
 
