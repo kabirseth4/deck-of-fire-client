@@ -1,4 +1,4 @@
-export const validateEmail = (email) => {
+export const validateEmail = (email: string) => {
   return String(email)
     .toLowerCase()
     .match(
@@ -6,7 +6,7 @@ export const validateEmail = (email) => {
     );
 };
 
-export const validatePassword = (password) => {
+export const validatePassword = (password: string) => {
   let isValid = true,
     message = "";
 
