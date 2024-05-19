@@ -15,8 +15,8 @@ interface User {
 }
 
 interface AuthContextType {
-  user: User;
-  setUser: Dispatch<SetStateAction<User>>;
+  user: User | null;
+  setUser: Dispatch<SetStateAction<User | null>>;
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -26,7 +26,7 @@ export const useAuthContext = () => {
 };
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [user, setUser] = useState<User>(
+  const [user, setUser] = useState<User | null>(
     JSON.parse(localStorage.getItem("user")!)
   );
 

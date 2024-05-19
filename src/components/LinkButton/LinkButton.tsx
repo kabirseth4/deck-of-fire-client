@@ -1,7 +1,21 @@
 import { Link } from "react-router-dom";
 import "./LinkButton.scss";
 
-export const LinkButton = ({ to, className, label, image, imageAlt }) => {
+interface LinkButtonProps {
+  to: string;
+  className: string;
+  label: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+export const LinkButton = ({
+  to,
+  className,
+  label,
+  image,
+  imageAlt,
+}: LinkButtonProps) => {
   return (
     <Link to={to} className={`link-button${className ? ` ${className}` : ""}`}>
       {image && <img src={image} alt={imageAlt} />}
