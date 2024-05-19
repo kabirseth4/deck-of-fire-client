@@ -1,6 +1,5 @@
-import { useGetData } from "../../hooks/useGetData";
-import { LinkButton } from "../../components/LinkButton/LinkButton";
-import { DeckList } from "../../components/DeckList/DeckList";
+import { useGetData } from "hooks";
+import { LinkButton, DeckList } from "components";
 import "./DecksPage.scss";
 
 export const DecksPage = () => {

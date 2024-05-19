@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { LinkButton } from "../LinkButton/LinkButton";
+import { LinkButton } from "components";
 import "./GamePlayers.scss";
 
 export const GamePlayers = ({

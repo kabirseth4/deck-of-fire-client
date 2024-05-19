@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAxios } from "./useAxios";
+import { useAxios } from "hooks";
 
 export const useAddDeck = () => {
   const navigate = useNavigate();

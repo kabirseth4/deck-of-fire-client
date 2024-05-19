@@ -1,4 +1,4 @@
-import { CardInfo } from "../CardInfo/CardInfo";
+import { CardInfo } from "components";
 import "./CardList.scss";
 
 export const CardList = ({ cards, deckDetails }) => {

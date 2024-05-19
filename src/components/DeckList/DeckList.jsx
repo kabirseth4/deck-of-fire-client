@@ -1,4 +1,4 @@
-import { DeckInfo } from "../DeckInfo/DeckInfo";
+import { DeckInfo } from "components";
 import "./DeckList.scss";
 
 export const DeckList = ({ decks }) => {

@@ -1,6 +1,5 @@
-import { GameCard } from "../GameCard/GameCard";
-import { useGameCards } from "../../hooks/useGameCards";
-import { GameCardBack } from "../GameCardBack/GameCardBack";
+import { useGameCards } from "hooks";
+import { GameCardBack, GameCard } from "components";
 import "./GameDeck.scss";
 
 export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {

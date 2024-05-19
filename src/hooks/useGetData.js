@@ -1,4 +1,4 @@
-import { useAxios } from "./useAxios";
+import { useAxios } from "hooks";
 import { useEffect, useState } from "react";
 
 export const useGetData = (url) => {

@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react";
-import { useAddCardToDeck } from "../../hooks/useAddCardToDeck";
-import { useGetData } from "../../hooks/useGetData";
-import { Select } from "../Select/Select";
-import { ModalFormButtons } from "../ModalFormButtons/ModalFormButtons";
-import { NumberInput } from "../NumberInput/NumberInput";
+import { useAddCardToDeck, useGetData } from "hooks";
+import { Select, ModalFormButtons, NumberInput } from "components";
 import "./AddDeckCardModal.scss";
 
 export const AddDeckCardModal = ({

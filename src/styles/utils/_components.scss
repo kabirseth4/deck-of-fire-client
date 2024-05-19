@@ -1,6 +1,6 @@
 @use "./variables" as *;
 @use "./structure" as *;
-@use "./utils" as *;
+@use "./mixins" as *;
 @use "./fonts" as *;
 
 @mixin button {

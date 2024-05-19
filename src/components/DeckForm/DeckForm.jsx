@@ -1,5 +1,5 @@
-import { useAddDeck } from "../../hooks/useAddDeck";
-import { TextInput } from "../TextInput/TextInput";
+import { useAddDeck } from "hooks";
+import { TextInput } from "components";
 import "./DeckForm.scss";
 
 export const DeckForm = () => {

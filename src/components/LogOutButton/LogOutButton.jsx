@@ -1,5 +1,5 @@
-import { useAuthenticateUser } from "../../hooks/useAuthenticateUser";
-import { Button } from "../Button/Button";
+import { useAuthenticateUser } from "hooks";
+import { Button } from "components";
 import "./LogOutButton.scss";
 
 export const LogOutButton = () => {

@@ -3,16 +3,18 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import { useAuthContext } from "../providers/authProvider";
-import { Header } from "../components/Header/Header";
-import { LoginPage } from "../pages/LoginPage/LoginPage";
+import { useAuthContext } from "providers";
+import { Header } from "components";
+import {
+  LoginPage,
+  DecksPage,
+  AddDeckPage,
+  DeckDetailsPage,
+  PlayGamePage,
+  SetupGamePage,
+  CardsPage,
+} from "pages";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { DecksPage } from "../pages/DecksPage/DecksPage";
-import { AddDeckPage } from "../pages/AddDeckPage/AddDeckPage";
-import { DeckDetailsPage } from "../pages/DeckDetailsPage/DeckDetailsPage";
-import { PlayGamePage } from "../pages/PlayGamePage/PlayGamePage";
-import { SetupGamePage } from "../pages/SetupGamePage/SetupGamePage";
-import { CardsPage } from "../pages/CardsPage/CardsPage";
 
 export const Router = () => {
   const { user } = useAuthContext();

@@ -1,4 +1,4 @@
-import { Button } from "../Button/Button";
+import { Button } from "components";
 import "./ModalFormButtons.scss";
 
 export const ModalFormButtons = ({ setShowModal, submitLabel }) => {

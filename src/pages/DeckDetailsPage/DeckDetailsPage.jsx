@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useGetData } from "../../hooks/useGetData";
-import { LinkButton } from "../../components/LinkButton/LinkButton";
-import { Button } from "../../components/Button/Button";
-import { DeckCards } from "../../components/DeckCards/DeckCards";
+import { useGetData } from "hooks";
+import { LinkButton, Button, DeckCards } from "components";
 import "./DeckDetailsPage.scss";
 
 export const DeckDetailsPage = () => {

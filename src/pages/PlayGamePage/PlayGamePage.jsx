@@ -1,6 +1,5 @@
-import { usePlayers } from "../../hooks/usePlayers";
-import { GamePlayers } from "../../components/GamePlayers/GamePlayers";
-import { GameDeck } from "../../components/GameDeck/GameDeck";
+import { usePlayers } from "hooks";
+import { GamePlayers, GameDeck } from "components";
 import "./PlayGamePage.scss";
 
 export const PlayGamePage = () => {

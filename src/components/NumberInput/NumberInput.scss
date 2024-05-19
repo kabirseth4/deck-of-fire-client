@@ -1,4 +1,4 @@
-@use "../../styles/utils/mixins" as *;
+@use "styles/utils" as *;
 
 .number-input {
   @include form-input;

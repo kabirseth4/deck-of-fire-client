@@ -1,5 +1,4 @@
-@use "../../styles/utils/mixins" as *;
-@use "../../styles/utils/variables" as *;
+@use "styles/utils" as *;
 
 .game-players {
   @include block-gap;
