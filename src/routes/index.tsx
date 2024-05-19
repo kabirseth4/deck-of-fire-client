@@ -1,5 +1,6 @@
 import {
   Navigate,
+  RouteObject,
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
@@ -19,9 +20,9 @@ import { ProtectedRoute } from "./ProtectedRoute";
 export const Router = () => {
   const { user } = useAuthContext();
 
-  const publicRoutes = [];
+  const publicRoutes: RouteObject[] = [];
 
-  const noAuthRoutes = [
+  const noAuthRoutes: RouteObject[] = [
     {
       path: "/login",
       element: (
@@ -33,7 +34,7 @@ export const Router = () => {
     },
   ];
 
-  const authRoutes = [
+  const authRoutes: RouteObject[] = [
     {
       path: "/",
       element: <ProtectedRoute />,
