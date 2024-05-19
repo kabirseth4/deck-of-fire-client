@@ -1,4 +1,4 @@
-@use "../../styles/utils" as *;
+@use "styles/utils" as *;
 
 .modal-form-buttons {
   @include flex($gap: $padding-1x);

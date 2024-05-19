@@ -1,4 +1,4 @@
-@use "../../styles/utils" as *;
+@use "styles/utils" as *;
 
 .deck-form {
   @include flex($direction: column, $gap: 1.5rem);

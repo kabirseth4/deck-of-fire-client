@@ -1,5 +1,5 @@
-@use "./styles/utils" as *;
-@use "./styles/base/resets";
+@use "styles/utils" as *;
+@use "styles/base/resets";
 
 #root {
   @include flex(column);
