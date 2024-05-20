@@ -1,5 +1,15 @@
 import "./Textarea.scss";
 
+interface TextareaProps {
+  label: string;
+  name: string;
+  placeholder?: string;
+  value: string;
+  error: string;
+  onChange: () => void;
+  count: number;
+}
+
 export const Textarea = ({
   label,
   name,
@@ -8,7 +18,7 @@ export const Textarea = ({
   error,
   onChange,
   count,
-}) => {
+}: TextareaProps) => {
   return (
     <div className="textarea">
       <label className="textarea__label">

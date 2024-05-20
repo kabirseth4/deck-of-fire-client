@@ -2,10 +2,15 @@ import Deck from "card-deck/deck";
 import { useParams } from "react-router-dom";
 import { useGetData } from "hooks";
 import { useState, useEffect, useRef } from "react";
+import { isDeckWithCards } from "utils";
 
 export const useSetupDeck = () => {
   const { deckId } = useParams();
-  const { data: deck, isLoading, error } = useGetData(`decks/${deckId}`);
+  const {
+    data: deck,
+    isLoading,
+    error,
+  } = useGetData(`decks/${deckId}`, isDeckWithCards);
   const [deckName, setDeckName] = useState(null);
   const gameDeck = useRef(new Deck());
 
@@ -23,12 +28,12 @@ export const useSetupDeck = () => {
 
     gameDeck.current.cards(cardArr);
     gameDeck.current.shuffle();
+    setDeckName(deck.name);
   };
 
   useEffect(() => {
     if (!isLoading) {
       setupDeck();
-      setDeckName(deck.name);
     }
   }, [isLoading]);
 

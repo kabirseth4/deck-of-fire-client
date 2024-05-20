@@ -1,9 +1,14 @@
-import { LinkButton } from "components";
 import "./DeckInfo.scss";
+import { Deck } from "types";
+import { LinkButton } from "components";
+
+interface DeckInfoProps {
+  deck: Deck;
+}
 
 export const DeckInfo = ({
   deck: { id, name, is_scored, is_custom, is_playable },
-}) => {
+}: DeckInfoProps) => {
   return (
     <article className="deck-info">
       <h3 className="deck-info__title">{name}</h3>

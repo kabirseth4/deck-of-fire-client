@@ -35,7 +35,7 @@ export const SetupGamePage = () => {
                 <PlayerInput
                   key={i + 1}
                   player={player}
-                  playerNum={i + 1}
+                  playerNum={String(i + 1)}
                   onChange={handlePlayerChange}
                 />
               );

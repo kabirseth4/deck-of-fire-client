@@ -1,7 +1,15 @@
-import { Button } from "components";
 import "./ModalFormButtons.scss";
+import { Button } from "components";
 
-export const ModalFormButtons = ({ setShowModal, submitLabel }) => {
+interface ModalFormButtonsProps {
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  submitLabel: string;
+}
+
+export const ModalFormButtons = ({
+  setShowModal,
+  submitLabel,
+}: ModalFormButtonsProps) => {
   return (
     <div className="modal-form-buttons">
       <Button

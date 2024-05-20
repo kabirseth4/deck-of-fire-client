@@ -1,6 +1,22 @@
 import "./Select.scss";
 
-export const Select = ({ label, name, value, error, onChange, options }) => {
+interface SelectProps {
+  label: string;
+  name: string;
+  value: string;
+  error: string;
+  onChange: () => void;
+  options: { name: string; value: string }[];
+}
+
+export const Select = ({
+  label,
+  name,
+  value,
+  error,
+  onChange,
+  options,
+}: SelectProps) => {
   return (
     <div className="select">
       <label className="select__label">

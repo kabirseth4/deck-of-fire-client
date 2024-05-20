@@ -12,7 +12,6 @@ export { GameDeck } from "./GameDeck/GameDeck";
 export { GamePlayers } from "./GamePlayers/GamePlayers";
 export { Header } from "./Header/Header";
 export { LinkButton } from "./LinkButton/LinkButton";
-export { LogOutButton } from "./LogOutButton/LogOutButton";
 export { ModalFormButtons } from "./ModalFormButtons/ModalFormButtons";
 export { NumberInput } from "./NumberInput/NumberInput";
 export { PlayerInput } from "./PlayerInput/PlayerInput";

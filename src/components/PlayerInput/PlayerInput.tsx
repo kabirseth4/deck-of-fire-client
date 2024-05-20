@@ -1,6 +1,16 @@
 import "./PlayerInput.scss";
 
-export const PlayerInput = ({ player, playerNum, onChange }) => {
+interface PlayerInputProps {
+  player: string;
+  playerNum: string;
+  onChange: () => void;
+}
+
+export const PlayerInput = ({
+  player,
+  playerNum,
+  onChange,
+}: PlayerInputProps) => {
   return (
     <label className="player-input__label">
       {`Player ${playerNum}: `}

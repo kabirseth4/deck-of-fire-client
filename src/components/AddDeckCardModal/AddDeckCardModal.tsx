@@ -19,7 +19,7 @@ export const AddDeckCardModal = ({
     isLoading,
     error,
   } = useGetData<Card[]>("cards", isCardArray);
-  const [options, setOptions] = useState<{ value: number; name: string }[]>([]);
+  const [options, setOptions] = useState<{ value: string; name: string }[]>([]);
   const { formFields, formErrors, handleInputChange, addCardToDeck } =
     useAddCardToDeck();
 
@@ -28,7 +28,7 @@ export const AddDeckCardModal = ({
       const existingCardIds = deck.cards.map(({ id }) => id);
       const cardOptions = allCards
         .filter(({ id }) => !existingCardIds.includes(id))
-        .map(({ id, name }) => ({ value: id, name }));
+        .map(({ id, name }) => ({ value: String(id), name }));
       setOptions(cardOptions);
     }
   }, [isLoading, error]);

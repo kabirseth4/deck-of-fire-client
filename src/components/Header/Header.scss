@@ -24,5 +24,10 @@
   &__logo {
     @include card-font(1.7rem);
     color: $color-text-primary;
+    text-wrap: nowrap;
   }
+}
+
+.log-out-button {
+  flex: 0 1;
 }
