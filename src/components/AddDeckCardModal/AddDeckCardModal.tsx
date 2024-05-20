@@ -1,27 +1,37 @@
+import "./AddDeckCardModal.scss";
 import { useEffect, useState } from "react";
 import { useAddCardToDeck, useGetData } from "hooks";
 import { Select, ModalFormButtons, NumberInput } from "components";
-import "./AddDeckCardModal.scss";
+import { Card, DeckWithCards } from "types";
+import { isCardArray } from "utils";
+
+interface AddDeckCardModalProps {
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+  deck: DeckWithCards;
+}
 
 export const AddDeckCardModal = ({
   setShowModal,
-  existingCards,
-  deckDetails,
-}) => {
-  const { data: allCards, isLoading, error } = useGetData("cards");
-  const [options, setOptions] = useState([]);
+  deck,
+}: AddDeckCardModalProps) => {
+  const {
+    data: allCards,
+    isLoading,
+    error,
+  } = useGetData<Card[]>("cards", isCardArray);
+  const [options, setOptions] = useState<{ value: number; name: string }[]>([]);
   const { formFields, formErrors, handleInputChange, addCardToDeck } =
     useAddCardToDeck();
 
   useEffect(() => {
-    if (!isLoading) {
-      const existingCardIds = existingCards.map(({ id }) => id);
+    if (!isLoading && !error) {
+      const existingCardIds = deck.cards.map(({ id }) => id);
       const cardOptions = allCards
         .filter(({ id }) => !existingCardIds.includes(id))
         .map(({ id, name }) => ({ value: id, name }));
       setOptions(cardOptions);
     }
-  }, [isLoading]);
+  }, [isLoading, error]);
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Something went wrong. Please try again later.</div>;
@@ -36,7 +46,7 @@ export const AddDeckCardModal = ({
       <form
         className="add-deck-card__container"
         onSubmit={(e) => {
-          addCardToDeck(e, deckDetails);
+          addCardToDeck(e, deck);
         }}
         onClick={(e) => {
           e.stopPropagation();
@@ -54,12 +64,12 @@ export const AddDeckCardModal = ({
         {formFields.cardId && (
           <p className="add-deck-card__description">
             {
-              allCards.find((card) => String(card.id) === formFields.cardId)
+              allCards.find((card) => String(card.id) === formFields.cardId)!
                 .description
             }
           </p>
         )}
-        {deckDetails.isCustom && (
+        {deck.is_custom && (
           <NumberInput
             label="occurrences"
             name="occurrences"
@@ -68,7 +78,7 @@ export const AddDeckCardModal = ({
             onChange={handleInputChange}
           />
         )}
-        {deckDetails.isScored && (
+        {deck.is_scored && (
           <NumberInput
             label="Penalty"
             name="penalty"

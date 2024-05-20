@@ -1,7 +1,12 @@
-import { DeckInfo } from "components";
 import "./DeckList.scss";
+import { DeckInfo } from "components";
+import { Deck } from "types";
 
-export const DeckList = ({ decks }) => {
+interface DeckListProps {
+  decks: Deck[];
+}
+
+export const DeckList = ({ decks }: DeckListProps) => {
   return (
     <ul className="deck-list">
       {decks.map((deck) => {

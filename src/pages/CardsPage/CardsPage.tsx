@@ -1,16 +1,20 @@
+import "./CardsPage.scss";
 import { useState } from "react";
 import { CardList, LinkButton, Button, CreateCardModal } from "components";
 import { useGetData } from "hooks";
 import { Card } from "types";
-import "./CardsPage.scss";
+import { isCardArray } from "utils";
 
 export const CardsPage = () => {
-  const { data: cards, isLoading, error } = useGetData<Card[]>("cards");
+  const {
+    data: cards,
+    isLoading,
+    error,
+  } = useGetData<Card[]>("cards", isCardArray);
   const [showModal, setShowModal] = useState(false);
 
   if (isLoading) return <p>Loading...</p>;
-  if (error || !Array.isArray(cards))
-    return <p>Something went wrong. Please try again later.</p>;
+  if (error) return <p>Something went wrong. Please try again later.</p>;
 
   return (
     <>

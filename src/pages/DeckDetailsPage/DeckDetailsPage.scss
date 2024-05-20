@@ -30,3 +30,11 @@
     font-size: 2rem;
   }
 }
+
+.deck-cards {
+  @include flex($direction: column, $gap: $padding-1x);
+
+  &__title {
+    font-size: 2rem;
+  }
+}

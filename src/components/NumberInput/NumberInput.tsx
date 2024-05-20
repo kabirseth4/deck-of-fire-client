@@ -1,5 +1,14 @@
 import "./NumberInput.scss";
 
+interface NumberInputProps {
+  label: string;
+  name: string;
+  placeholder?: string;
+  value: string;
+  error: string;
+  onChange: () => void;
+}
+
 export const NumberInput = ({
   label,
   name,
@@ -7,7 +16,7 @@ export const NumberInput = ({
   value,
   error,
   onChange,
-}) => {
+}: NumberInputProps) => {
   return (
     <div className="number-input">
       <label className="number-input__label">

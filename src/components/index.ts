@@ -3,7 +3,6 @@ export { Button } from "./Button/Button";
 export { CardInfo } from "./CardInfo/CardInfo";
 export { CardList } from "./CardList/CardList";
 export { CreateCardModal } from "./CreateCardModal/CreateCardModal";
-export { DeckCards } from "./DeckCards/DeckCards";
 export { DeckForm } from "./DeckForm/DeckForm";
 export { DeckInfo } from "./DeckInfo/DeckInfo";
 export { DeckList } from "./DeckList/DeckList";

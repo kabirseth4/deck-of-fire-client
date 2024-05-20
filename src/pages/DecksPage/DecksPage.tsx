@@ -1,14 +1,18 @@
 import { useGetData } from "hooks";
 import { LinkButton, DeckList } from "components";
 import { Deck } from "types";
+import { isDeckArray } from "utils";
 import "./DecksPage.scss";
 
 export const DecksPage = () => {
-  const { data: decks, isLoading, error } = useGetData<Deck[]>("decks");
+  const {
+    data: decks,
+    isLoading,
+    error,
+  } = useGetData<Deck[]>("decks", isDeckArray);
 
   if (isLoading) return <p>Loading...</p>;
-  if (error || !Array.isArray(decks))
-    return <p>Something went wrong. Please try again later.</p>;
+  if (error) return <p>Something went wrong. Please try again later.</p>;
 
   return (
     <>

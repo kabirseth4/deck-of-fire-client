@@ -23,5 +23,5 @@ export interface DeckCard extends Card {
 }
 
 export interface DeckWithCards extends Deck {
-  cards: Card[];
+  cards: DeckCard[];
 }

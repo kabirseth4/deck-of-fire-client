@@ -8,8 +8,8 @@ export const useAddDeck = () => {
 
   const [formFields, setFormFields] = useState({
     name: "",
-    isCustom: false,
-    isScored: false,
+    is_custom: false,
+    is_scored: false,
   });
   const [formErrors, setFormErrors] = useState({
     name: "",
@@ -70,8 +70,8 @@ export const useAddDeck = () => {
 
     const deckToAdd = {
       name: formFields.name,
-      is_custom: formFields.isCustom,
-      is_scored: formFields.isScored,
+      is_custom: formFields.is_custom,
+      is_scored: formFields.is_scored,
     };
 
     try {

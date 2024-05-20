@@ -42,7 +42,7 @@ export const useAddCardToDeck = () => {
     }
 
     if (
-      deckDetails.isCustom &&
+      deckDetails.is_custom &&
       (formFields.occurrences < 1 || formFields.occurrences > 10)
     ) {
       setFormErrors((prevFormErrors) => {
@@ -55,7 +55,7 @@ export const useAddCardToDeck = () => {
     }
 
     if (
-      deckDetails.isScored &&
+      deckDetails.is_scored &&
       (formFields.penalty < 0 || formFields.penalty > 10)
     ) {
       setFormErrors((prevFormErrors) => {
@@ -78,8 +78,8 @@ export const useAddCardToDeck = () => {
     const cardToAdd = {
       card_id: formFields.cardId,
     };
-    if (deckDetails.isCustom) cardToAdd.occurrences = formFields.occurrences;
-    if (deckDetails.isScored) cardToAdd.penalty = formFields.penalty;
+    if (deckDetails.is_custom) cardToAdd.occurrences = formFields.occurrences;
+    if (deckDetails.is_scored) cardToAdd.penalty = formFields.penalty;
 
     try {
       await axios.post(`decks/${deckDetails.id}/cards`, [cardToAdd]);

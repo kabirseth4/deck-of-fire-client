@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import "./LinkButton.scss";
+import { Link } from "react-router-dom";
 
 interface LinkButtonProps {
   to: string;
-  className: string;
-  label: string;
+  className?: string;
+  label?: string;
   image?: string;
   imageAlt?: string;
 }

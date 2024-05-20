@@ -1,29 +1,38 @@
 import { useEffect, useState } from "react";
 import { useAxios } from "hooks";
 
+type Response<T> =
+  | { data: null; isLoading: true; error: false }
+  | { data: null; isLoading: false; error: true }
+  | { data: T; isLoading: false; error: false };
+
 export const useGetData = <T>(
-  url: string
-): { data: T | null; isLoading: boolean; error: boolean } => {
+  url: string,
+  validate: (data: any) => data is T
+): Response<T> => {
   const axios = useAxios();
-  const [data, setData] = useState<T | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [response, setResponse] = useState<Response<T>>({
+    data: null,
+    isLoading: true,
+    error: false,
+  });
 
   const getData = async () => {
     try {
-      const response = await axios.get(url);
-      response.data ? setData(response.data as T) : setError(true);
+      const { data } = await axios.get(url);
+      if (!validate(data))
+        throw new Error("Data returned in incorrect format.");
+
+      setResponse({ data, isLoading: false, error: false });
     } catch (error) {
       console.error(error);
-      setError(true);
-    } finally {
-      setIsLoading(false);
+      setResponse({ data: null, isLoading: false, error: true });
     }
   };
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [url]);
 
-  return { data, isLoading, error };
+  return response;
 };

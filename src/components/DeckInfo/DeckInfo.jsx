@@ -2,13 +2,7 @@ import { LinkButton } from "components";
 import "./DeckInfo.scss";
 
 export const DeckInfo = ({
-  deck: {
-    id,
-    name,
-    is_scored: isScored,
-    is_custom: isCustom,
-    is_playable: isPlayable,
-  },
+  deck: { id, name, is_scored, is_custom, is_playable },
 }) => {
   return (
     <article className="deck-info">
@@ -17,12 +11,12 @@ export const DeckInfo = ({
         <div className="deck-info__info">
           <div className="deck-info__info-container">
             <p className="deck-info__info-item">
-              {isCustom ? "Custom" : "Standard"}
+              {is_custom ? "Custom" : "Standard"}
             </p>
           </div>
           <div className="deck-info__info-container">
             <p className="deck-info__info-item">
-              {isScored ? "Scored" : "Unscored"}
+              {is_scored ? "Scored" : "Unscored"}
             </p>
           </div>
         </div>
@@ -32,7 +26,7 @@ export const DeckInfo = ({
             className="link-button--secondary"
             label="View cards"
           />
-          {!!isPlayable && (
+          {is_playable && (
             <LinkButton
               to={`/decks/${id}/play`}
               className="link-button--play"

@@ -29,9 +29,9 @@ export const DeckForm = () => {
             <input
               className="deck-form__radio-input"
               type="radio"
-              name="isCustom"
+              name="is_custom"
               value="false"
-              checked={!formFields.isCustom}
+              checked={!formFields.is_custom}
               onChange={handleRadioChange}
             />
             Standard
@@ -40,21 +40,21 @@ export const DeckForm = () => {
             <input
               className="deck-form__radio-input"
               type="radio"
-              name="isCustom"
+              name="is_custom"
               value="true"
-              checked={formFields.isCustom}
+              checked={formFields.is_custom}
               onChange={handleRadioChange}
             />
             Custom
           </label>
         </div>
-        {!formFields.isCustom && (
+        {!formFields.is_custom && (
           <p className="deck-form__radio-message">
             A standard deck must have 13 cards, which will occur 4 times each,
             like a standard 52 card deck.
           </p>
         )}
-        {formFields.isCustom && (
+        {formFields.is_custom && (
           <p className="deck-form__radio-message">
             A custom deck can have any number of cards, which can each occur a
             different amount.
@@ -68,9 +68,9 @@ export const DeckForm = () => {
             <input
               className="deck-form__radio-input"
               type="radio"
-              name="isScored"
+              name="is_scored"
               value="false"
-              checked={!formFields.isScored}
+              checked={!formFields.is_scored}
               onChange={handleRadioChange}
             />
             Unscored
@@ -79,21 +79,21 @@ export const DeckForm = () => {
             <input
               className="deck-form__radio-input"
               type="radio"
-              name="isScored"
+              name="is_scored"
               value="true"
-              checked={formFields.isScored}
+              checked={formFields.is_scored}
               onChange={handleRadioChange}
             />
             Scored
           </label>
         </div>
-        {!formFields.isScored && (
+        {!formFields.is_scored && (
           <p className="deck-form__radio-message">
             An unscored deck won't have any penalties, so it's up to you how you
             want to keep track.
           </p>
         )}
-        {formFields.isScored && (
+        {formFields.is_scored && (
           <p className="deck-form__radio-message">
             A scored deck will include a penalty with each card.
           </p>
