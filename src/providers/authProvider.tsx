@@ -8,11 +8,7 @@ import {
   useMemo,
   useState,
 } from "react";
-
-interface User {
-  id: string;
-  token: string;
-}
+import { User } from "types";
 
 interface AuthContextType {
   user: User | null;

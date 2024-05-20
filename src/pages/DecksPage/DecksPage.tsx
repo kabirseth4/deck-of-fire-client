@@ -7,7 +7,7 @@ export const DecksPage = () => {
   const { data: decks, isLoading, error } = useGetData<Deck[]>("decks");
 
   if (isLoading) return <p>Loading...</p>;
-  if (error || !decks)
+  if (error || !Array.isArray(decks))
     return <p>Something went wrong. Please try again later.</p>;
 
   return (

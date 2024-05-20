@@ -11,10 +11,10 @@ export const useSetupDeck = () => {
 
   const setupDeck = () => {
     const cardArr = deck.cards.flatMap((card) => {
-      const occurences = deck.is_custom ? card.occurences : 4;
+      const occurrences = deck.is_custom ? card.occurrences : 4;
 
       const cards = [];
-      for (let i = 0; i < occurences; i++) {
+      for (let i = 0; i < occurrences; i++) {
         cards.push({ ...card, key: `${card.id}-${i + 1}`, swiped: false });
       }
 

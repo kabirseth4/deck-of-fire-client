@@ -6,12 +6,12 @@ export const useAddCardToDeck = () => {
 
   const [formFields, setFormFields] = useState({
     cardId: "",
-    occurences: "",
+    occurrences: "",
     penalty: "",
   });
   const [formErrors, setFormErrors] = useState({
     cardId: "",
-    occurences: "",
+    occurrences: "",
     penalty: "",
   });
 
@@ -43,12 +43,12 @@ export const useAddCardToDeck = () => {
 
     if (
       deckDetails.isCustom &&
-      (formFields.occurences < 1 || formFields.occurences > 10)
+      (formFields.occurrences < 1 || formFields.occurrences > 10)
     ) {
       setFormErrors((prevFormErrors) => {
         return {
           ...prevFormErrors,
-          occurences: "Enter a value between 1 and 10",
+          occurrences: "Enter a value between 1 and 10",
         };
       });
       isValid = false;
@@ -78,7 +78,7 @@ export const useAddCardToDeck = () => {
     const cardToAdd = {
       card_id: formFields.cardId,
     };
-    if (deckDetails.isCustom) cardToAdd.occurences = formFields.occurences;
+    if (deckDetails.isCustom) cardToAdd.occurrences = formFields.occurrences;
     if (deckDetails.isScored) cardToAdd.penalty = formFields.penalty;
 
     try {

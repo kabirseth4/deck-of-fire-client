@@ -61,10 +61,10 @@ export const AddDeckCardModal = ({
         )}
         {deckDetails.isCustom && (
           <NumberInput
-            label="Occurences"
-            name="occurences"
-            value={formFields.occurences}
-            error={formErrors.occurences}
+            label="occurrences"
+            name="occurrences"
+            value={formFields.occurrences}
+            error={formErrors.occurrences}
             onChange={handleInputChange}
           />
         )}
