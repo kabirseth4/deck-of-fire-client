@@ -1,4 +1,4 @@
-import { Button, TextInput } from "components";
+import { Button, Input } from "components";
 import { useAuthenticateUser } from "hooks";
 import "./LoginPage.scss";
 
@@ -26,11 +26,10 @@ export const LoginPage = () => {
             {isLoggingIn ? "Log In" : "Register"}
           </h1>
           <div className="login-page__input-container">
-            <TextInput
+            <Input
               className={`login-page__input${
                 isLoggingIn ? " login-page__input--hidden" : ""
               }`}
-              label="Username"
               name="username"
               value={formFields.username}
               error={formErrors.username}
@@ -39,24 +38,22 @@ export const LoginPage = () => {
               tabIndex={isLoggingIn ? -1 : 0}
               disabled={isLoggingIn}
             />
-            <TextInput
+            <Input
               className="login-page__input"
-              label="Email"
               name="email"
               value={formFields.email}
               error={formErrors.email}
               onChange={handleInputChange}
             />
-            <TextInput
+            <Input
               className="login-page__input login-page__input--password"
               type="password"
-              label="Password"
               name="password"
               value={formFields.password}
               error={formErrors.password}
               onChange={handleInputChange}
             />
-            <TextInput
+            <Input
               className={`login-page__input login-page__input--password${
                 isLoggingIn ? " login-page__input--hidden" : ""
               }`}

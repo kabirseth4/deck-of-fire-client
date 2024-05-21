@@ -1,7 +1,7 @@
 import "./AddDeckCardModal.scss";
 import { useEffect, useState } from "react";
 import { useAddCardToDeck, useGetData } from "hooks";
-import { Select, ModalFormButtons, NumberInput } from "components";
+import { Select, ModalFormButtons, Input } from "components";
 import { Card, DeckWithCards } from "types";
 import { isCardArray } from "utils";
 
@@ -70,8 +70,8 @@ export const AddDeckCardModal = ({
           </p>
         )}
         {deck.is_custom && (
-          <NumberInput
-            label="occurrences"
+          <Input
+            type="number"
             name="occurrences"
             value={formFields.occurrences}
             error={formErrors.occurrences}
@@ -79,8 +79,8 @@ export const AddDeckCardModal = ({
           />
         )}
         {deck.is_scored && (
-          <NumberInput
-            label="Penalty"
+          <Input
+            type="number"
             name="penalty"
             value={formFields.penalty}
             error={formErrors.penalty}

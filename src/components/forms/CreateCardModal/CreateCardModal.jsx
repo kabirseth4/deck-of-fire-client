@@ -1,5 +1,5 @@
 import { useCreateCard } from "hooks";
-import { ModalFormButtons, TextInput, Textarea } from "components";
+import { ModalFormButtons, Input, Textarea } from "components";
 import "./CreateCardModal.scss";
 
 export const CreateCardModal = ({ setShowModal }) => {
@@ -26,7 +26,7 @@ export const CreateCardModal = ({ setShowModal }) => {
         }}
       >
         <h1 className="create-card-modal__title">Add card</h1>
-        <TextInput
+        <Input
           label="Card name"
           name="name"
           value={formFields.name}
@@ -35,7 +35,6 @@ export const CreateCardModal = ({ setShowModal }) => {
           onChange={handleInputChange}
         />
         <Textarea
-          label="Description"
           name="description"
           value={formFields.description}
           error={formErrors.description}

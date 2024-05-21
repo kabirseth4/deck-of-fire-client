@@ -1,5 +1,5 @@
 import { useAddDeck } from "hooks";
-import { TextInput } from "components";
+import { Input } from "components";
 import "./DeckForm.scss";
 
 export const DeckForm = () => {
@@ -14,7 +14,7 @@ export const DeckForm = () => {
 
   return (
     <form className="deck-form" id="deckForm" onSubmit={addNewDeck}>
-      <TextInput
+      <Input
         label="Deck name"
         name="name"
         value={formFields.name}
