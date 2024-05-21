@@ -4,20 +4,22 @@ import { useRef, createRef, useState, useEffect } from "react";
 export const usePlayers = () => {
   const navigate = useNavigate();
   const { deckId } = useParams();
-  const [players, setPlayers] = useState(null);
+  const [players, setPlayers] = useState<string[] | null>(null);
   const [currentTurn, setCurrentTurn] = useState(0);
-  const scrollRefs = useRef([]);
+  const scrollRefs = useRef<React.RefObject<HTMLParagraphElement>[]>([]);
 
   const addPlayer = () => {
-    setPlayers((prevPlayers) => [...prevPlayers, ""]);
+    setPlayers((prevPlayers) =>
+      prevPlayers ? [...prevPlayers, ""] : ["", ""]
+    );
   };
 
-  const handlePlayerChange = (e) => {
+  const handlePlayerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const index = Number(e.target.name) - 1;
 
     if (e.target.value.length < 16) {
       setPlayers((prevPlayers) => {
-        const updatedPlayers = [...prevPlayers];
+        const updatedPlayers = prevPlayers ? [...prevPlayers] : [];
         updatedPlayers[index] = e.target.value;
         return updatedPlayers;
       });
@@ -25,15 +27,19 @@ export const usePlayers = () => {
   };
 
   const savePlayers = () => {
+    if (!players) return;
     localStorage.setItem("players", JSON.stringify(players.filter((p) => p)));
   };
 
   const getPlayers = () => {
-    return JSON.parse(localStorage.getItem("players"));
+    const existingPlayers = localStorage.getItem("players");
+    return existingPlayers ? (JSON.parse(existingPlayers) as string[]) : null;
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!players) return;
 
     const filledFields = players.filter((p) => p);
     if (filledFields.length < 2) return;

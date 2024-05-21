@@ -3,7 +3,7 @@ import "./PlayerInput.scss";
 interface PlayerInputProps {
   player: string;
   playerNum: string;
-  onChange: () => void;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export const PlayerInput = ({

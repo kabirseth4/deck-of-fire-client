@@ -1,9 +1,9 @@
+import "./SetupGamePage.scss";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { usePlayers } from "hooks";
 import { LinkButton, Button, PlayerInput } from "components";
 import { icons } from "assets";
-import "./SetupGamePage.scss";
 
 export const SetupGamePage = () => {
   const { deckId } = useParams();
