@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import { useSetupDeck } from "hooks";
+import { drawCard } from "utils";
+import { GameCard } from "types";
 
 export const useGameCards = () => {
-  const { gameDeck, deckName, isLoading, isError } = useSetupDeck();
-  const [openedCards, setOpenedCards] = useState([]);
-  const [cardsRemaining, setCardsRemaining] = useState(null);
+  const { gameDeck, isLoading, error } = useSetupDeck();
+  const [openedCards, setOpenedCards] = useState<GameCard[]>([]);
+  const [cardsRemaining, setCardsRemaining] = useState(0);
 
   useEffect(() => {
-    if (!isLoading) {
-      setCardsRemaining(gameDeck.current._stack.length + 1);
+    if (!isLoading && !error) {
+      setCardsRemaining(gameDeck.current.cards.length + 1);
     }
-  }, [isLoading]);
+  }, [isLoading, error]);
 
   const updateCard = () => {
-    const newCard = gameDeck.current.draw();
+    const newCard = drawCard(gameDeck.current.cards);
     setTimeout(() => {
       setOpenedCards((prevOpenedCards) => {
         const swipedCards = prevOpenedCards.map((card) => ({
@@ -28,9 +30,9 @@ export const useGameCards = () => {
   return {
     openedCards,
     cardsRemaining,
-    deckName,
+    deckName: gameDeck.current.name,
     isLoading,
-    isError,
+    error,
     setCardsRemaining,
     updateCard,
   };

@@ -9,8 +9,8 @@
   &__info-container {
     @include card-font(3rem);
     background-color: $color-accent-secondary;
-    background: url("../../assets/images/logo.png");
-    background: url("../../assets/images/logo.png") bottom no-repeat,
+    background: url("assets/images/logo.png");
+    background: url("assets/images/logo.png") bottom no-repeat,
       linear-gradient(
         316deg,
         $color-accent-primary 0%,

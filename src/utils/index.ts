@@ -7,3 +7,4 @@ export {
   isDeckCard,
   isDeckWithCards,
 } from "./type.utils";
+export { shuffle, drawCard } from "./game.utils";
