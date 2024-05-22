@@ -1,16 +1,10 @@
-import { Card, DeckCard } from "types";
 import "./CardInfo.scss";
+import { Card, DeckCard } from "types";
+import { isDeckCard } from "utils";
 
 interface CardInfoProps {
   card: Card | DeckCard;
 }
-
-const isDeckCard = (card: Card | DeckCard): card is DeckCard => {
-  return (
-    (card as DeckCard).penalty !== undefined ||
-    (card as DeckCard).occurrences !== undefined
-  );
-};
 
 export const CardInfo = ({ card }: CardInfoProps) => {
   return (

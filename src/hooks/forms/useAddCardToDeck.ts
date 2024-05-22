@@ -1,24 +1,27 @@
 import { useState } from "react";
 import { useAxios } from "hooks";
+import { DeckWithCards } from "types";
 
 export const useAddCardToDeck = () => {
   const axios = useAxios();
 
-  const [formFields, setFormFields] = useState({
+  const [formFields, setFormFields] = useState<{ [k: string]: string }>({
     cardId: "",
     occurrences: "",
     penalty: "",
   });
-  const [formErrors, setFormErrors] = useState({
+  const [formErrors, setFormErrors] = useState<{ [k: string]: string }>({
     cardId: "",
     occurrences: "",
     penalty: "",
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange: React.ChangeEventHandler<
+    HTMLInputElement | HTMLSelectElement
+  > = (e) => {
     const { name, value } = e.target;
 
-    if (name === "cardId" || value >= 0) {
+    if (name === "cardId" || Number(value) >= 0) {
       setFormFields((prevFormFields) => {
         return { ...prevFormFields, [name]: value };
       });
@@ -28,7 +31,7 @@ export const useAddCardToDeck = () => {
     }
   };
 
-  const validateForm = (deckDetails) => {
+  const validateForm = (deck: DeckWithCards) => {
     let isValid = true;
 
     if (!formFields.cardId) {
@@ -42,8 +45,9 @@ export const useAddCardToDeck = () => {
     }
 
     if (
-      deckDetails.is_custom &&
-      (formFields.occurrences < 1 || formFields.occurrences > 10)
+      deck.is_custom &&
+      (Number(formFields.occurrences) < 1 ||
+        Number(formFields.occurrences) > 10)
     ) {
       setFormErrors((prevFormErrors) => {
         return {
@@ -55,8 +59,8 @@ export const useAddCardToDeck = () => {
     }
 
     if (
-      deckDetails.is_scored &&
-      (formFields.penalty < 0 || formFields.penalty > 10)
+      deck.is_scored &&
+      (Number(formFields.penalty) < 0 || Number(formFields.penalty) > 10)
     ) {
       setFormErrors((prevFormErrors) => {
         return {
@@ -70,20 +74,22 @@ export const useAddCardToDeck = () => {
     return isValid;
   };
 
-  const addCardToDeck = async (e, deckDetails) => {
+  const addCardToDeck: (
+    deck: DeckWithCards
+  ) => React.FormEventHandler<HTMLFormElement> = (deck) => async (e) => {
     e.preventDefault();
 
-    if (!validateForm(deckDetails)) return;
+    if (!validateForm(deck)) return;
 
     const cardToAdd = {
       card_id: formFields.cardId,
+      occurrences: deck.is_custom ? Number(formFields.occurrences) : null,
+      penalty: deck.is_scored ? Number(formFields.penalty) : null,
     };
-    if (deckDetails.is_custom) cardToAdd.occurrences = formFields.occurrences;
-    if (deckDetails.is_scored) cardToAdd.penalty = formFields.penalty;
 
     try {
-      await axios.post(`decks/${deckDetails.id}/cards`, [cardToAdd]);
-      window.location.reload(false);
+      await axios.post(`decks/${deck.id}/cards`, [cardToAdd]);
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }

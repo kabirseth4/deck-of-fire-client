@@ -45,9 +45,7 @@ export const AddDeckCardModal = ({
     >
       <form
         className="add-deck-card__container"
-        onSubmit={(e) => {
-          addCardToDeck(e, deck);
-        }}
+        onSubmit={addCardToDeck(deck)}
         onClick={(e) => {
           e.stopPropagation();
         }}

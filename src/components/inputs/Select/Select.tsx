@@ -1,11 +1,11 @@
 import "./Select.scss";
 
 interface SelectProps {
-  label: string;
+  label?: string;
   name: string;
   value: string;
   error: string;
-  onChange: () => void;
+  onChange: React.ChangeEventHandler<HTMLSelectElement>;
   options: { name: string; value: string }[];
 }
 
@@ -20,7 +20,7 @@ export const Select = ({
   return (
     <div className="select">
       <label className="select__label">
-        {label}
+        {label || name}
         <select
           className={`select__input${error ? " select__input--error" : ""}`}
           name={name}
