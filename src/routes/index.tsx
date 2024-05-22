@@ -9,7 +9,7 @@ import { Header } from "components";
 import {
   LoginPage,
   DecksPage,
-  AddDeckPage,
+  CreateDeckPage,
   DeckDetailsPage,
   PlayGamePage,
   SetupGamePage,
@@ -48,8 +48,8 @@ export const Router = () => {
           element: <DecksPage />,
         },
         {
-          path: "/decks/add",
-          element: <AddDeckPage />,
+          path: "/decks/create",
+          element: <CreateDeckPage />,
         },
         {
           path: "/decks/:deckId",

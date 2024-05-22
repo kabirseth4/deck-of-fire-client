@@ -14,7 +14,9 @@ export const usePlayers = () => {
     );
   };
 
-  const handlePlayerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePlayerChange: React.ChangeEventHandler<HTMLInputElement> = (
+    e
+  ) => {
     const index = Number(e.target.name) - 1;
 
     if (e.target.value.length < 16) {
@@ -36,7 +38,7 @@ export const usePlayers = () => {
     return existingPlayers ? (JSON.parse(existingPlayers) as string[]) : null;
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
     if (!players) return;

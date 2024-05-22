@@ -10,7 +10,7 @@ export { DeckInfo } from "./data-display/DeckInfo/DeckInfo";
 //forms
 export { AddDeckCardModal } from "./forms/AddDeckCardModal/AddDeckCardModal";
 export { CreateCardModal } from "./forms/CreateCardModal/CreateCardModal";
-export { DeckForm } from "./forms/DeckForm/DeckForm";
+export { CreateDeckForm } from "./forms/CreateDeckForm/CreateDeckForm";
 
 // game
 export { GameCard } from "./game/GameCard/GameCard";

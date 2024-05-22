@@ -8,7 +8,7 @@ interface InputProps {
   placeholder?: string;
   value: string;
   error: string;
-  onChange: () => void;
+  onChange: React.ChangeEventHandler<HTMLInputElement>;
   count?: number;
   disabled?: boolean;
   tabIndex?: number;

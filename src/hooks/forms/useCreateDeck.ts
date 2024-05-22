@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAxios } from "hooks";
 
-export const useAddDeck = () => {
+export const useCreateDeck = () => {
   const navigate = useNavigate();
   const axios = useAxios();
 
@@ -14,11 +14,11 @@ export const useAddDeck = () => {
   const [formErrors, setFormErrors] = useState({
     name: "",
   });
-  const inputMaxLengths = {
+  const inputMaxLengths: { [k: string]: number } = {
     name: 25,
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const { name, value } = e.target;
 
     if (value.length <= inputMaxLengths[name]) {
@@ -31,7 +31,7 @@ export const useAddDeck = () => {
     }
   };
 
-  const handleRadioChange = (e) => {
+  const handleRadioChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const boolValue = e.target.value === "true" ? true : false;
 
     setFormFields((prevFormFields) => {
@@ -63,7 +63,7 @@ export const useAddDeck = () => {
     return true;
   };
 
-  const addNewDeck = async (e) => {
+  const addNewDeck: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) return;

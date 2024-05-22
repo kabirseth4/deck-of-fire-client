@@ -27,7 +27,7 @@ export const DecksPage = () => {
           label="Cards"
         />
         <LinkButton
-          to="/decks/add"
+          to="/decks/create"
           className="decks-page__page-button"
           label="Add deck"
         />

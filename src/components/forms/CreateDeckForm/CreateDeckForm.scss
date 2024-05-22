@@ -1,6 +1,6 @@
 @use "styles/utils" as *;
 
-.deck-form {
+.create-deck-form {
   @include flex($direction: column, $gap: 1.5rem);
 
   &__radios {

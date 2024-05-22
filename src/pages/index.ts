@@ -1,4 +1,4 @@
-export { AddDeckPage } from "./AddDeckPage/AddDeckPage";
+export { CreateDeckPage } from "./CreateDeckPage/CreateDeckPage";
 export { CardsPage } from "./CardsPage/CardsPage";
 export { DeckDetailsPage } from "./DeckDetailsPage/DeckDetailsPage";
 export { DecksPage } from "./DecksPage/DecksPage";
