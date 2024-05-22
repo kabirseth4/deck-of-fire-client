@@ -1,7 +1,13 @@
-import TinderCard from "react-tinder-card";
 import "./GameCardBack.scss";
+import TinderCard from "react-tinder-card";
 
-export const GameCardBack = ({ onSwipe, label, disabled }) => {
+interface GameCardProps {
+  onSwipe?: React.ComponentProps<typeof TinderCard>["onSwipe"];
+  label: string;
+  disabled?: boolean;
+}
+
+export const GameCardBack = ({ onSwipe, label, disabled }: GameCardProps) => {
   return (
     <TinderCard
       className="game-card-back"

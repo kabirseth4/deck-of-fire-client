@@ -1,32 +1,19 @@
 import "./GamePlayers.scss";
-import { useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { LinkButton } from "components";
 
 interface GamePlayersProps {
   players: string[];
   currentTurn: number;
-  setPlayers: React.Dispatch<React.SetStateAction<string[]>>;
-  getPlayers: () => string[] | null;
   scrollRefs: React.RefObject<React.RefObject<HTMLParagraphElement>[]>;
 }
 
-export const GamePlayers: React.FC<GamePlayersProps> = ({
+export const GamePlayers = ({
   players,
   currentTurn,
-  setPlayers,
-  getPlayers,
   scrollRefs,
-}) => {
-  const navigate = useNavigate();
+}: GamePlayersProps) => {
   const { deckId } = useParams();
-
-  useEffect(() => {
-    const savedPlayers = getPlayers();
-    !savedPlayers
-      ? navigate(`/decks/${deckId}/play/setup`)
-      : setPlayers(savedPlayers);
-  }, []);
 
   return (
     <section className="game-players">

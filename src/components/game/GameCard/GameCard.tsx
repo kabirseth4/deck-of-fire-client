@@ -1,7 +1,14 @@
-import TinderCard from "react-tinder-card";
 import "./GameCard.scss";
+import { GameCard as GameCardT } from "types";
+import TinderCard from "react-tinder-card";
 
-export const GameCard = ({ card, className, onSwipe }) => {
+interface GameCardProps {
+  card: GameCardT;
+  className?: string;
+  onSwipe: React.ComponentProps<typeof TinderCard>["onSwipe"];
+}
+
+export const GameCard = ({ card, className, onSwipe }: GameCardProps) => {
   return (
     <TinderCard
       className={`game-card${className ? ` ${className}` : ""}${

@@ -1,20 +1,31 @@
+import "./GameDeck.scss";
 import { useGameCards } from "hooks";
 import { GameCardBack, GameCard } from "components";
-import "./GameDeck.scss";
 
-export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
+interface GameDeckProps {
+  setCurrentTurn: React.Dispatch<React.SetStateAction<number>>;
+  players: string[];
+  scrollRefs: React.RefObject<React.RefObject<HTMLParagraphElement>[]>;
+}
+
+export const GameDeck = ({
+  setCurrentTurn,
+  players,
+  scrollRefs,
+}: GameDeckProps) => {
   const {
     openedCards,
     cardsRemaining,
     deckName,
     isLoading,
-    isError,
+    error,
     setCardsRemaining,
     updateCard,
   } = useGameCards();
 
-  const scrollToPlayer = (i) => {
-    scrollRefs.current[i].current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToPlayer = (i: number) => {
+    if (scrollRefs.current)
+      scrollRefs.current[i].current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const nextTurn = () => {
@@ -30,7 +41,7 @@ export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
   };
 
   if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Something went wrong. Please try again later.</div>;
+  if (error) return <div>Something went wrong. Please try again later.</div>;
 
   return (
     <div className="game-deck">
@@ -48,10 +59,16 @@ export const GameDeck = ({ setCurrentTurn, players, scrollRefs }) => {
           )}
           {cardsRemaining === 0 && (
             <GameCard
-              card={{ name: "Restart", description: "Swipe to restart." }}
+              card={{
+                name: "Restart",
+                description: "Swipe to restart.",
+                swiped: false,
+                id: 0,
+                key: "restart",
+              }}
               onSwipe={() => {
                 setTimeout(() => {
-                  window.location.reload(false);
+                  window.location.reload();
                 }, 200);
               }}
             />

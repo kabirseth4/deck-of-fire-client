@@ -1,8 +1,12 @@
+import "./PlayGamePage.scss";
+import { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { usePlayers } from "hooks";
 import { GamePlayers, GameDeck } from "components";
-import "./PlayGamePage.scss";
 
 export const PlayGamePage = () => {
+  const navigate = useNavigate();
+  const { deckId } = useParams();
   const {
     players,
     currentTurn,
@@ -11,6 +15,15 @@ export const PlayGamePage = () => {
     setPlayers,
     getPlayers,
   } = usePlayers();
+
+  useEffect(() => {
+    const savedPlayers = getPlayers();
+    !savedPlayers
+      ? navigate(`/decks/${deckId}/play/setup`)
+      : setPlayers(savedPlayers);
+  }, []);
+
+  if (!players) return "Loading...";
 
   return (
     <main className="deck-play-page">
@@ -22,8 +35,6 @@ export const PlayGamePage = () => {
       <GamePlayers
         players={players}
         currentTurn={currentTurn}
-        setPlayers={setPlayers}
-        getPlayers={getPlayers}
         scrollRefs={scrollRefs}
       />
     </main>
