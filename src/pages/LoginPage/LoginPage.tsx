@@ -1,6 +1,6 @@
+import "./LoginPage.scss";
 import { Button, Input } from "components";
 import { useAuthenticateUser } from "hooks";
-import "./LoginPage.scss";
 
 export const LoginPage = () => {
   const {

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { isAxiosError } from "axios";
 import { useAuthContext } from "providers";
-import { validateEmail, validatePassword } from "utils";
 import { useAxios } from "hooks";
+import { validateEmail, validatePassword } from "utils";
 
 const BASE_API_URL = import.meta.env.VITE_APP_BASE_API_URL;
 
@@ -13,13 +14,13 @@ export const useAuthenticateUser = () => {
 
   const [isLoggingIn, setIsLoggingIn] = useState(true);
 
-  const fields = {
+  const fields: { [k: string]: string } = {
     username: "",
     email: "",
     password: "",
     confirmPassword: "",
   };
-  const inputMaxLengths = {
+  const inputMaxLengths: { [k: string]: number } = {
     username: 25,
   };
 
@@ -37,7 +38,7 @@ export const useAuthenticateUser = () => {
     resetErrors();
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     const { name, value } = e.target;
 
     if (name in inputMaxLengths && value.length > inputMaxLengths[name]) return;
@@ -47,7 +48,7 @@ export const useAuthenticateUser = () => {
     setErrorMessage("");
   };
 
-  const handleLogin = async (e) => {
+  const handleLogin: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     resetErrors();
 
@@ -88,12 +89,16 @@ export const useAuthenticateUser = () => {
       setUser(user);
       navigate("/");
     } catch (error) {
-      switch (error.response.status) {
-        case 401:
-          setErrorMessage("Invalid email or password.");
-          break;
-        default:
-          setErrorMessage("Something went wrong. Please try again later.");
+      if (isAxiosError(error) && error.response) {
+        switch (error.response.status) {
+          case 401:
+            setErrorMessage("Invalid email or password.");
+            break;
+          default:
+            setErrorMessage("Something went wrong. Please try again later.");
+        }
+      } else {
+        setErrorMessage("Something went wrong. Please try again later.");
       }
     }
   };
@@ -103,7 +108,7 @@ export const useAuthenticateUser = () => {
     navigate("/");
   };
 
-  const handleRegister = async (e) => {
+  const handleRegister: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     resetErrors();
 
@@ -158,24 +163,28 @@ export const useAuthenticateUser = () => {
       });
       await handleLogin(e);
     } catch (error) {
-      switch (error.response.status) {
-        case 409:
-          if (error.response.data.type === "USERNAME_TAKEN") {
-            setFormErrors((prevFormErrors) => ({
-              ...prevFormErrors,
-              username: "Username is already taken.",
-            }));
-          }
+      if (isAxiosError(error) && error.response) {
+        switch (error.response.status) {
+          case 409:
+            if (error.response.data.type === "USERNAME_TAKEN") {
+              setFormErrors((prevFormErrors) => ({
+                ...prevFormErrors,
+                username: "Username is already taken.",
+              }));
+            }
 
-          if (error.response.data.type === "EMAIL_TAKEN") {
-            setErrorMessage(
-              "Email is already associated with an account. Please log in."
-            );
-          }
+            if (error.response.data.type === "EMAIL_TAKEN") {
+              setErrorMessage(
+                "Email is already associated with an account. Please log in."
+              );
+            }
 
-          break;
-        default:
-          setErrorMessage("Something went wrong. Please try again later.");
+            break;
+          default:
+            setErrorMessage("Something went wrong. Please try again later.");
+        }
+      } else {
+        setErrorMessage("Something went wrong. Please try again later.");
       }
     }
   };

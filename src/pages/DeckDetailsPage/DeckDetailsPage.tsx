@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGetData } from "hooks";
 import { LinkButton, Button, CardList, AddDeckCardModal } from "components";
-import { DeckWithCards } from "types";
 import { isDeckWithCards } from "utils";
 
 export const DeckDetailsPage = () => {
@@ -13,12 +12,11 @@ export const DeckDetailsPage = () => {
     data: deck,
     isLoading,
     error,
-  } = useGetData<DeckWithCards>(`decks/${deckId}`, isDeckWithCards);
+  } = useGetData(`decks/${deckId}`, isDeckWithCards);
   const [showModal, setShowModal] = useState(false);
 
   if (isLoading) return <main>Loading...</main>;
-  if (error || !deck || !Array.isArray(deck.cards))
-    return <main>Something went wrong. Please try again later.</main>;
+  if (error) return <main>Something went wrong. Please try again later.</main>;
 
   const { name, is_scored, is_custom, is_playable, cards } = deck;
 
