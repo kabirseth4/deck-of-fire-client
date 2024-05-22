@@ -1,7 +1,0 @@
-@use "styles/utils" as *;
-
-.add-deck-page {
-  @include page-padding;
-  @include page-buttons;
-  background-color: $color-background-secondary;
-}

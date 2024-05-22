@@ -83,9 +83,9 @@ You can see your device IP address in the terminal when running `npm start`.
 
 ## Features & Usage
 
-### Adding a deck
+### Creating a deck
 
-1. On the [Decks page](#decks-page), tap **Add Deck** to go to the [Add deck page](#add-deck-page).
+1. On the [Decks page](#decks-page), tap **Create deck** to go to the [Create deck page](#create-deck-page).
 
    - Here you can enter a name for your new deck and choose whether or not it is custom and scored.
 
@@ -102,7 +102,7 @@ You can see your device IP address in the terminal when running `npm start`.
 2. Tap **Add Card** to bring up the [Add card to deck modal](#add-card-to-deck-modal).
 
    - Here you can select one of your previously created cards.
-   - If you are adding to a _Custom_ and/or _Scored_ deck you will also be required to input a number of occurences and/or a penalty respectively.
+   - If you are adding to a _Custom_ and/or _Scored_ deck you will also be required to input a number of occurrences and/or a penalty respectively.
 
 If your deck is _Standard_ and already has 13 cards, you will not be able to add any more cards.
 
@@ -128,9 +128,9 @@ Enjoy!
 
 <img src="./public/screenshots/deck-details-page.jpeg" alt="Deck details page" width="200" />
 
-### Add deck page
+### Create deck page
 
-<img src="./public/screenshots/add-deck-page.jpeg" alt="Add deck page" width="200" />
+<img src="./public/screenshots/create-deck-page.jpeg" alt="Create deck page" width="200" />
 
 ### Add card to deck modal
 
