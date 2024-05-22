@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
+import { GameCard, GameDeck } from "types";
 import { useGetData } from "hooks";
 import { isDeckWithCards, shuffle } from "utils";
-import { GameCard, GameDeck } from "types";
 
 export const useSetupDeck = () => {
   const { deckId } = useParams();

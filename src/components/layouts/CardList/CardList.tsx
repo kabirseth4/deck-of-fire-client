@@ -1,6 +1,6 @@
-import { CardInfo } from "components";
 import "./CardList.scss";
 import { Card, DeckCard } from "types";
+import { CardInfo } from "components";
 
 interface CardListProps {
   cards: Card[] | DeckCard[];

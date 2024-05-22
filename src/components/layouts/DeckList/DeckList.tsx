@@ -1,6 +1,6 @@
 import "./DeckList.scss";
-import { DeckInfo } from "components";
 import { Deck } from "types";
+import { DeckInfo } from "components";
 
 interface DeckListProps {
   decks: Deck[];

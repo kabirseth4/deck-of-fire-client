@@ -5,8 +5,6 @@ import { useAuthContext } from "providers";
 import { useAxios } from "hooks";
 import { validateEmail, validatePassword } from "utils";
 
-const BASE_API_URL = import.meta.env.VITE_APP_BASE_API_URL;
-
 export const useAuthenticateUser = () => {
   const axios = useAxios();
   const { setUser } = useAuthContext();
@@ -80,11 +78,9 @@ export const useAuthenticateUser = () => {
     if (!validateForm()) return;
 
     try {
-      const { data: user } = await axios({
-        method: "post",
-        url: "/users/login",
-        baseURL: BASE_API_URL,
-        data: { email, password },
+      const { data: user } = await axios.post("/users/login", {
+        email,
+        password,
       });
       setUser(user);
       navigate("/");
@@ -155,13 +151,8 @@ export const useAuthenticateUser = () => {
     if (!validateForm()) return;
 
     try {
-      await axios({
-        method: "post",
-        url: "/users/register",
-        baseURL: BASE_API_URL,
-        data: { username, email, password },
-      });
-      await handleLogin(e);
+      await axios.post("/users/register", { username, email, password });
+      handleLogin(e);
     } catch (error) {
       if (isAxiosError(error) && error.response) {
         switch (error.response.status) {

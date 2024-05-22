@@ -2,8 +2,8 @@ import "./Header.scss";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "providers";
 import { Button } from "components";
-import { images } from "assets";
 import { useAuthenticateUser } from "hooks";
+import { images } from "assets";
 
 export const Header = () => {
   const { user } = useAuthContext();

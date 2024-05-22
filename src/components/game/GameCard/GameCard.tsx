@@ -1,6 +1,6 @@
 import "./GameCard.scss";
-import { GameCard as GameCardT } from "types";
 import TinderCard from "react-tinder-card";
+import { GameCard as GameCardT } from "types";
 
 interface GameCardProps {
   card: GameCardT;

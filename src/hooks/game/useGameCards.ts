@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
+import { GameCard } from "types";
 import { useSetupDeck } from "hooks";
 import { drawCard } from "utils";
-import { GameCard } from "types";
 
 export const useGameCards = () => {
   const { gameDeck, isLoading, error } = useSetupDeck();
