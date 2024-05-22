@@ -1,0 +1,9 @@
+@use "styles/utils" as *;
+
+.create-card-modal {
+  @include modal;
+
+  &__title {
+    margin: 0;
+  }
+}

@@ -1,0 +1,15 @@
+@use "styles/utils" as *;
+
+.select {
+  @include form-input;
+
+  &__input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("assets/icons/arrow_drop_down-24px.svg");
+    background-repeat: no-repeat;
+    background-position-x: calc(100% - 0.7rem);
+    background-position-y: 0.5rem;
+  }
+}

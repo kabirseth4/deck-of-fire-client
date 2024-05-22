@@ -1,5 +1,5 @@
 @use "./variables" as *;
-@use "./utils" as *;
+@use "./mixins" as *;
 
 @mixin inline-padding {
   padding-inline: $padding-1x;

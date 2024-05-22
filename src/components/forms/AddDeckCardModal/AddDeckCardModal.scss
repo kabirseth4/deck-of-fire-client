@@ -1,0 +1,10 @@
+@use "styles/utils" as *;
+
+.add-deck-card {
+  @include modal;
+
+  &__title {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+}

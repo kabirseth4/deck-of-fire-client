@@ -1,9 +1,0 @@
-@use "../../styles/utils/mixins" as *;
-
-.create-card-modal {
-  @include modal;
-
-  &__title {
-    margin: 0;
-  }
-}

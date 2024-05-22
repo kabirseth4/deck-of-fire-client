@@ -1,0 +1,30 @@
+@use "styles/utils" as *;
+
+.create-deck-form {
+  @include flex($direction: column, $gap: 1.5rem);
+
+  &__radios {
+    @include flex($direction: column, $gap: $padding-1x);
+  }
+
+  &__radio-title {
+    margin: 0;
+  }
+
+  &__radio-container {
+    @include flex;
+  }
+
+  &__radio-label {
+    flex: 1;
+    font-size: 1.1rem;
+  }
+
+  &__radio-input {
+    margin-inline: 0 0.5rem;
+  }
+
+  &__radio-message {
+    margin: 0;
+  }
+}

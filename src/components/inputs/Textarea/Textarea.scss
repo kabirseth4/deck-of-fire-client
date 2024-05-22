@@ -1,0 +1,10 @@
+@use "styles/utils" as *;
+
+.textarea {
+  @include form-input;
+
+  &__input {
+    resize: none;
+    height: 7rem;
+  }
+}

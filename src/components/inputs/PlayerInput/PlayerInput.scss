@@ -1,0 +1,13 @@
+@use "styles/utils" as *;
+
+.player-input {
+  @include form-input;
+
+  &__label {
+    @include flex(row, flex-start, center, 1rem);
+  }
+
+  &__input {
+    flex: 1;
+  }
+}

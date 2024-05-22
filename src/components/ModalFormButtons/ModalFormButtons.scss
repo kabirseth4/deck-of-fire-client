@@ -1,6 +1,0 @@
-@use "../../styles/utils/mixins" as *;
-@use "../../styles/utils/variables" as *;
-
-.modal-form-buttons {
-  @include flex($gap: $padding-1x);
-}

@@ -1,0 +1,29 @@
+@use "styles/utils" as *;
+
+.game-deck {
+  @include flex(column, flex-start, center);
+  height: calc(100% - 7.5rem);
+
+  &__remaining {
+    font-size: 1.6rem;
+    padding-top: $padding-1_5x;
+  }
+
+  &__cards-container {
+    @include flex(row, center, center);
+    padding: 3rem;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__cards {
+    @include flex(row, center, center);
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__card {
+    @include game-card;
+  }
+}

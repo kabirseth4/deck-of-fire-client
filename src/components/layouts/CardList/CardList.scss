@@ -1,0 +1,8 @@
+@use "styles/utils" as *;
+
+.card-list {
+  @include flex($direction: column, $gap: $padding-1x);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
