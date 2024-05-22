@@ -1,12 +1,12 @@
 import "./Textarea.scss";
 
 interface TextareaProps {
-  label: string;
+  label?: string;
   name: string;
   placeholder?: string;
   value: string;
   error: string;
-  onChange: () => void;
+  onChange: React.ChangeEventHandler<HTMLTextAreaElement>;
   count: number;
 }
 
@@ -22,7 +22,7 @@ export const Textarea = ({
   return (
     <div className="textarea">
       <label className="textarea__label">
-        {label}
+        {label || name}
         <textarea
           className={`textarea__input${error ? " textarea__input--error" : ""}`}
           name={name}

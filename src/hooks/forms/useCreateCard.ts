@@ -3,20 +3,22 @@ import { useAxios } from "hooks";
 
 export const useCreateCard = () => {
   const axios = useAxios();
-  const [formFields, setFormFields] = useState({
+  const [formFields, setFormFields] = useState<{ [k: string]: string }>({
     name: "",
     description: "",
   });
-  const [formErrors, setFormErrors] = useState({
+  const [formErrors, setFormErrors] = useState<{ [k: string]: string }>({
     name: "",
     description: "",
   });
-  const inputMaxLengths = {
+  const inputMaxLengths: { [k: string]: number } = {
     name: 25,
     description: 100,
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange: React.ChangeEventHandler<
+    HTMLInputElement | HTMLTextAreaElement
+  > = (e) => {
     const { name, value } = e.target;
 
     if (value.length <= inputMaxLengths[name]) {
@@ -46,7 +48,7 @@ export const useCreateCard = () => {
     return isValid;
   };
 
-  const createCard = async (e) => {
+  const createCard: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) return;
@@ -58,7 +60,7 @@ export const useCreateCard = () => {
 
     try {
       await axios.post("cards", cardToAdd);
-      window.location.reload(false);
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }

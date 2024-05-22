@@ -1,8 +1,12 @@
+import "./CreateCardModal.scss";
 import { useCreateCard } from "hooks";
 import { ModalFormButtons, Input, Textarea } from "components";
-import "./CreateCardModal.scss";
 
-export const CreateCardModal = ({ setShowModal }) => {
+interface CreateCardModalProps {
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const CreateCardModal = ({ setShowModal }: CreateCardModalProps) => {
   const {
     formFields,
     formErrors,
